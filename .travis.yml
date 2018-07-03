@@ -1,6 +1,12 @@
 language: node_js
-node_js: "8"
+node_js: '8'
 cache:
   directories:
-    - node_modules
-
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: djkrZGlsFVcf/I49TJFrx9IXgJFQZjeLz7t0e8IqyQEQaarY7KhWwzQCrpKZMl5aQ7kDyzhHL/0dmAVZRs8eodWO+1YaKK0JYOaJd/8vXOk04WoVPx7qSBJ8Chiunmv3sVmuj3yWdaDSkL04odrZl2LnnFwrxifVv2s5eLa7pg/oBGLQrFYb7wXCJfyrkNhICu+hjkxAOKrzo41ZGNFcJNG4JYAUWO+vye3hwiMmuB7UozrI7nDVgHgJXhfdRfq4aV/JGrh5N5gExAyJD2W+AuKyK/CrRG4v4HYmcqL3mcw7ugiGeFTxjsZ9Wfd1d2znPQCZCER4Tgn72rsoNEGybs9wfqK7DFm3w3PsJulNut1sObThk+3hiLGTYyF46zMbamBX1JxaSlrZFLCI6xwZSbG1LK+lOgiSoEvK3eUD1R9czk9XgrJUVMHefa4TOUQoY42sYcd/qT0SnhdTwxJjR3TnA/NhQEsXr4B47tLSeddRoEytQUoCZesadOstn2BZEys8JMw0auXfz6tv9yugXNQeFgbrxn/B1m4Zpu2bOAqwe0VYsWT0MO+h5eDE8e0IfU3lH5esiiHPpIm3ZhPcHxjShZqIhTKx9Vt9DUTo+V+tithZnpY8NL5CUnsz5rPqomy3Fk9RpnO7WlQ2i3VPZVp2EkyznS/NePUKPxScdK4=
+  app: tasks-and-treasures-client
+  on:
+    repo: dermio/tasks-and-treasures-client
