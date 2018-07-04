@@ -2,6 +2,8 @@
   "name": "tasks-and-treasures-client",
   "version": "0.1.0",
   "private": true,
+  "author": "Davy Ermio",
+  "license": "ISC",
   "dependencies": {
     "ajv": "^6.5.2",
     "react": "^16.4.1",
