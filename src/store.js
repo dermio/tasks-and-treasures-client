@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import thunk from "redux-thunk";
+
 import { loadAuthToken } from "./local-storage";
 import authReducer from "./reducers/auth";
 import protectedDataReducer from "./reducers/protected-data";
@@ -24,3 +25,9 @@ if (authToken) {
 }
 
 export default store;
+
+
+/*
+1. Move the RootReducer (combineReducers) back to the reducers folder?
+2. Include Justin's Compose, and composeEnhancer for store.
+*/
