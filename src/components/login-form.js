@@ -2,13 +2,23 @@ import React from "react";
 import { Field, reduxForm /*, focus */} from "redux-form";
 
 // import Input from "./input";
-import { login } from "../actions/auth";
-// import { required, nonEmpty } from "../validators";
+import { login, clearAuth } from "../actions/auth";
+//import { required, nonEmpty } from "../validators";
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
     let { username, password } = values;
     return this.props.dispatch(login(username, password));
+  }
+
+  handleLogout(event) {
+    event.preventDefault();
+    this.props.dispatch(clearAuth());
+    // To logout don't need to talk to server. Just need to clear token.
+    localStorage.removeItem("authToken");
+    /* Once logged out need to redirect to login page.
+    In React Router update a prop in the state and
+    use Redirect component from the Router. */
   }
 
   render() {
@@ -35,6 +45,10 @@ export class LoginForm extends React.Component {
 
         />
         <button>LOGIN</button>
+
+        <button type="button" onClick={(e) => {this.handleLogout(e)}}>
+          LOG OUT
+        </button>
       </form>
     );
   }
