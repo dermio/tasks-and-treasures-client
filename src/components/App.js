@@ -8,6 +8,21 @@ import LogoutButton from "./logout-button";
 import LoginForm  from "./login-form";
 
 
+class dashboard extends Component {
+
+  render() {
+    return (
+      <div>
+        <p>USER'S DASHBOARD</p>
+        <LogoutButton />
+      </div>
+    );
+  }
+}
+
+const Dashboard = connect(mapStateToProps)(dashboard);
+
+
 // landingPage component will eventually be moved to its own file.
 function landingPage(props) {
   let { isLoggedIn } = props;
@@ -32,9 +47,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Howdy
+        App
         {this.props.isLoggedIn && <LogoutButton />}
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     );
   }
