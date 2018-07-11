@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Route, /* withRouter */ Redirect } from "react-router-dom";
+import { Route, withRouter ,Redirect } from "react-router-dom";
 
 import './App.css';
 
@@ -8,16 +8,18 @@ import LogoutButton from "./logout-button";
 import LoginForm  from "./login-form";
 
 
-class dashboard extends Component {
-
-  render() {
-    return (
-      <div>
-        <p>USER'S DASHBOARD</p>
-        <LogoutButton />
-      </div>
-    );
+function dashboard({ isLoggedIn }) {
+  // { isLoggedIn} is destructured props
+  if (!isLoggedIn) {
+    return <Redirect to="/"/>;
   }
+
+  return (
+    <div>
+      <p>USER'S DASHBOARD</p>
+      <LogoutButton />
+    </div>
+  );
 }
 
 const Dashboard = connect(mapStateToProps)(dashboard);
@@ -48,7 +50,6 @@ class App extends Component {
     return (
       <div className="App">
         App
-        {this.props.isLoggedIn && <LogoutButton />}
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
       </div>
@@ -64,7 +65,8 @@ class App extends Component {
 function mapStateToProps(state) { // function declaration is hoisted
   return {
     isLoggedIn: !!state.auth.currentUser
+    //isLoggedIn: state.auth.currentUser !== null
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
