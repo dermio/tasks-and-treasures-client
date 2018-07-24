@@ -4,8 +4,10 @@ import { Redirect } from "react-router-dom";
 
 // import dashboard.css
 import LogoutButton from "./logout-button";
+import UserTasksList from "./userTasksList";
 
 export class Dashboard extends React.Component {
+
 
   render() {
     if (!this.props.isLoggedIn) {
@@ -16,6 +18,7 @@ export class Dashboard extends React.Component {
       <div>
         <p>USER'S DASHBOARD</p>
         <LogoutButton />
+        <UserTasksList />
       </div>
     );
   }
