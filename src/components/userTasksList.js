@@ -9,9 +9,17 @@ export class UserTasksList extends React.Component {
   }
 
   render() {
+    let tasks = this.props.userTasks.map((task, index) =>
+      <li key={index}>
+        {task.taskName}
+      </li>
+    );
+
     return (
       <div>
-        {this.props.userTasks.map((task) => <p>{task.taskName}</p>)}
+        <ul style={{listStyleType: "none"}}>
+          {tasks}
+        </ul>
       </div>
     );
   }
