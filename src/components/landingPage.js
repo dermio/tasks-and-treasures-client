@@ -1,6 +1,6 @@
-import react from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { /*Link,*/ Redirect } from "react-router-dom";
 
 import LoginForm from "./login-form";
 
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => ({
   isLoggedIn: !!state.auth.currentUser
 });
 
-export default connect(mapStateToProps)(landingPage);
+export default connect(mapStateToProps)(LandingPage);
