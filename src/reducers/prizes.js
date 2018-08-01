@@ -4,7 +4,7 @@ import {
 } from "../actions/prizes";
 
 const initialState = {
-  userPrize: [],
+  userPrize: null,
   error: null
 };
 

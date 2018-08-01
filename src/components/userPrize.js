@@ -10,7 +10,9 @@ export class UserPrize extends React.Component {
   }
 
   render() {
-    return <div>Box of Oreos</div>
+    return <div>
+      {this.props.userPrize && this.props.userPrize.prizeName}
+    </div>
   }
 }
 
