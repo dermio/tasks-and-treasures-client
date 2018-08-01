@@ -23,11 +23,11 @@ export const fetchPrize = (familyCode) => (dispatch, getState) => {
     }
   })
   .then(res => normalizeResponseErrors(res))
-  // .then(res => res.json())
-  // .then(({data}) => dispatch(fetchPrizeSuccess(data)))
-  // .catch(err => {
-  //   dispatch(fetchPrizeError(err));
-  // });
+  .then(res => res.json())
+  .then(({data}) => dispatch(fetchPrizeSuccess(data)))
+  .catch(err => {
+    dispatch(fetchPrizeError(err));
+  });
 };
 
 
