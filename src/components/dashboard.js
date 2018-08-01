@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 // import dashboard.css
 import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
-import { UserPrize } from "./userPrize";
+import UserPrize from "./userPrize";
 
 export class Dashboard extends React.Component {
 
