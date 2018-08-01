@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import "./userTasksList.css";
+
 import { fetchTasks } from "../actions/tasks";
 
 export class UserTasksList extends React.Component {
@@ -16,8 +18,8 @@ export class UserTasksList extends React.Component {
     );
 
     return (
-      <div>
-        <ul style={{listStyleType: "none"}}>
+      <div className="userTasksList">
+        <ul className="userTasksList-UL">
           {tasks}
         </ul>
       </div>
