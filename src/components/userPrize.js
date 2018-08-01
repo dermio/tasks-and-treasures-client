@@ -8,3 +8,9 @@ export class UserPrize extends React.Component {
     return <div>Box of Oreos</div>
   }
 }
+
+const mapStateToProps = (state) => ({
+  userPrize: state.prizes.userPrize
+});
+
+export default connect(mapStateToProps)(UserPrize);
