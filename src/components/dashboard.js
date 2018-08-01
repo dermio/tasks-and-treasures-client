@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 // import dashboard.css
 import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
+import { UserPrize } from "./userPrize";
 
 export class Dashboard extends React.Component {
 
@@ -19,6 +20,7 @@ export class Dashboard extends React.Component {
         <p>USER'S DASHBOARD</p>
         <LogoutButton />
         <UserTasksList />
+        <UserPrize />
       </div>
     );
   }
