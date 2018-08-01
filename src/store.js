@@ -8,6 +8,7 @@ import { loadAuthToken } from "./local-storage";
 import authReducer from "./reducers/auth";
 import protectedDataReducer from "./reducers/protected-data";
 import tasksReducer from "./reducers/tasks";
+import prizesReducer from "./reducers/prizes";
 
 import { setAuthToken, refreshAuthToken } from "./actions/auth";
 
@@ -18,7 +19,8 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     protectedData: protectedDataReducer,
-    tasks: tasksReducer
+    tasks: tasksReducer,
+    prizes: prizesReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 );
