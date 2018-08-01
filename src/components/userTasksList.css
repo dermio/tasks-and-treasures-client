@@ -1,0 +1,7 @@
+.userTasksList {
+  border: 1px solid black;
+}
+
+.userTasksList-UL {
+  list-style-type: none;
+}
