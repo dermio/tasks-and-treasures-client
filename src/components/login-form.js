@@ -11,16 +11,6 @@ export class LoginForm extends React.Component {
     return this.props.dispatch(login(username, password));
   }
 
-  handleLogout(event) {
-    event.preventDefault();
-    this.props.dispatch(clearAuth());
-    // To logout don't need to talk to server. Just need to clear token.
-    localStorage.removeItem("authToken");
-    /* Once logged out need to redirect to login page.
-    In React Router update a prop in the state and
-    use Redirect component from the Router. */
-  }
-
   render() {
     return (
       <form
@@ -45,10 +35,6 @@ export class LoginForm extends React.Component {
 
         />
         <button>LOGIN</button>
-
-        <button type="button" onClick={(e) => {this.handleLogout(e)}}>
-          LOG OUT
-        </button>
       </form>
     );
   }
