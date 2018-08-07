@@ -8,7 +8,9 @@ import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
 
 export class Dashboard extends React.Component {
-
+  handleGoToTaskForm(event) {
+    console.log("[[[ CLICK BUTTON, GO TO CREATE TASK FORM ]]]");
+  }
 
   render() {
     if (!this.props.isLoggedIn) {
@@ -18,6 +20,9 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <p>USER'S DASHBOARD</p>
+        <button onClick={(e) => {this.handleGoToTaskForm(e)}}>
+          Create Task
+        </button>
         <LogoutButton />
         <UserTasksList />
         <UserPrize />
