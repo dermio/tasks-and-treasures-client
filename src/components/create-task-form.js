@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm /*, focus */} from "redux-form";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 // import { required, nonEmpty } from "../validators";
 
@@ -15,6 +17,10 @@ export class CreateTaskForm extends React.Component {
 
   // <form> needs onSubmit event handler for creating new Task
   render() {
+    if (!this.props.isLoggedIn) {
+      return <Redirect to="/" />
+    }
+
     return (
       <form>
         <label htmlFor="taskname">Task Name</label>
@@ -30,7 +36,15 @@ export class CreateTaskForm extends React.Component {
   }
 }
 
+
+const mapStateToProps = state => ({
+  isLoggedIn: !!state.auth.currentUser
+  // isLoggedIn: state.auth.currentUser !== null
+});
+
+const ConnectedCreateTaskForm = connect(mapStateToProps)(CreateTaskForm);
+
 export default reduxForm({
   form: "createTask",
   //onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(CreateTaskForm);
+})(ConnectedCreateTaskForm);
