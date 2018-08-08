@@ -7,22 +7,26 @@ import { Redirect } from "react-router-dom";
 
 /* Import Create Task action to dispatch create new task
 inside onSubmit method */
+import { createTask } from "../actions/tasks";
 
 export class CreateTaskForm extends React.Component {
-  // Method to handle submitting new Task
-  // onSubmit(values) {
-  //   let { username, password } = values;
-  //   return this.props.dispatch(login(username, password));
-  // }
+  //Method to handle submitting new Task
+  onSubmit(values) {
+    this.props.dispatch(createTask({
+      taskName: values.taskname,
+      onTaskCreated: this.props.onTaskCreated
+    }));
+  }
 
-  // <form> needs onSubmit event handler for creating new Task
   render() {
     if (!this.props.isLoggedIn) {
       return <Redirect to="/" />
     }
 
     return (
-      <form>
+      <form onSubmit={
+        this.props.handleSubmit(values => this.onSubmit(values))
+      }>
         <label htmlFor="taskname">Task Name</label>
         <Field
           component="input"
