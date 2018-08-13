@@ -32,3 +32,23 @@ export const fetchTasks = (familyCode) => (dispatch, getState) => {
 
 
 // CRUD for Admin (parent) user, and UPDATE for User (child)
+export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) => {
+  // getState() is a Redux method
+  const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
+  return fetch(`${API_BASE_URL}/tasks/`, {
+    method: "POST",
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ familyCode, taskName })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(fetchTasks(familyCode));
+    onTaskCreated();
+  })
+};
+

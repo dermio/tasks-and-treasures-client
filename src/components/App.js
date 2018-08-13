@@ -6,6 +6,7 @@ import './App.css';
 
 import LandingPage from "./landingPage";
 import Dashboard from "./dashboard";
+import CreateTaskForm from "./create-task-form";
 
 // import LogoutButton from "./logout-button";
 // import LoginForm  from "./login-form";
@@ -55,6 +56,7 @@ class App extends Component {
         App
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/createtask" component={CreateTaskForm} />
       </div>
     );
   }
