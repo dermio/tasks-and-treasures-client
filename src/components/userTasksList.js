@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import "./userTasksList.css";
 
-import { getTasks, createTask } from "../actions/tasks";
+import { getTasks, createTask, deleteTask } from "../actions/tasks";
 
 export class UserTasksList extends React.Component {
   componentDidMount() {
@@ -20,10 +20,18 @@ export class UserTasksList extends React.Component {
     */
   }
 
+  onDelete = (event, task) => {
+    event.preventDefault();
+    this.props.dispatch(deleteTask(task.id));
+  }
+
   render() {
     let tasks = this.props.userTasks.map((task, index) =>
       <li key={index}>
         {task.taskName}
+        <button onClick={(e) =>{this.onDelete(e, task)}}>
+          Delete Task
+        </button>
       </li>
     );
 
