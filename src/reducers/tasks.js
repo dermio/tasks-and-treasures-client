@@ -1,7 +1,8 @@
 import {
   GET_TASKS_REQUEST,
   GET_TASKS_SUCCESS,
-  GET_TASKS_ERROR
+  GET_TASKS_ERROR,
+  CREATE_TASK_REQUEST
 } from "../actions/tasks";
 
 const initialState = {
@@ -15,8 +16,7 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: true
     });
-  }
-  if (action.type === GET_TASKS_SUCCESS) {
+  } else if (action.type === GET_TASKS_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
       allUserTasks: action.data,
@@ -26,6 +26,10 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === CREATE_TASK_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true
     });
   }
   return state;
