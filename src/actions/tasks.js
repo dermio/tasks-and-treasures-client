@@ -37,11 +37,15 @@ export const getTasks = (familyCode) => (dispatch, getState) => {
 };
 
 
-// CRUD for Admin (parent) user, and UPDATE for User (child)
+export const CREATE_TASK_REQUEST = "CREATE_TASK_REQUEST";
+export const createTaskRequest = () => ({
+  type: CREATE_TASK_REQUEST
+});
+
 export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) => {
-  // getState() is a Redux method
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
+  dispatch(createTaskRequest());
   return fetch(`${API_BASE_URL}/tasks/`, {
     method: "POST",
     headers: {
@@ -53,6 +57,9 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
+    console.log("[[[ CREATE_TASK_RES]]]", res);
+
+    // Re-write the dispatch to use a CreateTaskSuccess action creator
     dispatch(getTasks(familyCode));
     onTaskCreated();
   })
