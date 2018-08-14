@@ -42,6 +42,18 @@ export const createTaskRequest = () => ({
   type: CREATE_TASK_REQUEST
 });
 
+export const CREATE_TASK_SUCCESS = "CREATE_TASK_SUCCESS";
+export const createTaskSuccess = data => ({
+  type: CREATE_TASK_SUCCESS,
+  data
+});
+
+export const CREATE_TASK_ERROR = "CREATE_TASK_ERROR";
+export const createTaskError = error => ({
+  type: CREATE_TASK_ERROR,
+  error
+});
+
 export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
@@ -57,11 +69,13 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
-    console.log("[[[ CREATE_TASK_RES]]]", res);
-
-    // Re-write the dispatch to use a CreateTaskSuccess action creator
+    // Dispatch create task success before dispatch get tasks
+    dispatch(createTaskSuccess(res));
     dispatch(getTasks(familyCode));
     onTaskCreated();
   })
+  .catch(err => {
+    dispatch(createTaskError(err));
+  });
 };
 
