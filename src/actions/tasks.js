@@ -2,7 +2,7 @@ import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
 export const GET_TASKS_REQUEST = "GET_TASKS_REQUEST";
-export const getTasksRequest = ({
+export const getTasksRequest = () => ({
   type: GET_TASKS_REQUEST
 });
 
@@ -20,6 +20,7 @@ export const getTasksError = error => ({
 
 export const getTasks = (familyCode) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  dispatch(getTasksRequest());
   return fetch(`${API_BASE_URL}/tasks/${familyCode}`, {
     method: "GET",
     headers: {
