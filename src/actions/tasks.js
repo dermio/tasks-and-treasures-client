@@ -20,6 +20,7 @@ export const getTasksError = error => ({
 
 export const getTasks = (familyCode) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  familyCode = familyCode || getState().auth.currentUser.familyCode;
   dispatch(getTasksRequest());
   return fetch(`${API_BASE_URL}/tasks/${familyCode}`, {
     method: "GET",
@@ -71,11 +72,47 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
   .then(res => {
     // Dispatch create task success before dispatch get tasks
     dispatch(createTaskSuccess(res));
-    dispatch(getTasks(familyCode));
-    onTaskCreated();
+    dispatch(getTasks());
+    onTaskCreated(); // Hide the create task form
   })
   .catch(err => {
     dispatch(createTaskError(err));
   });
 };
 
+
+export const DELETE_TASK_REQUEST = "DELETE_TASK_REQUEST";
+export const deleteTaskRequest = () => ({
+  type: DELETE_TASK_REQUEST
+});
+
+export const DELETE_TASK_SUCCESS = "DELETE_TASK_SUCCESS";
+export const deleteTaskSuccess = data => ({
+  type: DELETE_TASK_SUCCESS,
+  data
+});
+
+export const DELETE_TASK_ERROR = "DELETE_TASK_ERROR";
+export const deleteTaskError = error => ({
+  type: DELETE_TASK_ERROR,
+  error
+});
+
+export const deleteTask = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(deleteTaskRequest());
+  return fetch(`${API_BASE_URL}/tasks/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(deleteTaskSuccess(res));
+    dispatch(getTasks());
+  })
+  .catch(err => {
+    dispatch(deleteTaskError(err));
+  });
+};
