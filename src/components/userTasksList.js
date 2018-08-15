@@ -3,16 +3,17 @@ import { connect } from "react-redux";
 
 import "./userTasksList.css";
 
-import { getTasks, createTask, deleteTask } from "../actions/tasks";
+import { getTasks, /* createTask, */ deleteTask } from "../actions/tasks";
 
 export class UserTasksList extends React.Component {
   componentDidMount() {
+    //let it = this.props.dispatch(getState())
     this.props.dispatch(getTasks("mariobros"));
 
     // The following 2 lines of code allow dispatching from browser console
     // Eventually move this code to actions/tasks.js and create-task-form.js
-    window.dispatch = this.props.dispatch;
-    window.createTask = createTask;
+    // window.dispatch = this.props.dispatch;
+    // window.createTask = createTask;
 
     /*
     Run this command with above 2 lines of code to dispatch in browser console
