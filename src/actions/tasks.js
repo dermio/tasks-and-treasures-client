@@ -1,20 +1,27 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
-export const FETCH_TASKS_SUCCESS = "FETCH_TASKS_SUCCESS";
-export const fetchTasksSuccess = data => ({
-  type: FETCH_TASKS_SUCCESS,
+export const GET_TASKS_REQUEST = "GET_TASKS_REQUEST";
+export const getTasksRequest = () => ({
+  type: GET_TASKS_REQUEST
+});
+
+export const GET_TASKS_SUCCESS = "GET_TASKS_SUCCESS";
+export const getTasksSuccess = data => ({
+  type: GET_TASKS_SUCCESS,
   data
 });
 
-export const FETCH_TASKS_ERROR = "FETCH_TASKS_ERROR";
-export const fetchTasksError = error => ({
-  type: FETCH_TASKS_ERROR,
+export const GET_TASKS_ERROR = "GET_TASKS_ERROR";
+export const getTasksError = error => ({
+  type: GET_TASKS_ERROR,
   error
 });
 
-export const fetchTasks = (familyCode) => (dispatch, getState) => {
+export const getTasks = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
+  dispatch(getTasksRequest());
   return fetch(`${API_BASE_URL}/tasks/${familyCode}`, {
     method: "GET",
     headers: {
@@ -24,18 +31,34 @@ export const fetchTasks = (familyCode) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then((data) => dispatch(fetchTasksSuccess(data)))
+  .then((data) => dispatch(getTasksSuccess(data)))
   .catch(err => {
-    dispatch(fetchTasksError(err));
+    dispatch(getTasksError(err));
   });
 };
 
 
-// CRUD for Admin (parent) user, and UPDATE for User (child)
+export const CREATE_TASK_REQUEST = "CREATE_TASK_REQUEST";
+export const createTaskRequest = () => ({
+  type: CREATE_TASK_REQUEST
+});
+
+export const CREATE_TASK_SUCCESS = "CREATE_TASK_SUCCESS";
+export const createTaskSuccess = data => ({
+  type: CREATE_TASK_SUCCESS,
+  data
+});
+
+export const CREATE_TASK_ERROR = "CREATE_TASK_ERROR";
+export const createTaskError = error => ({
+  type: CREATE_TASK_ERROR,
+  error
+});
+
 export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) => {
-  // getState() is a Redux method
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
+  dispatch(createTaskRequest());
   return fetch(`${API_BASE_URL}/tasks/`, {
     method: "POST",
     headers: {
@@ -47,8 +70,49 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
-    dispatch(fetchTasks(familyCode));
-    onTaskCreated();
+    // Dispatch createTaskSuccess before dispatch getTasks
+    dispatch(createTaskSuccess(res));
+    dispatch(getTasks());
+    onTaskCreated(); // Hide the create task form after creating task
   })
+  .catch(err => {
+    dispatch(createTaskError(err));
+  });
 };
 
+
+export const DELETE_TASK_REQUEST = "DELETE_TASK_REQUEST";
+export const deleteTaskRequest = () => ({
+  type: DELETE_TASK_REQUEST
+});
+
+export const DELETE_TASK_SUCCESS = "DELETE_TASK_SUCCESS";
+export const deleteTaskSuccess = data => ({
+  type: DELETE_TASK_SUCCESS,
+  data
+});
+
+export const DELETE_TASK_ERROR = "DELETE_TASK_ERROR";
+export const deleteTaskError = error => ({
+  type: DELETE_TASK_ERROR,
+  error
+});
+
+export const deleteTask = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(deleteTaskRequest());
+  return fetch(`${API_BASE_URL}/tasks/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(deleteTaskSuccess(res));
+    dispatch(getTasks());
+  })
+  .catch(err => {
+    dispatch(deleteTaskError(err));
+  });
+};
