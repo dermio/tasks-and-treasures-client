@@ -18,9 +18,9 @@ export const getTasksError = error => ({
   error
 });
 
-export const getTasks = (familyCode) => (dispatch, getState) => {
+export const getTasks = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  familyCode = familyCode || getState().auth.currentUser.familyCode;
+  const familyCode = getState().auth.currentUser.familyCode;
   dispatch(getTasksRequest());
   return fetch(`${API_BASE_URL}/tasks/${familyCode}`, {
     method: "GET",
@@ -70,10 +70,10 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
-    // Dispatch create task success before dispatch get tasks
+    // Dispatch createTaskSuccess before dispatch getTasks
     dispatch(createTaskSuccess(res));
     dispatch(getTasks());
-    onTaskCreated(); // Hide the create task form
+    onTaskCreated(); // Hide the create task form after creating task
   })
   .catch(err => {
     dispatch(createTaskError(err));
