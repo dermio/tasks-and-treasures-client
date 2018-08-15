@@ -4,7 +4,10 @@ import {
   GET_TASKS_ERROR,
   CREATE_TASK_REQUEST,
   CREATE_TASK_SUCCESS,
-  CREATE_TASK_ERROR
+  CREATE_TASK_ERROR,
+  DELETE_TASK_REQUEST,
+  DELETE_TASK_SUCCESS,
+  DELETE_TASK_ERROR
 } from "../actions/tasks";
 
 
@@ -19,6 +22,8 @@ const initialState = {
   error_GET_tasks: false,
   pending_CREATE_task: false,
   error_CREATE_task: false,
+  pending_DELETE_task: false,
+  error_DELETE_task: false,
   allUserTasks: [], // the data, success
 };
 
@@ -51,6 +56,20 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       pending_CREATE_task: false,
       error_CREATE_task: action.error
+    });
+  } else if (action.type === DELETE_TASK_REQUEST) {
+    return Object.assign({}, state, {
+      pending_DELETE_task: true
+    });
+  } else if (action.type === DELETE_TASK_SUCCESS) {
+    return Object.assign({}, state, {
+      pending_DELETE_task: false,
+      error_DELETE_task: false
+    });
+  } else if (action.type === DELETE_TASK_ERROR) {
+    return Object.assign({}, state, {
+      pending_DELETE_task: false,
+      error_DELETE_task: action.error
     });
   }
   return state;
