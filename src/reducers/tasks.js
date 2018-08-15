@@ -13,26 +13,26 @@ import {
 // Also have 4 loading ERROR STATES
 // ERROR: ERROR-GET, ERROR-CREATE, ERROR-DELETE, ERROR-UPDATE
 const initialState = {
-  loading: false, // GET-PENDING, CREATE-PENDING, etc...
+  pending_GET_task: false, // GET-PENDING, CREATE-PENDING, etc...
   allUserTasks: [], // the data, success
-  error: null // ERROR-GET, ERROR-CREATE, etc...
+  error_GET_task: null // ERROR-GET, ERROR-CREATE, etc...
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === GET_TASKS_REQUEST) {
     return Object.assign({}, state, {
-      loading: true
+      pending_GET_task: true
     });
   } else if (action.type === GET_TASKS_SUCCESS) {
     return Object.assign({}, state, {
-      loading: false,
+      pending_GET_task: false,
       allUserTasks: action.data,
-      error: null
+      error_GET_task: null
     });
   } else if (action.type === GET_TASKS_ERROR) {
     return Object.assign({}, state, {
-      loading: false,
-      error: action.error
+      pending_GET_task: false,
+      error_GET_task: action.error
     });
   } else if (action.type === CREATE_TASK_REQUEST) {
     return Object.assign({}, state, {
