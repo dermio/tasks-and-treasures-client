@@ -13,39 +13,44 @@ import {
 // Also have 4 loading ERROR STATES
 // ERROR: ERROR-GET, ERROR-CREATE, ERROR-DELETE, ERROR-UPDATE
 const initialState = {
-  pending_GET_task: false, // GET-PENDING, CREATE-PENDING, etc...
+  // loading: GET-PENDING, CREATE-PENDING, etc...
+  // errors: ERROR-GET, ERROR-CREATE, etc...
+  pending_GET_tasks: false,
+  error_GET_tasks: false,
+  pending_CREATE_task: false,
+  error_CREATE_task: false,
   allUserTasks: [], // the data, success
-  error_GET_task: null // ERROR-GET, ERROR-CREATE, etc...
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === GET_TASKS_REQUEST) {
     return Object.assign({}, state, {
-      pending_GET_task: true
+      pending_GET_tasks: true
     });
   } else if (action.type === GET_TASKS_SUCCESS) {
     return Object.assign({}, state, {
-      pending_GET_task: false,
+      pending_GET_tasks: false,
       allUserTasks: action.data,
-      error_GET_task: null
+      error_GET_tasks: false
     });
   } else if (action.type === GET_TASKS_ERROR) {
     return Object.assign({}, state, {
-      pending_GET_task: false,
-      error_GET_task: action.error
+      pending_GET_tasks: false,
+      error_GET_tasks: action.error
     });
   } else if (action.type === CREATE_TASK_REQUEST) {
     return Object.assign({}, state, {
-      loading: true
+      pending_CREATE_task: true
     });
   } else if (action.type === CREATE_TASK_SUCCESS) {
     return Object.assign({}, state, {
-      loading: false
+      pending_CREATE_task: false,
+      error_CREATE_task: false
     });
   } else if (action.type === CREATE_TASK_ERROR) {
     return Object.assign({}, state, {
-      loading: false,
-      error: action.error
+      pending_CREATE_task: false,
+      error_CREATE_task: action.error
     });
   }
   return state;
