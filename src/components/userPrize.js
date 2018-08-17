@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchPrize } from "../actions/prizes";
+import { getPrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
     // console.log("[[[ UserPrize mounted ]]]");
-    this.props.dispatch(fetchPrize("mariobros"));
+    this.props.dispatch(getPrize("mariobros"));
   }
 
   render() {
