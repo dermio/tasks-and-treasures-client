@@ -1,5 +1,5 @@
 import {
-  FETCH_PRIZE_SUCCESS,
+  GET_PRIZE_SUCCESS,
   FETCH_PRIZE_ERROR
 } from "../actions/prizes";
 
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === FETCH_PRIZE_SUCCESS) {
+  if (action.type === GET_PRIZE_SUCCESS) {
     return Object.assign({}, state, {
       userPrize: action.data,
       error: null

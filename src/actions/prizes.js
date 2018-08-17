@@ -1,9 +1,9 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
-export const FETCH_PRIZE_SUCCESS = "FETCH_PRIZE_SUCCESS";
+export const GET_PRIZE_SUCCESS = "GET_PRIZE_SUCCESS";
 export const fetchPrizeSuccess = data => ({
-  type: FETCH_PRIZE_SUCCESS,
+  type: GET_PRIZE_SUCCESS,
   data
 });
 
