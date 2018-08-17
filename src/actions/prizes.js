@@ -13,8 +13,9 @@ export const getPrizeError = error => ({
   error
 });
 
-export const getPrize = (familyCode) => (dispatch, getState) => {
+export const getPrize = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
   return fetch(`${API_BASE_URL}/prizes/${familyCode}`, {
     method: "GET",
     headers: {
@@ -23,14 +24,8 @@ export const getPrize = (familyCode) => (dispatch, getState) => {
     }
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => {
-    console.log(res)
-    return res.json()
-  })
-  .then((data) => {
-    console.log(data)
-    dispatch(getPrizeSuccess(data[0]))
-  })
+  .then(res => res.json())
+  .then((data) => dispatch(getPrizeSuccess(data[0])))
   .catch(err => {
     dispatch(getPrizeError(err));
   });
