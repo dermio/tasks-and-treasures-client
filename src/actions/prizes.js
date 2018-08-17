@@ -7,9 +7,9 @@ export const fetchPrizeSuccess = data => ({
   data
 });
 
-export const FETCH_PRIZE_ERROR = "FETCH_PRIZE_ERROR";
+export const GET_PRIZE_ERROR = "GET_PRIZE_ERROR";
 export const fetchPrizeError = error => ({
-  type: FETCH_PRIZE_ERROR,
+  type: GET_PRIZE_ERROR,
   error
 });
 

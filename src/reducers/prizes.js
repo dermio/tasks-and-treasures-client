@@ -1,6 +1,6 @@
 import {
   GET_PRIZE_SUCCESS,
-  FETCH_PRIZE_ERROR
+  GET_PRIZE_ERROR
 } from "../actions/prizes";
 
 const initialState = {
@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action) {
       userPrize: action.data,
       error: null
     });
-  } else if (action.type === FETCH_PRIZE_ERROR) {
+  } else if (action.type === GET_PRIZE_ERROR) {
     return Object.assign({}, state, {
       error: action.error
     });
