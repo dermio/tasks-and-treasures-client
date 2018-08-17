@@ -1,6 +1,11 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
+export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
+export const getPrizeRequest = () => ({
+  type: GET_PRIZE_REQUEST
+});
+
 export const GET_PRIZE_SUCCESS = "GET_PRIZE_SUCCESS";
 export const getPrizeSuccess = data => ({
   type: GET_PRIZE_SUCCESS,
@@ -16,6 +21,7 @@ export const getPrizeError = error => ({
 export const getPrize = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
+  dispatch(getPrizeRequest());
   return fetch(`${API_BASE_URL}/prizes/${familyCode}`, {
     method: "GET",
     headers: {
