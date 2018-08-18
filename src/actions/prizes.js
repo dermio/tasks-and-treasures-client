@@ -1,6 +1,5 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
-import { CREATE_TASK } from "../../../tasks-and-treasures/src/actions";
 
 export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
 export const getPrizeRequest = () => ({
@@ -55,3 +54,7 @@ export const createPrizeError = error => ({
   type: CREATE_PRIZE_ERROR,
   error
 });
+
+export const createPrize = ({ prizeName }) => (dispatch, getState) => {
+  console.log("[[[ createPrize ]]]");
+};
