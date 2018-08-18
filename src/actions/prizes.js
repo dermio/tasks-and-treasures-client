@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
+import { CREATE_TASK } from "../../../tasks-and-treasures/src/actions";
 
 export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
 export const getPrizeRequest = () => ({
@@ -38,4 +39,19 @@ export const getPrize = () => (dispatch, getState) => {
 };
 
 
-// CRUD for Admin (parent) user, and UPDATE for User (child)
+export const CREATE_PRIZE_REQUEST = "CREATE_PRIZE_REQUEST";
+export const createPrizeRequest = () => ({
+  type: CREATE_PRIZE_REQUEST
+});
+
+export const CREATE_PRIZE_SUCCESS = "CREATE_PRIZE_SUCCESS";
+export const createPrizeSuccess = data => ({
+  type: CREATE_PRIZE_SUCCESS,
+  data
+});
+
+export const CREATE_PRIZE_ERROR = "CREATE_PRIZE_ERROR";
+export const createPrizeError = error => ({
+  type: CREATE_PRIZE_ERROR,
+  error
+});
