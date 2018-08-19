@@ -5,7 +5,7 @@ import { getPrize, createPrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getPrize("mariobros"));
+    this.props.dispatch(getPrize());
 
     /* Temporarily added dispatch and createPrize as properties to
     the window object. Will use the methods to test creating a prize
