@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getPrize } from "../actions/prizes";
+import { getPrize, createPrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
-    // console.log("[[[ UserPrize mounted ]]]");
     this.props.dispatch(getPrize("mariobros"));
+
+    /* Temporarily added dispatch and createPrize as properties to
+    the window object. Will use the methods to test creating a prize
+    from the browser console. */
+    window.dispatch = this.props.dispatch;
+    window.createPrize = createPrize;
   }
 
   render() {
