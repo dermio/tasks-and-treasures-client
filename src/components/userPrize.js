@@ -12,6 +12,11 @@ export class UserPrize extends React.Component {
     from the browser console. */
     window.dispatch = this.props.dispatch;
     window.createPrize = createPrize;
+
+    /* Run the following code, after the two previous lines of code,
+    to dispatch creating a prize in the browser console.
+    dispatch(createPrize({familyCode: "mariobros", prizeName: "Disneyland"}))
+    */
   }
 
   render() {
