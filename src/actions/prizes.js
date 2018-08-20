@@ -56,5 +56,7 @@ export const createPrizeError = error => ({
 });
 
 export const createPrize = ({ prizeName }) => (dispatch, getState) => {
-  console.log("[[[ createPrize ]]]");
+  const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
+  dispatch(createPrizeRequest());
 };
