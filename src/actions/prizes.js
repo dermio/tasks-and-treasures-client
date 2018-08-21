@@ -31,7 +31,10 @@ export const getPrize = () => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then((data) => dispatch(getPrizeSuccess(data[0])))
+  .then(data => {
+    console.log("GET_PRIZE_SUCCESS", data);
+    dispatch(getPrizeSuccess(data));
+  })
   .catch(err => {
     dispatch(getPrizeError(err));
   });
