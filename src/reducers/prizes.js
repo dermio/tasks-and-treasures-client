@@ -1,7 +1,10 @@
 import {
   GET_PRIZE_REQUEST,
   GET_PRIZE_SUCCESS,
-  GET_PRIZE_ERROR
+  GET_PRIZE_ERROR,
+  CREATE_PRIZE_REQUEST,
+  CREATE_PRIZE_SUCCESS,
+  CREATE_PRIZE_ERROR
 } from "../actions/prizes";
 
 const initialState = {
