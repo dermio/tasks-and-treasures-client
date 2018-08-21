@@ -59,4 +59,18 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
   dispatch(createPrizeRequest());
+  return fetch(`${API_BASE_URL}/prizes`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ familyCode, prizeName })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => dispatch(createPrizeSuccess(data)))
+  .catch(err => {
+    dispatch(createPrizeError(err));
+  })
 };
