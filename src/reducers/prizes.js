@@ -25,7 +25,7 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === GET_PRIZE_ERROR) {
     return Object.assign({}, state, {
       pending_GET_prize: false,
-      error: action.error
+      error_GET_prize: action.error
     });
   }
   return state;
