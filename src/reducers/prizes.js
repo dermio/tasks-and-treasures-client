@@ -6,8 +6,8 @@ import {
 
 const initialState = {
   pending_GET_prize: false,
-  userPrize: null,
-  error: false
+  error_GET_prize: false,
+  userPrize: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       pending_GET_prize: false,
       userPrize: action.data,
-      error: null
+      error_GET_prize: false
     });
   } else if (action.type === GET_PRIZE_ERROR) {
     return Object.assign({}, state, {
