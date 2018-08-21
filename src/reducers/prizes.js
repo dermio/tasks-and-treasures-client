@@ -7,7 +7,7 @@ import {
 const initialState = {
   pending_GET_prize: false,
   userPrize: null,
-  error: null
+  error: false
 };
 
 export default function reducer(state = initialState, action) {
