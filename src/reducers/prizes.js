@@ -16,6 +16,7 @@ export default function reducer(state = initialState, action) {
       pending_GET_prize: true
     });
   } else if (action.type === GET_PRIZE_SUCCESS) {
+    console.log(action.data);
     return Object.assign({}, state, {
       pending_GET_prize: false,
       userPrize: action.data,

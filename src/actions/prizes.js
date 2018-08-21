@@ -71,7 +71,10 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
     body: JSON.stringify({ familyCode, prizeName })
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => res.json())
+  .then(res => {
+    console.log(res); // cannot LOG
+    return res.json();
+  })
   .then(data => dispatch(createPrizeSuccess(data)))
   .catch(err => {
     dispatch(createPrizeError(err));
