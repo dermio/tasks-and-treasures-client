@@ -75,7 +75,10 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
     console.log(res); // cannot LOG
     return res.json();
   })
-  .then(data => dispatch(createPrizeSuccess(data)))
+  .then(data => {
+    dispatch(createPrizeSuccess(data));
+    dispatch(getPrize());
+  })
   .catch(err => {
     dispatch(createPrizeError(err));
   })
