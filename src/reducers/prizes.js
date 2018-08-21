@@ -1,22 +1,36 @@
 import {
-  FETCH_PRIZE_SUCCESS,
-  FETCH_PRIZE_ERROR
+  GET_PRIZE_REQUEST,
+  GET_PRIZE_SUCCESS,
+  GET_PRIZE_ERROR,
+  CREATE_PRIZE_REQUEST,
+  CREATE_PRIZE_SUCCESS,
+  CREATE_PRIZE_ERROR
 } from "../actions/prizes";
 
 const initialState = {
-  userPrize: null,
-  error: null
+  pending_GET_prize: false,
+  error_GET_prize: false,
+  pending_CREATE_prize: false,
+  error_CREATE_prize: false,
+  userPrize: null // the data, success
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === FETCH_PRIZE_SUCCESS) {
+  if (action.type === GET_PRIZE_REQUEST) {
     return Object.assign({}, state, {
-      userPrize: action.data,
-      error: null
+      pending_GET_prize: true
     });
-  } else if (action.type === FETCH_PRIZE_ERROR) {
+  } else if (action.type === GET_PRIZE_SUCCESS) {
+    console.log(action.data);
     return Object.assign({}, state, {
-      error: action.error
+      pending_GET_prize: false,
+      userPrize: action.data,
+      error_GET_prize: false
+    });
+  } else if (action.type === GET_PRIZE_ERROR) {
+    return Object.assign({}, state, {
+      pending_GET_prize: false,
+      error_GET_prize: action.error
     });
   }
   return state;
