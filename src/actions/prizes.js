@@ -100,3 +100,7 @@ export const deletePrizeError = error => ({
   type: DELETE_PRIZE_ERROR,
   error
 });
+
+export const deletePrize = id => (dispatch, getState) => {
+  console.log("[[[ deletePrize THUNK ]]]")
+};
