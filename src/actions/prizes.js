@@ -82,3 +82,21 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
     dispatch(createPrizeError(err));
   })
 };
+
+
+export const DELETE_PRIZE_REQUEST = "DELETE_PRIZE_REQUEST";
+export const deletePrizeRequest = () => ({
+  type: DELETE_PRIZE_REQUEST
+});
+
+export const DELETE_PRIZE_SUCCESS = "DELETE_PRIZE_SUCCESS";
+export const deletePrizeSuccess = data => ({
+  type: DELETE_PRIZE_SUCCESS,
+  data
+});
+
+export const DELETE_PRIZE_ERROR = "DELETE_PRIZE_ERROR";
+export const deletePrizeError = error => ({
+  type: DELETE_PRIZE_ERROR,
+  error
+});
