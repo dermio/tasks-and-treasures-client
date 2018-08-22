@@ -72,12 +72,11 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
-    console.log(res); // cannot LOG
-    return res//.json();
-  })
-  .then(res => {
+    // Dispatch createPrizeSuccess before dispatch getPrize
     dispatch(createPrizeSuccess(res));
     dispatch(getPrize());
+
+    // Hide the create prize form after creating prize
   })
   .catch(err => {
     dispatch(createPrizeError(err));
