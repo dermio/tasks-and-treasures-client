@@ -32,7 +32,7 @@ export const getPrize = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(data => {
-    console.log("GET_PRIZE_SUCCESS", data);
+    console.log("[[[ getPrize thunk, GET_PRIZE_SUCCESS ]]]", data);
     dispatch(getPrizeSuccess(data[data.length - 1]));
   })
   .catch(err => {
@@ -73,10 +73,10 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => {
     console.log(res); // cannot LOG
-    return res.json();
+    return res//.json();
   })
-  .then(data => {
-    dispatch(createPrizeSuccess(data));
+  .then(res => {
+    dispatch(createPrizeSuccess(res));
     dispatch(getPrize());
   })
   .catch(err => {
