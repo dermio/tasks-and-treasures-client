@@ -44,14 +44,20 @@ export class Dashboard extends React.Component {
       <div>
         <p>USER'S DASHBOARD</p>
         {/* {createTaskFormOrButton} */}
-        {this.state.isAddFormVisible && <CreateTaskForm onTaskCreated={
-          () => this.setState({
-            isAddFormVisible: false
-          })
-        } />}
-        {!this.state.isAddFormVisible && <button onClick={this.onAddButtonClick}>
-          Create Task
-        </button>}
+        {this.state.isAddFormVisible &&
+          <CreateTaskForm
+            onTaskCreated={
+              () => this.setState({
+                isAddFormVisible: false
+              })
+            }
+          />
+        }
+        {!this.state.isAddFormVisible &&
+          <button onClick={this.onAddButtonClick}>
+            Create Task
+          </button>
+        }
 
         <LogoutButton />
         <UserTasksList />
