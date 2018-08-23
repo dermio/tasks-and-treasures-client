@@ -2,14 +2,14 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 export class CreatePrizeForm extends React.Component {
-  onSubmit(value) {
-    console.log(value);
+  onSubmit(values) {
+    console.log(values);
   }
 
   render() {
     return (
       <form onSubmit={
-        this.props.handleSubmit(value => this.onSubmit(value))
+        this.props.handleSubmit(values => this.onSubmit(values))
       }>
         <label htmlFor="prizename">Prize Name</label>
         <Field
