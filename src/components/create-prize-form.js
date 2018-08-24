@@ -1,9 +1,14 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
+import { createPrize } from "../actions/prizes";
+
 export class CreatePrizeForm extends React.Component {
   onSubmit(values) {
     console.log(values);
+    this.props.dispatch(createPrize({
+      prizeName: values.prizename
+    }));
   }
 
   render() {
