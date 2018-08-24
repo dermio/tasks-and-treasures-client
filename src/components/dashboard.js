@@ -29,21 +29,9 @@ export class Dashboard extends React.Component {
       return <Redirect to="/" />
     }
 
-    // COMMENT out the IF-ELSE block later, and `createTaskFormOrButton`
-    // Another way to render the CreateTaskForm or button
-    /* let createTaskFormOrButton;
-    if (this.state.isAddFormVisible) {
-      createTaskFormOrButton = <CreateTaskForm />;
-    } else {
-      createTaskFormOrButton = (<button onClick={this.onAddButtonClick}>
-        Create Task
-      </button>);
-    } */
-
     return (
       <div>
         <p>USER'S DASHBOARD</p>
-        {/* {createTaskFormOrButton} */}
         {this.state.isAddFormVisible &&
           <CreateTaskForm
             onTaskCreated={
