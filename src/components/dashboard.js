@@ -7,6 +7,7 @@ import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
+import CreatePrizeForm from "./create-prize-form";
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ export class Dashboard extends React.Component {
         <LogoutButton />
         <UserTasksList />
         <UserPrize />
+        <CreatePrizeForm />
       </div>
     );
   }
