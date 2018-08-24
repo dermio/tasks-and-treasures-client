@@ -33,3 +33,15 @@ export default reduxForm({
   form: "createPrize"
 })(CreatePrizeForm);
 
+
+/*
+1. Not sure if I need mapStateToProps
+2. Do I need connect from react-redux?
+
+import { connect } from "react-redux";
+const ConnectedCreatePrizeForm = connect()(CreatePrizeForm);
+
+export default reduxForm({
+  form: "createPrize"
+})(ConnectedCreatePrizeForm);
+*/
