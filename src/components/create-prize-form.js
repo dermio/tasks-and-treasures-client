@@ -23,7 +23,7 @@ export class CreatePrizeForm extends React.Component {
           name="prizename"
           id="prizename"
         />
-        <button>Create Prize</button>
+        <button type="submit">Create Prize</button>
       </form>
     );
   }

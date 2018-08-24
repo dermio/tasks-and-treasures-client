@@ -34,7 +34,7 @@ export class CreateTaskForm extends React.Component {
           name="taskname"
           id="taskname"
         />
-        <button>Submit Task</button>
+        <button type="submit">Submit Task</button>
       </form>
     )
   }
