@@ -13,7 +13,8 @@ export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAddTaskFormVisible: false // default do NOT show create task form
+      isAddTaskFormVisible: false, // default do NOT show create task form
+      isAddPrizeFormVisible: false // default do NOT show create prize form
     };
   }
 
