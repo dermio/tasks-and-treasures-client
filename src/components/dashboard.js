@@ -13,7 +13,7 @@ export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAddFormVisible: false // default do NOT show create task form
+      isAddTaskFormVisible: false // default do NOT show create task form
     };
   }
 
@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
   // is responsible for this state. No need to use Redux.
   onAddButtonClick = () => {
     this.setState({
-      isAddFormVisible: !this.state.isAddFormVisible
+      isAddTaskFormVisible: !this.state.isAddTaskFormVisible
     })
   }
 
@@ -33,16 +33,16 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <p>USER'S DASHBOARD</p>
-        {this.state.isAddFormVisible &&
+        {this.state.isAddTaskFormVisible &&
           <CreateTaskForm
             onTaskCreated={
               () => this.setState({
-                isAddFormVisible: false
+                isAddTaskFormVisible: false
               })
             }
           />
         }
-        {!this.state.isAddFormVisible &&
+        {!this.state.isAddTaskFormVisible &&
           <button onClick={this.onAddButtonClick}>
             Create Task
           </button>
