@@ -26,6 +26,13 @@ export class Dashboard extends React.Component {
     })
   }
 
+  onAddPrizeButtonClick() {
+    this.setState({
+      isAddPrizeFormVisible: !this.state.isAddPrizeFormVisible
+    });
+    console.log(this.state.isAddPrizeFormVisible);
+  }
+
   render() {
     if (!this.props.isLoggedIn) {
       return <Redirect to="/" />
