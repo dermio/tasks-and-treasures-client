@@ -60,6 +60,11 @@ export class Dashboard extends React.Component {
         <UserTasksList />
         <UserPrize />
         <CreatePrizeForm />
+        {!this.state.isAddPrizeFormVisible &&
+          <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
+            Create Prize
+          </button>
+        }
       </div>
     );
   }
