@@ -5,9 +5,9 @@ import { createPrize } from "../actions/prizes";
 
 export class CreatePrizeForm extends React.Component {
   onSubmit(values) {
-    console.log(values);
     this.props.dispatch(createPrize({
-      prizeName: values.prizename
+      prizeName: values.prizename,
+      onPrizeCreated: this.props.onPrizeCreated
     }));
   }
 
