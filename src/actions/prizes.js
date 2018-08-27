@@ -32,7 +32,7 @@ export const getPrize = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(data => {
-    console.log("GET_PRIZE_SUCCESS", data);
+    console.log("[[[ getPrize thunk, GET_PRIZE_SUCCESS ]]]", data);
     dispatch(getPrizeSuccess(data[data.length - 1]));
   })
   .catch(err => {
@@ -58,7 +58,7 @@ export const createPrizeError = error => ({
   error
 });
 
-export const createPrize = ({ prizeName }) => (dispatch, getState) => {
+export const createPrize = ({ prizeName, onPrizeCreated }) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
   dispatch(createPrizeRequest());
@@ -72,14 +72,34 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => {
-    console.log(res); // cannot LOG
-    return res.json();
-  })
-  .then(data => {
-    dispatch(createPrizeSuccess(data));
+    // Dispatch createPrizeSuccess before dispatch getPrize
+    dispatch(createPrizeSuccess(res));
     dispatch(getPrize());
+    onPrizeCreated(); // Hide the create prize form after creating prize
   })
   .catch(err => {
     dispatch(createPrizeError(err));
   })
+};
+
+
+export const DELETE_PRIZE_REQUEST = "DELETE_PRIZE_REQUEST";
+export const deletePrizeRequest = () => ({
+  type: DELETE_PRIZE_REQUEST
+});
+
+export const DELETE_PRIZE_SUCCESS = "DELETE_PRIZE_SUCCESS";
+export const deletePrizeSuccess = data => ({
+  type: DELETE_PRIZE_SUCCESS,
+  data
+});
+
+export const DELETE_PRIZE_ERROR = "DELETE_PRIZE_ERROR";
+export const deletePrizeError = error => ({
+  type: DELETE_PRIZE_ERROR,
+  error
+});
+
+export const deletePrize = id => (dispatch, getState) => {
+  console.log("[[[ deletePrize THUNK ]]]")
 };

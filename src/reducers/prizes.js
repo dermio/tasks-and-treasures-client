@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action) {
       pending_GET_prize: true
     });
   } else if (action.type === GET_PRIZE_SUCCESS) {
-    console.log(action.data);
+    console.log("[[[ PRIZES REDUCER ]]]", action.data);
     return Object.assign({}, state, {
       pending_GET_prize: false,
       userPrize: action.data,
@@ -31,6 +31,20 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       pending_GET_prize: false,
       error_GET_prize: action.error
+    });
+  } else if (action.type === CREATE_PRIZE_REQUEST) {
+    return Object.assign({}, state, {
+      pending_CREATE_prize: true
+    });
+  } else if (action.type === CREATE_PRIZE_SUCCESS) {
+    return Object.assign({}, state, {
+      pending_CREATE_prize: false,
+      error_CREATE_prize: false
+    });
+  } else if (action.type === CREATE_PRIZE_ERROR) {
+    return Object.assign({}, state, {
+      pending_CREATE_prize: false,
+      error_CREATE_prize: action.error
     });
   }
   return state;
