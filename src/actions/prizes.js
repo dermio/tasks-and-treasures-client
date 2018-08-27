@@ -58,7 +58,7 @@ export const createPrizeError = error => ({
   error
 });
 
-export const createPrize = ({ prizeName }) => (dispatch, getState) => {
+export const createPrize = ({ prizeName, onPrizeCreated }) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;
   dispatch(createPrizeRequest());
@@ -75,8 +75,7 @@ export const createPrize = ({ prizeName }) => (dispatch, getState) => {
     // Dispatch createPrizeSuccess before dispatch getPrize
     dispatch(createPrizeSuccess(res));
     dispatch(getPrize());
-
-    // Hide the create prize form after creating prize
+    onPrizeCreated(); // Hide the create prize form after creating prize
   })
   .catch(err => {
     dispatch(createPrizeError(err));
