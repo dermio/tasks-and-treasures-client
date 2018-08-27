@@ -30,7 +30,6 @@ export class Dashboard extends React.Component {
     this.setState({
       isAddPrizeFormVisible: !this.state.isAddPrizeFormVisible
     });
-    console.log(this.state.isAddPrizeFormVisible);
   }
 
   render() {
@@ -59,7 +58,6 @@ export class Dashboard extends React.Component {
         <LogoutButton />
         <UserTasksList />
         <UserPrize />
-        <CreatePrizeForm />
         {this.state.isAddPrizeFormVisible &&
           <CreatePrizeForm
             onPrizeCreated={
