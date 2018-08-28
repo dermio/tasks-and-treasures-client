@@ -56,6 +56,16 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       pending_DELETE_prize: true
     });
+  } else if (action.type === DELETE_PRIZE_SUCCESS) {
+    return Object.assign({}, state, {
+      pending_DELETE_prize: false,
+      error_DELETE_prize: false
+    });
+  } else if (action.type === DELETE_PRIZE_ERROR) {
+    return Object.assign({}, state, {
+      pending_DELETE_prize: false,
+      error_DELETE_prize: action.error
+    });
   }
   return state;
 };
