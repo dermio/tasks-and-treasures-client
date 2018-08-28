@@ -51,6 +51,11 @@ export default function reducer(state = initialState, action) {
       pending_CREATE_prize: false,
       error_CREATE_prize: action.error
     });
+  } else if (action.type === DELETE_PRIZE_REQUEST) {
+    console.log("[[[ REDUCER, DELETE PRIZE REQUEST ]]]");
+    return Object.assign({}, state, {
+      pending_DELETE_prize: true
+    });
   }
   return state;
 };
