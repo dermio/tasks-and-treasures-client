@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getPrize, createPrize, deletePrize } from "../actions/prizes";
+import { getPrize, createOrUpdatePrize, deletePrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
@@ -11,7 +11,7 @@ export class UserPrize extends React.Component {
     the window object. Will use the methods to test creating a prize
     from the browser console. */
     window.dispatch = this.props.dispatch;
-    window.createPrize = createPrize;
+    window.createPrize = createOrUpdatePrize;
 
     window.deletePrize = deletePrize;
 
