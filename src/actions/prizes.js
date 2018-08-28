@@ -101,5 +101,20 @@ export const deletePrizeError = error => ({
 });
 
 export const deletePrize = id => (dispatch, getState) => {
-  console.log("[[[ deletePrize THUNK ]]]")
+  const authToken = getState().auth.authToken;
+  dispatch(deletePrizeRequest());
+  return fetch(`${API_BASE_URL}/prizes/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(deletePrizeSuccess(res));
+    dispatch(getPrize());
+  })
+  .catch(err => {
+    dispatch(deletePrizeError(err));
+  });
 };
