@@ -15,6 +15,8 @@ const initialState = {
   error_GET_prize: false,
   pending_CREATE_prize: false,
   error_CREATE_prize: false,
+  pending_DELETE_prize: false,
+  error_DELETE_prize: false,
   userPrize: null // the data, success
 };
 
