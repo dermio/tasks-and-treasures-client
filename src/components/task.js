@@ -1,0 +1,25 @@
+import React from "react";
+
+export default class Task extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditing: false // span?
+    };
+  }
+
+  render() {
+    return (
+      <li>
+        {this.state.isEditing ? <input /> : this.props.task.taskName}
+        <button onClick={(e) =>{this.props.onUpdate(e, this.props.task)}}>
+          Update Task
+        </button>
+        <button onClick={(e) =>{this.props.onDelete(e, this.props.task)}}>
+          Delete Task
+        </button>
+      </li>
+    );
+  }
+}
+
