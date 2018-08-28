@@ -135,3 +135,6 @@ export const updateTaskError = error => ({
   error
 });
 
+export const updateTask = id => (dispatch, getState) => {
+  console.log("UPDATE TASK THUNK");
+};
