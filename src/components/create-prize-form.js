@@ -1,11 +1,11 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-import { createPrize } from "../actions/prizes";
+import { createOrUpdatePrize } from "../actions/prizes";
 
 export class CreatePrizeForm extends React.Component {
   onSubmit(values) {
-    this.props.dispatch(createPrize({
+    this.props.dispatch(createOrUpdatePrize({
       prizeName: values.prizename,
       onPrizeCreated: this.props.onPrizeCreated
     }));
