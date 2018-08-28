@@ -116,3 +116,22 @@ export const deleteTask = (id) => (dispatch, getState) => {
     dispatch(deleteTaskError(err));
   });
 };
+
+
+export const UPDATE_TASK_REQUEST = "UPDATE_TASK_REQUEST";
+export const updateTaskRequest = () => ({
+  type: UPDATE_TASK_REQUEST
+});
+
+export const UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS";
+export const updateTaskSuccess = data => ({
+  type: UPDATE_TASK_SUCCESS,
+  data
+});
+
+export const UPDATE_TASK_ERROR = "UPDATE_TASK_ERROR";
+export const updateTaskError = error => ({
+  type: UPDATE_TASK_ERROR,
+  error
+});
+
