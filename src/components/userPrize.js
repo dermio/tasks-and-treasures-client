@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getPrize, createPrize } from "../actions/prizes";
+import { getPrize, createPrize, deletePrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
@@ -12,6 +12,8 @@ export class UserPrize extends React.Component {
     from the browser console. */
     window.dispatch = this.props.dispatch;
     window.createPrize = createPrize;
+
+    window.deletePrize = deletePrize;
 
     /* Run the following code, after the two previous lines of code,
     to dispatch creating a prize in the browser console.
