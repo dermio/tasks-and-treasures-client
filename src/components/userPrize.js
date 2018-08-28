@@ -24,7 +24,7 @@ export class UserPrize extends React.Component {
   onDelete(event, prize) {
     console.log("[[[ CLICK DELETE PRIZE BUTTON ]]]");
     console.log(prize);
-    //this.props.dispatch(deletePrize(prize.id));
+    this.props.dispatch(deletePrize(prize.id));
   }
 
   render() {

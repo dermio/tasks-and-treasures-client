@@ -69,7 +69,7 @@ export class Dashboard extends React.Component {
         }
         {!this.state.isAddPrizeFormVisible &&
           <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
-            Create Prize
+            {this.props.userPrize ? "Update" : "Create"} Prize
           </button>
         }
       </div>
@@ -78,7 +78,8 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: !!state.auth.currentUser
+  isLoggedIn: !!state.auth.currentUser,
+  userPrize: state.prizes.userPrize
 });
 
 export default connect(mapStateToProps)(Dashboard);
