@@ -137,4 +137,16 @@ export const updateTaskError = error => ({
 
 export const updateTask = id => (dispatch, getState) => {
   console.log("UPDATE TASK THUNK");
+  const authToken = getState().auth.authToken; //console.log(authToken);
+  dispatch(updateTaskRequest());
+
+  // return fetch(`${API_BASE_URL}/tasks/${id}`, {
+  //   method: "PUT",
+  //   headers: {
+  //     API_BASE_URL: `Bearer ${authToken}`
+  //   },
+  //   // Need the taskName to update. How to get the taskName?
+  //   body: JSON.stringify({ taskName })
+  // })
+
 };
