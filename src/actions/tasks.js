@@ -149,5 +149,14 @@ export const updateTask = ({ id, taskName }) => (dispatch, getState) => {
     // Need the taskName to update. How to get the taskName?
     body: JSON.stringify({ id, taskName })
   })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(updateTaskSuccess(res));
+    dispatch(getTasks());
 
+    // Hide the update task form after updating task
+  })
+  .catch(err => {
+    dispatch(updateTaskError(err));
+  });
 };
