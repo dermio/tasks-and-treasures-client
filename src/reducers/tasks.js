@@ -76,6 +76,20 @@ export default function reducer(state = initialState, action) {
       pending_DELETE_task: false,
       error_DELETE_task: action.error
     });
+  } else if (action.type === UPDATE_TASK_REQUEST) {
+    return Object.assign({}, state, {
+      pending_UPDATE_task: true
+    });
+  } else if (action.type === UPDATE_TASK_SUCCESS) {
+    return Object.assign({}, state, {
+      pending_UPDATE_task: false,
+      error_UPDATE_task: false
+    });
+  } else if (action.type === UPDATE_TASK_ERROR) {
+    return Object.assign({}, state, {
+      pending_UPDATE_task: false,
+      error_UPDATE_task: action.error
+    });
   }
   return state;
 };
