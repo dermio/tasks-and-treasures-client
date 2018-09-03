@@ -143,7 +143,8 @@ export const updateTask = ({ id, taskName }) => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/tasks/${id}`, {
     method: "PUT",
     headers: {
-      API_BASE_URL: `Bearer ${authToken}`
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
     },
     // Need the taskName to update. How to get the taskName?
     body: JSON.stringify({ id, taskName })
