@@ -19,7 +19,7 @@ export class UserTasksList extends React.Component {
   onUpdate = (event, task) => {
     event.preventDefault();
     console.log("click UPDATE task button");
-    this.props.dispatch(updateTask(task.id));
+    this.props.dispatch(updateTask(task.id, task.taskName));
   }
 
   render() {
