@@ -9,6 +9,8 @@ import { getTasks, deleteTask, updateTask } from "../actions/tasks";
 export class UserTasksList extends React.Component {
   componentDidMount() {
     this.props.dispatch(getTasks());
+
+    window.updateTask = updateTask;
   }
 
   onDelete = (event, task) => {
