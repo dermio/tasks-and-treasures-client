@@ -27,6 +27,8 @@ const initialState = {
   error_CREATE_task: false,
   pending_DELETE_task: false,
   error_DELETE_task: false,
+  pending_UPDATE_task: false,
+  error_UPDATE_task: false,
   allUserTasks: [], // the data, success
 };
 
