@@ -1,5 +1,7 @@
 import React from "react";
 
+import UpdateTaskForm from "./update-task-form";
+
 export default class Task extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +13,14 @@ export default class Task extends React.Component {
   render() {
     return (
       <li>
-        {
+        {/* {
           this.state.isEditing ?
           <input /> :
+          this.props.task.taskName
+        } */}
+        {
+          this.state.isEditing ?
+          <UpdateTaskForm /> :
           this.props.task.taskName
         }
         <button onClick={(e) =>{this.props.onUpdate(e, this.props.task)}}>
