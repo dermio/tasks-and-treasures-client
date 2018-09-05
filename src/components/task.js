@@ -20,13 +20,18 @@ export default class Task extends React.Component {
         } */}
         {
           this.state.isEditing ?
-          <UpdateTaskForm /> :
-          this.props.task.taskName
+            <UpdateTaskForm
+              task={this.props.task}
+              onTaskUpdated={() => this.setState({ isEditing: false })}
+            /> :
+            <span>
+              {this.props.task.taskName}
+              <button onClick={e => this.setState({ isEditing: true })}>
+                Update Task
+              </button>
+            </span>
         }
-        <button onClick={(e) =>{this.props.onUpdate(e, this.props.task)}}>
-          Update Task
-        </button>
-        <button onClick={(e) =>{this.props.onDelete(e, this.props.task)}}>
+        <button onClick={e => this.props.onDelete(e, this.props.task)} >
           Delete Task
         </button>
       </li>
