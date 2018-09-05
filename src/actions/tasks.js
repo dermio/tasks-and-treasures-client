@@ -135,7 +135,7 @@ export const updateTaskError = error => ({
   error
 });
 
-export const updateTask = ({ id, taskName }) => (dispatch, getState) => {
+export const updateTask = ({ id, taskName, onTaskUpdated }) => (dispatch, getState) => {
   console.log("UPDATE TASK THUNK");
   const authToken = getState().auth.authToken; //console.log(authToken);
   dispatch(updateTaskRequest());
@@ -153,8 +153,7 @@ export const updateTask = ({ id, taskName }) => (dispatch, getState) => {
   .then(res => {
     dispatch(updateTaskSuccess(res));
     dispatch(getTasks());
-
-    // Hide the update task form after updating task
+    onTaskUpdated(); // Hide the update task form after updating task
   })
   .catch(err => {
     dispatch(updateTaskError(err));
