@@ -116,3 +116,46 @@ export const deleteTask = (id) => (dispatch, getState) => {
     dispatch(deleteTaskError(err));
   });
 };
+
+
+export const UPDATE_TASK_REQUEST = "UPDATE_TASK_REQUEST";
+export const updateTaskRequest = () => ({
+  type: UPDATE_TASK_REQUEST
+});
+
+export const UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS";
+export const updateTaskSuccess = data => ({
+  type: UPDATE_TASK_SUCCESS,
+  data
+});
+
+export const UPDATE_TASK_ERROR = "UPDATE_TASK_ERROR";
+export const updateTaskError = error => ({
+  type: UPDATE_TASK_ERROR,
+  error
+});
+
+export const updateTask = ({ id, taskName, onTaskUpdated }) => (dispatch, getState) => {
+  console.log("UPDATE TASK THUNK");
+  const authToken = getState().auth.authToken; //console.log(authToken);
+  dispatch(updateTaskRequest());
+
+  return fetch(`${API_BASE_URL}/tasks/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    // Need the taskName to update. How to get the taskName?
+    body: JSON.stringify({ id, taskName })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(updateTaskSuccess(res));
+    dispatch(getTasks());
+    onTaskUpdated(); // Hide the update task form after updating task
+  })
+  .catch(err => {
+    dispatch(updateTaskError(err));
+  });
+};
