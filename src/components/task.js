@@ -6,7 +6,7 @@ export default class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEditing: false // span?
+      isEditingTask: false // span?
     };
   }
 
@@ -14,19 +14,19 @@ export default class Task extends React.Component {
     return (
       <li>
         {/* {
-          this.state.isEditing ?
+          this.state.isEditingTask ?
           <input /> :
           this.props.task.taskName
         } */}
         {
-          this.state.isEditing ?
+          this.state.isEditingTask ?
             <UpdateTaskForm
               task={this.props.task}
-              onTaskUpdated={() => this.setState({ isEditing: false })}
+              onTaskUpdated={() => this.setState({ isEditingTask: false })}
             /> :
             <span>
               {this.props.task.taskName}
-              <button onClick={e => this.setState({ isEditing: true })}>
+              <button onClick={e => this.setState({ isEditingTask: true })}>
                 Update Task
               </button>
             </span>
@@ -42,7 +42,7 @@ export default class Task extends React.Component {
 
 /*
 <li>
-  {this.state.isEditing ? <input /> : this.props.task.taskName}
+  {this.state.isEditingTask ? <input /> : this.props.task.taskName}
   <button onClick={(e) =>{this.props.onUpdate(e, this.props.task)}}>
     Update Task
   </button>

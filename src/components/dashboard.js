@@ -20,13 +20,13 @@ export class Dashboard extends React.Component {
 
   // Task button shown is local to Dashboard component. Dashboard
   // is responsible for this state. No need to use Redux.
-  onAddTaskButtonClick() {
+  onAddTaskButtonClick() { // Click create Task, show Create Task form
     this.setState({
       isAddTaskFormVisible: !this.state.isAddTaskFormVisible
     });
   }
 
-  onAddPrizeButtonClick() {
+  onAddPrizeButtonClick() { // Click create Prize, show Create Prize Form
     this.setState({
       isAddPrizeFormVisible: !this.state.isAddPrizeFormVisible
     });
