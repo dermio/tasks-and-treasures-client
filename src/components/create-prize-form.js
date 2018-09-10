@@ -24,6 +24,9 @@ export class CreatePrizeForm extends React.Component {
           id="prizename"
         />
         <button type="submit">Submit Prize</button>
+        <button type="button" onClick={this.props.onPrizeCreated}>
+          Cancel Create
+        </button>
       </form>
     );
   }
