@@ -6,6 +6,7 @@ import { Field, reduxForm, /* focus */ } from "redux-form";
 import { required, nonEmpty, isTrimmed, length, matches } from "../validators";
 
 const passwordLength = length({ min: 10, max: 72 });
+const matchesPassword = matches("password");
 
 export class RegistrationForm extends React.Component {
 
@@ -27,6 +28,13 @@ export class RegistrationForm extends React.Component {
             type="password"
             name="password"
             validate={[required, passwordLength, isTrimmed]}
+          />
+          <label htmlFor="passwordConfirm">Confirm password</label>
+          <Field
+            component="input"
+            type="password"
+            name="passwordConfirm"
+            validate={[required, nonEmpty, matchesPassword]}
           />
         </form>
       </div>
