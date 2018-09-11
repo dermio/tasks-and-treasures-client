@@ -10,7 +10,7 @@ export function LandingPage({ isLoggedIn, location }) {
   if (isLoggedIn) {
     return <Redirect to="/dashboard" />;
   }
-
+console.log(location.pathname);
   return (
     <div className="home">
       <h2>Welcome to Foo App</h2>

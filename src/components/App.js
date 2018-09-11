@@ -54,7 +54,8 @@ class App extends Component {
     return (
       <div className="App">
         App
-        <Redirect path="/" to="/login" />
+
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route exact path="/login" component={LandingPage} />
         <Route exact path="/register" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
