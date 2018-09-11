@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Route, withRouter, /*Redirect*/ } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 
 import './App.css';
 
@@ -54,7 +54,9 @@ class App extends Component {
     return (
       <div className="App">
         App
-        <Route exact path="/" component={LandingPage} />
+        <Redirect path="/" to="/login" />
+        <Route exact path="/login" component={LandingPage} />
+        <Route exact path="/register" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/createtask" component={CreateTaskForm} />
       </div>

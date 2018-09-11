@@ -5,8 +5,7 @@ import { /*Link,*/ Redirect } from "react-router-dom";
 import LoginForm from "./login-form";
 import RegistrationForm from "./registration-form";
 
-export function LandingPage(props) {
-  let { isLoggedIn } = props;
+export function LandingPage({ isLoggedIn, location }) {
   // If we are logged in redirect straight to the user's dashboard
   if (isLoggedIn) {
     return <Redirect to="/dashboard" />;
@@ -15,9 +14,10 @@ export function LandingPage(props) {
   return (
     <div className="home">
       <h2>Welcome to Foo App</h2>
-      <LoginForm />
-      {/* <Link to="/register">Register</Link> */}
-      <RegistrationForm />
+      {
+        (location.pathname === "/login") ?
+          <LoginForm /> : <RegistrationForm />
+      }
     </div>
   );
 }
