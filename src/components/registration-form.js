@@ -36,6 +36,13 @@ export class RegistrationForm extends React.Component {
             name="passwordConfirm"
             validate={[required, nonEmpty, matchesPassword]}
           />
+          <label htmlFor="familyCode">Family code</label>
+          <Field
+            component="input"
+            type="text"
+            name="familyCode"
+            validate={[required, nonEmpty, isTrimmed]}
+          />
         </form>
       </div>
     );
