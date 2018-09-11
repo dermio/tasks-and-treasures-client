@@ -7,7 +7,7 @@ import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
-import CreatePrizeOrUpdateForm from "./create-prize-form";
+import CreateOrUpdatePrizeForm from "./create-prize-form";
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export class Dashboard extends React.Component {
         <UserTasksList />
         <UserPrize />
         {this.state.isAddPrizeFormVisible &&
-          <CreatePrizeOrUpdateForm
+          <CreateOrUpdatePrizeForm
             onPrizeCreated={
               () => this.setState({
                 isAddPrizeFormVisible: false
