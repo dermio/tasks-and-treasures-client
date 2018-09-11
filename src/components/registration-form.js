@@ -14,7 +14,11 @@ export class RegistrationForm extends React.Component {
     return (
       <div>
         <h2>Registration Form</h2>
-        <form>
+        <form
+          onSubmit={this.props.handleSubmit(
+            values => this.onSubmit(values)
+          )}
+        >
           <label htmlFor="username">Username</label>
           <Field
             component="input"
@@ -64,6 +68,8 @@ export class RegistrationForm extends React.Component {
             />{"  "}
             Child
           </label>
+
+          <button type="submit">REGISTER NEW USER</button>
         </form>
       </div>
     );
