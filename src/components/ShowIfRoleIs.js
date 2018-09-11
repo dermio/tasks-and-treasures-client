@@ -10,7 +10,7 @@ export function ShowIfRoleIs({ shouldShow, children }) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  shouldShow: ownProps.role === state.auth.currentUser.role
+  shouldShow: ownProps.userRole === state.auth.currentUser.role
 });
 
 export default connect(mapStateToProps)(ShowIfRoleIs);
