@@ -23,6 +23,7 @@ export default class Task extends React.Component {
             <UpdateTaskForm
               task={this.props.task}
               onTaskUpdated={() => this.setState({ isEditingTask: false })}
+              form={`updateForm[${this.props.task.id}]`}
             /> :
             <span>
               {this.props.task.taskName}
