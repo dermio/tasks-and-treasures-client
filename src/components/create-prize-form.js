@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 
 import { createOrUpdatePrize } from "../actions/prizes";
 
-export class CreatePrizeForm extends React.Component {
+export class CreatePrizeOrUpdateForm extends React.Component {
   onSubmit(values) {
     this.props.dispatch(createOrUpdatePrize({
       prizeName: values.prizename,
@@ -34,7 +34,7 @@ export class CreatePrizeForm extends React.Component {
 
 export default reduxForm({
   form: "createPrize"
-})(CreatePrizeForm);
+})(CreatePrizeOrUpdateForm);
 
 
 /*
@@ -42,9 +42,9 @@ export default reduxForm({
 2. Do I need connect from react-redux?
 
 import { connect } from "react-redux";
-const ConnectedCreatePrizeForm = connect()(CreatePrizeForm);
+const ConnectedCreatePrizeOrUpdateForm = connect()(CreatePrizeOrUpdateForm);
 
 export default reduxForm({
   form: "createPrize"
-})(ConnectedCreatePrizeForm);
+})(ConnectedCreatePrizeOrUpdateForm);
 */
