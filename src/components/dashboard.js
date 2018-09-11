@@ -7,7 +7,7 @@ import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
-import CreateOrUpdatePrizeForm from "./create-prize-form";
+import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 
 export class Dashboard extends React.Component {
   constructor(props) {
