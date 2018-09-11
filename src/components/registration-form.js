@@ -43,6 +43,27 @@ export class RegistrationForm extends React.Component {
             name="familyCode"
             validate={[required, nonEmpty, isTrimmed]}
           />
+
+          <br />
+          <label htmlFor="role">ROLE</label>
+          <label>
+            <Field
+              component="input"
+              type="radio"
+              name="role"
+              value="parent"
+            />{"  "}
+            Parent
+          </label>
+          <label>
+            <Field
+              component="input"
+              type="radio"
+              name="role"
+              value="child"
+            />{"  "}
+            Child
+          </label>
         </form>
       </div>
     );
