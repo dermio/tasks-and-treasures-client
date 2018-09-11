@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { /*Link,*/ Redirect } from "react-router-dom";
 
 import LoginForm from "./login-form";
+import RegistrationForm from "./registration-form";
 
 export function LandingPage(props) {
   let { isLoggedIn } = props;
@@ -16,6 +17,7 @@ export function LandingPage(props) {
       <h2>Welcome to Foo App</h2>
       <LoginForm />
       {/* <Link to="/register">Register</Link> */}
+      <RegistrationForm />
     </div>
   );
 }
