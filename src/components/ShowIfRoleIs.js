@@ -1,7 +1,7 @@
 /* Currently the functional component does not use JSX.
-The console warns: 'React' is defined but never used no-unused-vars
-Later if the component requres the use of JSX, react will need
-to beimported */
+The console warns: 'React' is defined but never used no-unused-vars.
+Later if the component requires the use of JSX, react will need
+to be imported */
 // import React from "react";
 
 import { connect } from "react-redux";
