@@ -9,6 +9,9 @@ const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches("password");
 
 export class RegistrationForm extends React.Component {
+  onSubmit(values) {
+    console.log("[[[ CLICK REGISTER USER ]]]", values);
+  }
 
   render() {
     return (
@@ -56,6 +59,7 @@ export class RegistrationForm extends React.Component {
               type="radio"
               name="role"
               value="parent"
+              validate={[required]}
             />{"  "}
             Parent
           </label>
@@ -65,6 +69,7 @@ export class RegistrationForm extends React.Component {
               type="radio"
               name="role"
               value="child"
+              validate={[required]}
             />{"  "}
             Child
           </label>
