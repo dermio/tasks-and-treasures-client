@@ -10,14 +10,16 @@ export function LandingPage({ isLoggedIn, location }) {
   if (isLoggedIn) {
     return <Redirect to="/dashboard" />;
   }
-console.log(location.pathname);
+
+  /* The location in props.location, or this.props.location, is a prop
+  object provided by React Router. The location object has a pathname key
+  that points to the current URL location of the app. */
+  console.log(location.pathname);
+
   return (
     <div className="home">
       <h2>Welcome to Foo App</h2>
-      {
-        (location.pathname === "/login") ?
-          <LoginForm /> : <RegistrationForm />
-      }
+      {(location.pathname === "/login") ? <LoginForm /> : <RegistrationForm />}
     </div>
   );
 }
