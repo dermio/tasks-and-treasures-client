@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, reduxForm, /* focus */ } from "redux-form";
+import { Link } from "react-router-dom";
 
 // import Input from "./input";
 import { registerUser } from "../actions/users";
@@ -79,7 +80,10 @@ export class RegistrationForm extends React.Component {
             Child
           </label>
 
-          <button type="submit">REGISTER NEW USER</button>
+          <button type="submit">Create account</button>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
         </form>
       </div>
     );
