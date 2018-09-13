@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, reduxForm /*, focus */} from "redux-form";
+import { Link } from "react-router-dom";
 
 // import Input from "./input";
 import { login } from "../actions/auth";
@@ -35,6 +36,9 @@ export class LoginForm extends React.Component {
 
         />
         <button>LOGIN</button>
+        <Link to="/register">
+          <button>Create account</button>
+        </Link>
       </form>
     );
   }
