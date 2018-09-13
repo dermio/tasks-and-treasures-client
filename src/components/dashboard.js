@@ -9,6 +9,8 @@ import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
 import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 
+import ShowIfRoleIs from "./ShowIfRoleIs";
+
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -40,20 +42,32 @@ export class Dashboard extends React.Component {
     return (
       <div>
         <p>USER'S DASHBOARD</p>
-        {this.state.isAddTaskFormVisible &&
-          <CreateTaskForm
-            onTaskCreated={
-              () => this.setState({
-                isAddTaskFormVisible: false
-              })
+
+        <ShowIfRoleIs userRole="parent">
+          <h1>This is the Parent</h1>
+        </ShowIfRoleIs>
+
+        <ShowIfRoleIs userRole="child">
+          <h1>This is the Child</h1>
+        </ShowIfRoleIs>
+
+        <ShowIfRoleIs userRole="parent">
+          <React.Fragment>
+            {this.state.isAddTaskFormVisible &&
+              <CreateTaskForm
+                onTaskCreated={
+                  () => this.setState({ isAddTaskFormVisible: false })
+                }
+              />
             }
-          />
-        }
-        {!this.state.isAddTaskFormVisible &&
-          <button onClick={(e) => this.onAddTaskButtonClick(e)}>
-            Create Task
-          </button>
-        }
+            {!this.state.isAddTaskFormVisible &&
+              <button onClick={(e) => this.onAddTaskButtonClick(e)}>
+                Create Task
+              </button>
+            }
+          </React.Fragment>
+        </ShowIfRoleIs>
+
 
         <LogoutButton />
         <UserTasksList />
