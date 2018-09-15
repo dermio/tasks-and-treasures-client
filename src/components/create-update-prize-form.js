@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
 
 import { createOrUpdatePrize } from "../actions/prizes";
 
@@ -25,16 +26,17 @@ export class CreateOrUpdatePrizeForm extends React.Component {
         />
         <button type="submit">Submit Prize</button>
         <button type="button" onClick={this.props.onPrizeCreated}>
-          Cancel Create
+          Cancel {this.props.userPrize ? "Update" : "Create"}
         </button>
       </form>
     );
   }
 }
 
+/* old code
 export default reduxForm({
   form: "createPrize"
-})(CreateOrUpdatePrizeForm);
+})(CreateOrUpdatePrizeForm); */
 
 
 /*
@@ -48,3 +50,15 @@ export default reduxForm({
   form: "createPrize"
 })(ConnectedCreateOrUpdatePrizeForm);
 */
+
+
+const mapStateToProps = state => ({
+  userPrize: state.prizes.userPrize
+});
+
+const ConnectedCreateOrUpdatePrizeForm =
+  connect(mapStateToProps)(CreateOrUpdatePrizeForm);
+
+export default reduxForm({
+  form: "createprize"
+})(ConnectedCreateOrUpdatePrizeForm);
