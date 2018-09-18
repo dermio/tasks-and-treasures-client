@@ -1,6 +1,7 @@
 import React from "react";
 
 import UpdateTaskForm from "./update-task-form";
+import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
 export default class Task extends React.Component {
   constructor(props) {
@@ -20,21 +21,34 @@ export default class Task extends React.Component {
         } */}
         {
           this.state.isEditingTask ?
-            <UpdateTaskForm
-              task={this.props.task}
-              onTaskUpdated={() => this.setState({ isEditingTask: false })}
-              form={`updateForm[${this.props.task.id}]`}
-            /> :
+            <ConnectedShowIfRoleIs userRole="parent">
+              <React.Fragment>
+                <UpdateTaskForm
+                  task={this.props.task}
+                  onTaskUpdated={() => this.setState({ isEditingTask: false })}
+                  form={`updateForm[${this.props.task.id}]`}
+                />
+              </React.Fragment>
+            </ConnectedShowIfRoleIs>
+            :
             <span>
               {this.props.task.taskName}
-              <button onClick={e => this.setState({ isEditingTask: true })}>
-                Update Task
-              </button>
+              <ConnectedShowIfRoleIs userRole="parent">
+                <React.Fragment>
+                <button onClick={e => this.setState({ isEditingTask: true })}>
+                  Update Task
+                </button>
+                </React.Fragment>
+              </ConnectedShowIfRoleIs>
             </span>
         }
-        <button onClick={e => this.props.onDelete(e, this.props.task)} >
-          Delete Task
-        </button>
+        <ConnectedShowIfRoleIs userRole="parent">
+          <React.Fragment>
+          <button onClick={e => this.props.onDelete(e, this.props.task)} >
+            Delete Task
+          </button>
+          </React.Fragment>
+        </ConnectedShowIfRoleIs>
       </li>
     );
   }
