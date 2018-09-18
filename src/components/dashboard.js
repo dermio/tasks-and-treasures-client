@@ -72,20 +72,26 @@ export class Dashboard extends React.Component {
         <LogoutButton />
         <UserTasksList />
         <UserPrize />
-        {this.state.isAddPrizeFormVisible &&
-          <CreateOrUpdatePrizeForm
-            onPrizeCreated={
-              () => this.setState({
-                isAddPrizeFormVisible: false
-              })
+
+        <ShowIfRoleIs userRole="parent">
+          <React.Fragment>
+            {this.state.isAddPrizeFormVisible &&
+              <CreateOrUpdatePrizeForm
+                onPrizeCreated={
+                  () => this.setState({
+                    isAddPrizeFormVisible: false
+                  })
+                }
+              />
             }
-          />
-        }
-        {!this.state.isAddPrizeFormVisible &&
-          <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
-            {this.props.userPrize ? "Update" : "Create"} Prize
-          </button>
-        }
+            {!this.state.isAddPrizeFormVisible &&
+              <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
+                {this.props.userPrize ? "Update" : "Create"} Prize
+              </button>
+            }
+          </React.Fragment>
+        </ShowIfRoleIs>
+
       </div>
     );
   }
