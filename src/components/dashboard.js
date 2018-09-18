@@ -9,7 +9,7 @@ import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
 import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 
-import ShowIfRoleIs from "./ShowIfRoleIs";
+import ShowIfRoleIsContainer from "./ShowIfRoleIs";
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -43,15 +43,15 @@ export class Dashboard extends React.Component {
       <div>
         <p>USER'S DASHBOARD</p>
 
-        <ShowIfRoleIs userRole="parent">
+        <ShowIfRoleIsContainer userRole="parent">
           <h1>This is the Parent</h1>
-        </ShowIfRoleIs>
+        </ShowIfRoleIsContainer>
 
-        <ShowIfRoleIs userRole="child">
+        <ShowIfRoleIsContainer userRole="child">
           <h1>This is the Child</h1>
-        </ShowIfRoleIs>
+        </ShowIfRoleIsContainer>
 
-        <ShowIfRoleIs userRole="parent">
+        <ShowIfRoleIsContainer userRole="parent">
           <React.Fragment>
             {this.state.isAddTaskFormVisible &&
               <CreateTaskForm
@@ -66,14 +66,14 @@ export class Dashboard extends React.Component {
               </button>
             }
           </React.Fragment>
-        </ShowIfRoleIs>
+        </ShowIfRoleIsContainer>
 
 
         <LogoutButton />
         <UserTasksList />
         <UserPrize />
 
-        <ShowIfRoleIs userRole="parent">
+        <ShowIfRoleIsContainer userRole="parent">
           <React.Fragment>
             {this.state.isAddPrizeFormVisible &&
               <CreateOrUpdatePrizeForm
@@ -90,7 +90,7 @@ export class Dashboard extends React.Component {
               </button>
             }
           </React.Fragment>
-        </ShowIfRoleIs>
+        </ShowIfRoleIsContainer>
 
       </div>
     );
