@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { getPrize, createOrUpdatePrize, deletePrize } from "../actions/prizes";
+import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
 export class UserPrize extends React.Component {
   componentDidMount() {
@@ -36,11 +37,17 @@ export class UserPrize extends React.Component {
     return (
       <div className="userPrize">
         {this.props.userPrize && this.props.userPrize.prizeName}
+
+        <ConnectedShowIfRoleIs userRole="parent">
+        <React.Fragment>
         {this.props.userPrize &&
           <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>
             Delete Prize
           </button>
         }
+        </React.Fragment>
+        </ConnectedShowIfRoleIs>
+
       </div>
     );
   }
