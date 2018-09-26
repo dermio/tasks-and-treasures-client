@@ -159,3 +159,25 @@ export const updateTask = ({ id, taskName, onTaskUpdated }) => (dispatch, getSta
     dispatch(updateTaskError(err));
   });
 };
+
+export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) => {
+  console.log("CHANGE TASK COMPLETED THUNK");
+
+  const authToken = getState().auth.authToken; //console.log(authToken);
+  //dispatch(updateTaskRequest());
+
+  return fetch(`${API_BASE_URL}/tasks/${id}/completed`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    // Need the taskName to update. How to get the taskName?
+    body: JSON.stringify({ id, completed })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    // dispatch(updateTaskSuccess(res));
+    dispatch(getTasks());
+  })
+};

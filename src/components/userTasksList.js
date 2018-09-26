@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Task from "./task";
 import "./userTasksList.css";
 
-import { getTasks, deleteTask, updateTask } from "../actions/tasks";
+import { getTasks, deleteTask, updateTask, changeTaskCompletion } from "../actions/tasks";
 
 export class UserTasksList extends React.Component {
   componentDidMount() {
@@ -18,10 +18,15 @@ export class UserTasksList extends React.Component {
     this.props.dispatch(deleteTask(task.id));
   }
 
-  onUpdate = (event, task) => {
+
+
+  onChangeCompleted = (event, task) => {
     event.preventDefault();
-    console.log("click UPDATE task button");
-    this.props.dispatch(updateTask(task.id, task.taskName));
+    console.log("click CHECKED task button");
+    this.props.dispatch(changeTaskCompletion({
+      id: task.id,
+      completed: !task.completedDate
+    }));
   }
 
   render() {
@@ -39,7 +44,7 @@ export class UserTasksList extends React.Component {
         key={index}
         task={task}
         onDelete={(e) =>{this.onDelete(e, task)}}
-        onUpdate={(e) =>{this.onUpdate(e, task)}}
+        onChecked={(e) => {this.onChangeCompleted(e, task)}}
       />
     );
 
