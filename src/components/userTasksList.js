@@ -4,7 +4,10 @@ import { connect } from "react-redux";
 import Task from "./task";
 import "./userTasksList.css";
 
-import { getTasks, deleteTask, updateTask, changeTaskCompletion } from "../actions/tasks";
+import {
+  getTasks, deleteTask, updateTask, changeTaskCompletion
+} from "../actions/tasks";
+import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
 export class UserTasksList extends React.Component {
   componentDidMount() {
@@ -17,8 +20,6 @@ export class UserTasksList extends React.Component {
     event.preventDefault();
     this.props.dispatch(deleteTask(task.id));
   }
-
-
 
   onChangeCompleted = (event, task) => {
     event.preventDefault();
@@ -53,6 +54,15 @@ export class UserTasksList extends React.Component {
         <ul className="userTasksList-UL">
           {tasks}
         </ul>
+
+        <ConnectedShowIfRoleIs userRole="child">
+          <React.Fragment>
+          <button
+            disabled={this.props.userTasks.some(task => !task.completedDate)}>
+            Submit as Finished
+          </button>
+          </React.Fragment>
+        </ConnectedShowIfRoleIs>
       </div>
     );
   }
