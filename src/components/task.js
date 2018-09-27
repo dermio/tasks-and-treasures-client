@@ -46,12 +46,12 @@ export default class Task extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
-          <input
-            name="completedTask"
-            type="checkbox"
-            checked={!!this.props.task.completedDate}
-            onChange={this.props.onChecked}
-          />
+            <input
+              name="completedTask"
+              type="checkbox"
+              checked={!!this.props.task.completedDate}
+              onChange={this.props.onChecked}
+            />
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </li>
