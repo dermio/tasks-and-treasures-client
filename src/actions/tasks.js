@@ -160,6 +160,9 @@ export const updateTask = ({ id, taskName, onTaskUpdated }) => (dispatch, getSta
   });
 };
 
+
+/* Thunk for when Child user checks box to complete Task */
+/* Do I need to create `CHANGE_TASK_COMPLETION` Actions for Dispatch? */
 export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) => {
   console.log("CHANGE TASK COMPLETED THUNK");
 
@@ -172,7 +175,8 @@ export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) 
       Authorization: `Bearer ${authToken}`,
       "Content-Type": "application/json"
     },
-    // Need the taskName to update. How to get the taskName?
+    /* `completed` is a Boolean. It's dispatched when the Child user clicks
+    the Task checkbox for completion. */
     body: JSON.stringify({ id, completed })
   })
   .then(res => normalizeResponseErrors(res))
