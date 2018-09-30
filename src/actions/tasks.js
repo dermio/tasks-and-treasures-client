@@ -185,3 +185,16 @@ export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) 
     dispatch(getTasks());
   })
 };
+
+
+/* Second thunk dispatched when task checkbox is clicked. The Child user
+who clicked the checkbox, the logged in user, will be saved to the database
+in the Tasks collection. */
+export const changeTaskCompletedByUser = ({ msg }) => () => {
+  console.log("[[[ CHANGE TASK DONE BY USER THUNK ]]]");
+  console.log(msg);
+
+  // return fetch(`${API_BASE_URL}/tasks/${}`, {
+
+  // })
+};
