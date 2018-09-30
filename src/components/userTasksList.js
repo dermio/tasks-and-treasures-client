@@ -5,7 +5,8 @@ import Task from "./task";
 import "./userTasksList.css";
 
 import {
-  getTasks, deleteTask, updateTask, changeTaskCompletion
+  getTasks, deleteTask, updateTask,
+  changeTaskCompletion, changeTaskCompletedByUser
 } from "../actions/tasks";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
@@ -27,6 +28,12 @@ export class UserTasksList extends React.Component {
     this.props.dispatch(changeTaskCompletion({
       id: task.id,
       completed: !task.completedDate
+    }));
+
+    // Also dispatch which Child user clicked the checkbox
+    console.log("[[[ dispatch the Child user who click checkbox ]]]");
+    this.props.dispatch(changeTaskCompletedByUser({
+      msg: "A Child user clicked the check box"
     }));
   }
 
