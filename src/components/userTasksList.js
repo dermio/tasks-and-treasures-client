@@ -6,7 +6,7 @@ import "./userTasksList.css";
 
 import {
   getTasks, deleteTask, updateTask,
-  changeTaskCompletion, changeTaskCompletedByUser
+  changeTaskCompletion, notifyParentTasksReadyForReview
 } from "../actions/tasks";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
@@ -29,13 +29,12 @@ export class UserTasksList extends React.Component {
       id: task.id,
       completed: !task.completedDate
     }));
-
-    // Also dispatch which Child user clicked the checkbox
-    console.log("[[[ dispatch the Child user who click checkbox ]]]");
-    this.props.dispatch(changeTaskCompletedByUser({
-      msg: "A Child user clicked the check box"
-    }));
   }
+
+  onSubmitForApproval = (event) => {
+    event.preventDefault();
+    this.props.dispatch(notifyParentTasksReadyForReview());
+  };
 
   render() {
     let tasks = this.props.userTasks.map((task, index) =>
@@ -64,10 +63,12 @@ export class UserTasksList extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
-          <button
-            disabled={this.props.userTasks.some(task => !task.completedDate)}>
-            Submit as Finished
-          </button>
+            <button
+              disabled={this.props.userTasks.some(task => !task.completedDate)}
+              onClick={this.onSubmitForApproval}
+            >
+              Notify Parent tasks are done
+            </button>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </div>
