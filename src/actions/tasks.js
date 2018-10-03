@@ -162,12 +162,13 @@ export const updateTask = ({ id, taskName, onTaskUpdated }) => (dispatch, getSta
 
 
 /* Thunk for when Child user checks box to complete Task */
-/* Do I need to create `CHANGE_TASK_COMPLETION` Actions for Dispatch? */
-export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) => {
+/* I do NOT need to create `CHANGE_TASK_COMPLETION` Actions for Dispatch,
+unless I want to. */
+export const changeTaskCompletion = ({ id, completed }) => (
+  dispatch, getState
+) => {
   console.log("CHANGE TASK COMPLETED THUNK");
-
   const authToken = getState().auth.authToken; //console.log(authToken);
-  //dispatch(updateTaskRequest());
 
   return fetch(`${API_BASE_URL}/tasks/${id}/completed`, {
     method: "PUT",
@@ -183,18 +184,21 @@ export const changeTaskCompletion = ({ id, completed }) => (dispatch, getState) 
   .then(res => {
     // dispatch(updateTaskSuccess(res));
     dispatch(getTasks());
-  })
+  });
 };
 
 
-/* Second thunk dispatched when task checkbox is clicked. The Child user
-who clicked the checkbox, the logged in user, will be saved to the database
-in the Tasks collection. */
-export const changeTaskCompletedByUser = ({ msg }) => () => {
-  console.log("[[[ CHANGE TASK DONE BY USER THUNK ]]]");
-  console.log(msg);
+export const notifyParentTasksReadyForReview = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
 
-  // return fetch(`${API_BASE_URL}/tasks/${}`, {
-
-  // })
+  return fetch(`${API_BASE_URL}/tasks/requestReview`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    // no need to dispatch getTasks()
+  });
 };
