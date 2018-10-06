@@ -58,15 +58,3 @@ export default class Task extends React.Component {
     );
   }
 }
-
-/*
-<li>
-  {this.state.isEditingTask ? <input /> : this.props.task.taskName}
-  <button onClick={(e) =>{this.props.onUpdate(e, this.props.task)}}>
-    Update Task
-  </button>
-  <button onClick={(e) =>{this.props.onDelete(e, this.props.task)}}>
-    Delete Task
-  </button>
-</li>
-*/
