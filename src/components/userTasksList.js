@@ -38,15 +38,6 @@ export class UserTasksList extends React.Component {
 
   render() {
     let tasks = this.props.userTasks.map((task, index) =>
-      // <li key={index}>
-      //   {task.taskName}
-      //   <button onClick={(e) =>{this.onDelete(e, task)}}>
-      //     Delete Task
-      //   </button>
-      //   <button onClick={(e) =>{this.onUpdate(e, task)}}>
-      //     Update Task
-      //   </button>
-      // </li>
       <Task
         key={index}
         task={task}
