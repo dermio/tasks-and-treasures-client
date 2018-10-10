@@ -10,6 +10,7 @@ import CreateTaskForm from "./create-task-form";
 import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
+import ChildStatusList from "./ChildStatusList";
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -44,7 +45,10 @@ export class Dashboard extends React.Component {
         <p>USER'S DASHBOARD</p>
 
         <ConnectedShowIfRoleIs userRole="parent">
-          <h1>This is the Parent</h1>
+          <div>
+            <h1>This is the Parent</h1>
+            <ChildStatusList />
+          </div>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="child">
