@@ -191,7 +191,7 @@ export const changeTaskCompletion = ({ id, completed }) => (
 export const notifyParentTasksReadyForReview = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
-  return fetch(`${API_BASE_URL}/tasks/requestReview`, {
+  return fetch(`${API_BASE_URL}/tasks/request/review`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${authToken}`
@@ -200,5 +200,30 @@ export const notifyParentTasksReadyForReview = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => {
     // no need to dispatch getTasks()
+  });
+};
+
+
+// Later create Sync Actions for GET_CHILD_STATUS Request and Error
+export const GET_CHILD_STATUS_SUCCESS = "GET_CHILD_STATUS_SUCCESS";
+export const getChildStatusSuccess = data => ({
+  type: GET_CHILD_STATUS_SUCCESS,
+  data
+});
+
+export const getChildStatus = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/tasks/children/status`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => dispatch(getChildStatusSuccess(data))) // create sync action
+  .catch(err => {
+    dispatch(getTasksError(err));
   });
 };
