@@ -10,7 +10,9 @@ import {
   DELETE_TASK_ERROR,
   UPDATE_TASK_REQUEST,
   UPDATE_TASK_SUCCESS,
-  UPDATE_TASK_ERROR
+  UPDATE_TASK_ERROR,
+
+  GET_CHILD_STATUS_SUCCESS // need GET_CHILD_STATUS Request and Error
 } from "../actions/tasks";
 
 
@@ -30,6 +32,8 @@ const initialState = {
   pending_UPDATE_task: false,
   error_UPDATE_task: false,
   allUserTasks: [], // the data, success
+
+  allChildStatus: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -90,6 +94,14 @@ export default function reducer(state = initialState, action) {
       pending_UPDATE_task: false,
       error_UPDATE_task: action.error
     });
+  }
+
+
+
+  else if (action.type === GET_CHILD_STATUS_SUCCESS) {
+    return Object.assign({}, state, {
+      allChildStatus: action.data.users
+    })
   }
   return state;
 };
