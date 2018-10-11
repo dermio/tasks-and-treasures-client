@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import "./ChildStatusList.css";
 import { getChildStatus } from "../actions/tasks";
 
 export class ChildStatusList extends React.Component {
@@ -17,9 +18,11 @@ export class ChildStatusList extends React.Component {
     ));
 
     return (
-      <div>
+      <div className="childStatusList">
         <h4>The Kiddies</h4>
-        <ul>{childStatusList}</ul>
+        <ul className="childStatusList-UL">
+          {childStatusList}
+        </ul>
       </div>
     );
   }
