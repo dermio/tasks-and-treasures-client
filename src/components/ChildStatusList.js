@@ -11,15 +11,15 @@ export class ChildStatusList extends React.Component {
 
   render() {
     let childStatusList = this.props.childStatusList.map((child, index) => (
-      <div key={index}>
-        <span>Child User: {child.username}</span>
-      </div>
+      <li key={index}>
+        <div>Child User: {child.username}</div>
+      </li>
     ));
 
     return (
       <div>
         <h4>The Kiddies</h4>
-        {childStatusList}
+        <ul>{childStatusList}</ul>
       </div>
     );
   }
