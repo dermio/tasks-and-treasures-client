@@ -21,13 +21,13 @@ export class UserPrize extends React.Component {
         {this.props.userPrize && this.props.userPrize.prizeName}
 
         <ConnectedShowIfRoleIs userRole="parent">
-        <React.Fragment>
-        {this.props.userPrize &&
-          <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>
-            Delete Prize
-          </button>
-        }
-        </React.Fragment>
+          <React.Fragment>
+            {this.props.userPrize &&
+              <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>
+                Delete Prize
+              </button>
+            }
+          </React.Fragment>
         </ConnectedShowIfRoleIs>
 
       </div>
