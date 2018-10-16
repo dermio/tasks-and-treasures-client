@@ -10,12 +10,19 @@ export class ChildStatusList extends React.Component {
     this.props.dispatch(getChildStatus());
   }
 
+  approveChildTasks = () => {
+    console.log("[[[ PARENT APPROVES CHILD TASKS ]]]");
+  }
+
   render() {
     let childStatusList = this.props.childStatusList.map((child, index) => (
       <li key={index}>
         <div>
           <span>Child User: {child.username}</span>
-          <button>
+          <button
+            disabled={!child.tasksReadyForReview}
+            onClick={this.approveChildTasks}
+          >
             Approve Child Tasks
           </button>
         </div>
