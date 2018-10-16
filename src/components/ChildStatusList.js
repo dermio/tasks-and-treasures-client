@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import "./ChildStatusList.css";
 import { getChildStatus } from "../actions/tasks";
+import { awardChildPrize } from "../actions/prizes";
 
 export class ChildStatusList extends React.Component {
   componentDidMount() {
@@ -10,8 +11,10 @@ export class ChildStatusList extends React.Component {
     this.props.dispatch(getChildStatus());
   }
 
-  approveChildTasks = () => {
+  onApproveChildTasks = () => {
     console.log("[[[ PARENT APPROVES CHILD TASKS ]]]");
+
+    this.props.dispatch(awardChildPrize);
   }
 
   render() {
@@ -21,7 +24,7 @@ export class ChildStatusList extends React.Component {
           <span>Child User: {child.username}</span>
           <button
             disabled={!child.tasksReadyForReview}
-            onClick={this.approveChildTasks}
+            onClick={this.onApproveChildTasks}
           >
             Approve Child Tasks
           </button>
