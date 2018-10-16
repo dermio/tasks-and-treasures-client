@@ -11,10 +11,10 @@ export class ChildStatusList extends React.Component {
     this.props.dispatch(getChildStatus());
   }
 
-  onApproveChildTasks = () => {
+  onApproveChildTasks = (child) => {
     console.log("[[[ PARENT APPROVES CHILD TASKS ]]]");
 
-    this.props.dispatch(awardChildPrize);
+    this.props.dispatch(awardChildPrize(child));
   }
 
   render() {
@@ -24,7 +24,7 @@ export class ChildStatusList extends React.Component {
           <span>Child User: {child.username}</span>
           <button
             disabled={!child.tasksReadyForReview}
-            onClick={this.onApproveChildTasks}
+            onClick={() => this.onApproveChildTasks(child)}
           >
             Approve Child Tasks
           </button>
