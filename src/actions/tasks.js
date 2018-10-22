@@ -170,6 +170,8 @@ export const changeTaskCompletion = ({ id, completed }) => (
   console.log("CHANGE TASK COMPLETED THUNK");
   const authToken = getState().auth.authToken; //console.log(authToken);
 
+  console.log("[[[ {ID, COMPLETED} ]]]", {id, completed});
+
   return fetch(`${API_BASE_URL}/tasks/${id}/completed`, {
     method: "PUT",
     headers: {
