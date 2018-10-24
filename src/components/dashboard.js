@@ -46,13 +46,13 @@ export class Dashboard extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="parent">
           <div>
-            <h1>This is the Parent</h1>
+            <h1>This is the Parent {this.props.loggedInUser}</h1>
             <ChildStatusList />
           </div>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="child">
-          <h1>This is the Child</h1>
+          <h1>This is the Child {this.props.loggedInUser}</h1>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="parent">
@@ -103,7 +103,8 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => ({
   isLoggedIn: !!state.auth.currentUser,
-  userPrize: state.prizes.userPrize
+  userPrize: state.prizes.userPrize,
+  loggedInUser: state.auth.currentUser ? state.auth.currentUser.username : ""
 });
 
 export default connect(mapStateToProps)(Dashboard);
