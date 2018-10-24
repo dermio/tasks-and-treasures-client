@@ -27,7 +27,9 @@ export class UserTasksList extends React.Component {
     console.log("click CHECKED task button");
     this.props.dispatch(changeTaskCompletion({
       id: task.id,
-      completed: !task.completedDate
+      completed: !task.completions.find(
+        completion => completion.completedByUser === this.props.loggedInUser
+      )
     }));
   }
 
@@ -43,6 +45,7 @@ export class UserTasksList extends React.Component {
         task={task}
         onDelete={(e) =>{this.onDelete(e, task)}}
         onChecked={(e) => {this.onChangeCompleted(e, task)}}
+        loggedInUser={this.props.loggedInUser}
       />
     );
 
@@ -68,7 +71,8 @@ export class UserTasksList extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  userTasks: state.tasks.allUserTasks
+  userTasks: state.tasks.allUserTasks,
+  loggedInUser: state.auth.currentUser.id
 });
 
 export default connect(mapStateToProps)(UserTasksList);
