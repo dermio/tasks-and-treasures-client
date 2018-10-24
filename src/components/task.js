@@ -49,7 +49,11 @@ export default class Task extends React.Component {
             <input
               name="completedTask"
               type="checkbox"
-              checked={!!this.props.task.completedDate}
+              checked={
+                !!this.props.task.completions.find(completion =>
+                  completion.completedByUser === this.props.loggedInUser
+                )
+              }
               onChange={this.props.onChecked}
             />
           </React.Fragment>
