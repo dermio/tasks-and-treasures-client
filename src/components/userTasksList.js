@@ -58,7 +58,14 @@ export class UserTasksList extends React.Component {
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
             <button
-              disabled={this.props.userTasks.some(task => !task.completedDate)}
+              // disabled={this.props.userTasks.some(task => !task.completedDate)}
+              disabled={
+                !this.props.userTasks.every(task => {
+                  return task.completions.find(user => {
+                    return user.completedByUser === this.props.loggedInUser;
+                  });
+                })
+              }
               onClick={this.onSubmitForApproval}
             >
               Notify Parent tasks are done
