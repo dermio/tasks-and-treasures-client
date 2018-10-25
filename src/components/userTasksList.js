@@ -60,8 +60,8 @@ export class UserTasksList extends React.Component {
             <button
               // disabled={this.props.userTasks.some(task => !task.completedDate)}
               disabled={
-                !this.props.userTasks.every(task => {
-                  return task.completions.find(user => {
+                this.props.userTasks.some(task => {
+                  return !task.completions.find(user => {
                     return user.completedByUser === this.props.loggedInUser;
                   });
                 })
