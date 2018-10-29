@@ -30,6 +30,11 @@ export class UserPrize extends React.Component {
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
+        <ConnectedShowIfRoleIs userRole="child">
+          <button display="none" type="button">
+            Get your Prize Kiddo!
+          </button>
+        </ConnectedShowIfRoleIs>
       </div>
     );
   }
