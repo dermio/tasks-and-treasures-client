@@ -12,7 +12,7 @@ export class ChildStatusList extends React.Component {
   }
 
   onApproveChildTasks = (child) => {
-    console.log("[[[ PARENT APPROVES CHILD TASKS ]]]");
+    console.log("[[[ PARENT APPROVES CHILD TASKS ]]]", child);
 
     this.props.dispatch(awardChildPrize(child));
   }
