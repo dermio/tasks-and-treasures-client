@@ -17,13 +17,18 @@ export class ChildStatusList extends React.Component {
     this.props.dispatch(awardChildPrize(child));
   }
 
+  /* TODO: Modify button text, if the prize was already rewarded
+  i.e. 'approve child tasks' vs 'prize already awarded' */
   render() {
     let childStatusList = this.props.childStatusList.map((child, index) => (
       <li key={index}>
         <div>
           <span>Child User: {child.username}</span>
           <button
-            disabled={!child.tasksReadyForReview}
+            disabled={
+              !child.tasksReadyForReview ||
+                child.awardedPrizes.includes(this.props.currentPrizeId)
+            }
             onClick={() => this.onApproveChildTasks(child)}
           >
             Approve Child Tasks
@@ -44,7 +49,9 @@ export class ChildStatusList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  childStatusList: state.tasks.allChildStatus
+  childStatusList: state.tasks.allChildStatus,
+  currentPrizeId: (state.prizes.userPrize)
+    ? state.prizes.userPrize.id : "not valid"
 });
 
 export default connect(mapStateToProps)(ChildStatusList);
