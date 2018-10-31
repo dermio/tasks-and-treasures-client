@@ -1,6 +1,8 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
+import { getChildStatus } from "./tasks";
+
 export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
 export const getPrizeRequest = () => ({
   type: GET_PRIZE_REQUEST
@@ -124,6 +126,22 @@ export const deletePrize = id => (dispatch, getState) => {
 export const awardChildPrize = child => (dispatch, getState) => {
   // Does this require making a FETCH call to the backend?
   console.log("[[[ awardChildPrize THUNK ]]]", child);
+  const authToken = getState().auth.authToken;
 
-  // Use fetch request with child id
+  // Modified typical PUT request to NOT need an Id (no Child Id needed)
+  return fetch(`${API_BASE_URL}/prizes/current/award`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ child })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(getChildStatus())
+  })
+  .catch(err => {
+    // dispatch(deletePrizeError(err));
+  });
 };
