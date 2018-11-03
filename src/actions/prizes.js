@@ -124,7 +124,6 @@ export const deletePrize = id => (dispatch, getState) => {
 
 // Might need awardChildPrize Request, Success, Error action creators
 export const awardChildPrize = child => (dispatch, getState) => {
-  // Does this require making a FETCH call to the backend?
   console.log("[[[ awardChildPrize THUNK ]]]", child);
   const authToken = getState().auth.authToken;
 
