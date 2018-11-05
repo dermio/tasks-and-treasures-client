@@ -33,6 +33,9 @@ export class ChildStatusList extends React.Component {
           >
             Approve Child Tasks
           </button>
+          <button>
+            Do Not Approve Child Tasks
+          </button>
         </div>
       </li>
     ));
