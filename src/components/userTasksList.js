@@ -4,17 +4,16 @@ import { connect } from "react-redux";
 import Task from "./task";
 import "./userTasksList.css";
 
+import { pollForPrizeStatus } from "../actions/prizes";
 import {
-  getTasks, deleteTask, updateTask,
-  changeTaskCompletion, notifyParentTasksReadyForReview
+  getTasks, deleteTask, changeTaskCompletion, notifyParentTasksReadyForReview
 } from "../actions/tasks";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
 export class UserTasksList extends React.Component {
   componentDidMount() {
     this.props.dispatch(getTasks());
-
-    window.updateTask = updateTask;
+    this.props.dispatch(pollForPrizeStatus());
   }
 
   onDelete = (event, task) => {
@@ -64,7 +63,7 @@ export class UserTasksList extends React.Component {
                   return !task.completions.find(user => {
                     return user.completedByUser === this.props.loggedInUser;
                   });
-                })
+                }) || this.props.submittedForReview
               }
               onClick={this.onSubmitForApproval}
             >
@@ -79,7 +78,8 @@ export class UserTasksList extends React.Component {
 
 const mapStateToProps = (state) => ({
   userTasks: state.tasks.allUserTasks,
-  loggedInUser: state.auth.currentUser.id
+  loggedInUser: state.auth.currentUser.id,
+  submittedForReview: state.auth.currentUser.tasksReadyForReview
 });
 
 export default connect(mapStateToProps)(UserTasksList);
