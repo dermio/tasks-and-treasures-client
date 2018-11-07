@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import "./ChildStatusList.css";
 import { getChildStatus } from "../actions/tasks";
-import { awardChildPrize } from "../actions/prizes";
+import { awardChildPrize, rejectChildPrize } from "../actions/prizes";
 
 export class ChildStatusList extends React.Component {
   componentDidMount() {
@@ -17,6 +17,12 @@ export class ChildStatusList extends React.Component {
     this.props.dispatch(awardChildPrize(child));
   }
 
+  onRejectChildTasks = (child) => {
+    console.log("[[[ PARENT REJECT CHILD TASKS ]]]", child);
+
+    this.props.dispatch(rejectChildPrize(child));
+  }
+
   /* TODO: Modify button text, if the prize was already rewarded
   i.e. 'approve child tasks' vs 'prize already awarded' */
   render() {
@@ -27,13 +33,16 @@ export class ChildStatusList extends React.Component {
           <button
             disabled={
               !child.tasksReadyForReview ||
-                child.awardedPrizes.includes(this.props.currentPrizeId)
+              child.awardedPrizes.includes(this.props.currentPrizeId)
             }
             onClick={() => this.onApproveChildTasks(child)}
           >
-            Approve Child Tasks
+            {child.awardedPrizes.includes(this.props.currentPrizeId)
+              ? "Prize was awarded" :
+              "Approve Tasks and Award Prize"}
           </button>
-          <button>
+
+          <button onClick={() => this.onRejectChildTasks(child)}>
             Do Not Approve Child Tasks
           </button>
         </div>
