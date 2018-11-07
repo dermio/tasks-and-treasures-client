@@ -2,6 +2,7 @@ import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
 import { getChildStatus } from "./tasks";
+import { refreshAuthToken } from "./auth";
 
 export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
 export const getPrizeRequest = () => ({
@@ -143,4 +144,37 @@ export const awardChildPrize = child => (dispatch, getState) => {
   .catch(err => {
     // dispatch(deletePrizeError(err));
   });
+};
+
+
+export const rejectChildPrize = child => (dispatch, getState) => {
+  console.log("[[[ rejectChildPrize THUNK ]]]", child);
+  const authToken = getState().auth.authToken;
+
+  // Modified typical PUT request to NOT need an Id (no Child Id needed)
+  return fetch(`${API_BASE_URL}/prizes/current/reject`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ child })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    dispatch(getChildStatus())
+  })
+  .catch(err => {
+    // dispatch(deletePrizeError(err));
+  });
+};
+
+
+export const pollForPrizeStatus = child => (dispatch, getState) => {
+  setInterval(() => {
+    console.log("CHECKING TO SEE IF CALL REFRESH AUTH TOKEN");
+    if (getState().auth.currentUser.tasksReadyForReview) {
+      dispatch(refreshAuthToken())
+    }
+  }, 5000)
 };
