@@ -169,7 +169,9 @@ export const rejectChildPrize = child => (dispatch, getState) => {
   });
 };
 
-
+/* The setInterval function is constantly running. If the Child user
+has property `tasksReadyForReview` set to true, refreshAuthToken()
+is called, why need to refresh? */
 export const pollForPrizeStatus = child => (dispatch, getState) => {
   setInterval(() => {
     console.log("CHECKING TO SEE IF CALL REFRESH AUTH TOKEN");
