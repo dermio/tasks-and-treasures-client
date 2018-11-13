@@ -177,6 +177,9 @@ export const pollForPrizeStatus = child => (dispatch, getState) => {
     console.log("CHECKING TO SEE IF CALL REFRESH AUTH TOKEN");
     if (getState().auth.currentUser.tasksReadyForReview) {
       dispatch(refreshAuthToken())
+
+      // Dispatch, Request data from backend. Child component state
+      // is updated. get() endpoint to get updated data for User.
     }
   }, 5000)
 };
