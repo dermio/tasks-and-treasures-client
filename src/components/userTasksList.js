@@ -69,6 +69,12 @@ export class UserTasksList extends React.Component {
             >
               Notify Parent tasks are done
             </button>
+
+            {/* Mock UI for Child prize */}
+            <div>
+              <h4>Show Child Prize</h4>
+              <p>{this.props.userAwardedPrize[0]}</p>
+            </div>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </div>
@@ -79,7 +85,9 @@ export class UserTasksList extends React.Component {
 const mapStateToProps = (state) => ({
   userTasks: state.tasks.allUserTasks,
   loggedInUser: state.auth.currentUser.id,
-  submittedForReview: state.auth.currentUser.tasksReadyForReview
+  submittedForReview: state.auth.currentUser.tasksReadyForReview,
+
+  userAwardedPrize: state.auth.currentUser // new
 });
 
 export default connect(mapStateToProps)(UserTasksList);
