@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
+import { refreshAuthToken } from "./auth";
 
 export const GET_TASKS_REQUEST = "GET_TASKS_REQUEST";
 export const getTasksRequest = () => ({
@@ -202,6 +203,9 @@ export const notifyParentTasksReadyForReview = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => {
     // no need to dispatch getTasks()
+
+    // Really need to refresh User info, not necessarily refresh token
+    dispatch(refreshAuthToken());
   });
 };
 
@@ -228,4 +232,15 @@ export const getChildStatus = () => (dispatch, getState) => {
   .catch(err => {
     dispatch(getTasksError(err));
   });
+};
+
+
+/* Parent polls Child's state `tasksReadyForReview` in
+`state.tasks.allChildStatus` for each Child user. Part of condition
+to enable approve child tasks button for the Parent. */
+export const pollGetChildStatus = () => (dispatch, getState) => {
+  dispatch(getChildStatus());
+  setInterval(() => {
+    dispatch(getChildStatus());
+  }, 5000)
 };
