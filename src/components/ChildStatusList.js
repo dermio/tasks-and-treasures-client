@@ -2,13 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./ChildStatusList.css";
-import { getChildStatus } from "../actions/tasks";
-import { awardChildPrize, rejectChildPrize } from "../actions/prizes";
+import { pollGetChildStatus } from "../actions/tasks";
+import { awardChildPrize, rejectChildPrize }
+  from "../actions/prizes";
 
 export class ChildStatusList extends React.Component {
   componentDidMount() {
     // This is where I need to fetch my data
-    this.props.dispatch(getChildStatus());
+
+    /* Child's `tasksReadyForReview` property part of the condition
+    to enable approve child tasks button for the Parent. */
+    this.props.dispatch(pollGetChildStatus());
   }
 
   onApproveChildTasks = (child) => {
