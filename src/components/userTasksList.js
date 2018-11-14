@@ -73,7 +73,7 @@ export class UserTasksList extends React.Component {
             {/* Mock UI for Child prize */}
             <div>
               <h4>Show Child Prize</h4>
-              <p>{this.props.userAwardedPrize[0]}</p>
+              <p>{this.props.prize && this.props.prize.prizeName}</p>
             </div>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
@@ -82,12 +82,18 @@ export class UserTasksList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   userTasks: state.tasks.allUserTasks,
   loggedInUser: state.auth.currentUser.id,
   submittedForReview: state.auth.currentUser.tasksReadyForReview,
 
-  userAwardedPrize: state.auth.currentUser // new
+  prize:
+    (state &&
+    state.auth &&
+    state.auth.currentUser &&
+    state.auth.currentUser.awardedPrizes)
+      ? state.auth.currentUser.awardedPrizes[0]
+      : "" // new
 });
 
 export default connect(mapStateToProps)(UserTasksList);
