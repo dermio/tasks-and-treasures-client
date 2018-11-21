@@ -33,6 +33,13 @@ export const authError = error => ({
   error
 });
 
+// Clear interval for the log out button
+export const UPDATE_CHILD_INTERVAL = "UPDATE_CHILD_INTERVAL";
+export const updateChildInterval = interval => ({
+  type: UPDATE_CHILD_INTERVAL,
+  interval
+});
+
 /* Stores the auth token in state and localStorage, and decodes and stores
 the user data stored in the token */
 const storeAuthInfo = (authToken, dispatch) => {
@@ -98,4 +105,29 @@ export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(clearAuth());
     clearAuthToken(authToken);
   });
+};
+
+
+// Get the current Child user info. Used for the polling thunks.
+export const UPDATE_CURRENT_USER = "UPDATE_CURRENT_USER";
+export const updateCurrentUser = user => ({
+  type: UPDATE_CURRENT_USER,
+  user
+});
+
+export const refreshCurrentUser = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/users/currentUser`, {
+    method: "GET",
+    headers: {
+      // Provide our existing token as credentials to get a new one
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(user => {
+    dispatch(updateCurrentUser(user))
+  })
+  .catch(err => {});
 };
