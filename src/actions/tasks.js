@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
-import { refreshAuthToken } from "./auth";
+import { refreshCurrentUser } from "./auth";
 
 export const GET_TASKS_REQUEST = "GET_TASKS_REQUEST";
 export const getTasksRequest = () => ({
@@ -205,7 +205,7 @@ export const notifyParentTasksReadyForReview = () => (dispatch, getState) => {
     // no need to dispatch getTasks()
 
     // Really need to refresh User info, not necessarily refresh token
-    dispatch(refreshAuthToken());
+    dispatch(refreshCurrentUser());
   });
 };
 
