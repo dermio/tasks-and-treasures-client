@@ -3,7 +3,9 @@ import {
   CLEAR_AUTH,
   AUTH_REQUEST,
   AUTH_SUCCESS,
-  AUTH_ERROR
+  AUTH_ERROR,
+  UPDATE_CHILD_INTERVAL,
+  UPDATE_CURRENT_USER
 } from "../actions/auth";
 
 const initialState = {
@@ -38,6 +40,14 @@ export default function reducer(state = initialState, action) {
       loading: false,
       error: action.error
     });
+  } else if (action.type === UPDATE_CHILD_INTERVAL) {
+    return Object.assign({}, state, {
+      childInt: action.interval
+    })
+  } else if (action.type === UPDATE_CURRENT_USER) {
+    return Object.assign({}, state, {
+      currentUser: action.user
+    })
   }
   return state;
 };
