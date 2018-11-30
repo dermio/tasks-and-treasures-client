@@ -103,5 +103,10 @@ export default function reducer(state = initialState, action) {
       allChildStatus: action.data.users
     })
   }
+  else if (action.type === "SET_INTERVAL_ID") {
+    return Object.assign({}, state, {
+      pollGetChildStatusIntervalId: action.intervalId
+    })
+  }
   return state;
 };
