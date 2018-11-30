@@ -173,14 +173,11 @@ export const rejectChildPrize = child => (dispatch, getState) => {
 };
 
 
-/* The setInterval function is constantly running. If the Child user
-has property `tasksReadyForReview` set to true, refreshCurrentUser()
-is called, why need to refresh? Answer: Refreshing the Auth token
-is an "ugly" way for the Parent to check the state of
-`tasksReadyForReview` for each Child user in `state.tasks.allChildStatus`.
-Checking the state of `tasksReadyForReview` allows the approve tasks button
-in the ChildStatusList component to be enabled, so the Parent can approve
-each Child's task list. */
+/* If a Child user is logged in, the setInterval function is called.
+If the Child user has property `tasksReadyForReview` of True,
+refreshCurrentUser() is repeatedly called. Question: Why need to refresh?
+Answer: To get updated current user info, specifically the property
+`tasksReadyForReview` of the user, and maybe some other stuff. */
 export const pollForPrizeStatus = child => (dispatch, getState) => {
   const state = getState();
   let childInt;
@@ -192,7 +189,10 @@ export const pollForPrizeStatus = child => (dispatch, getState) => {
   ) {
     childInt = setInterval(() => {
       console.log("CHECKING TO SEE IF CALL REFRESH AUTH TOKEN");
+      // Child clicked button, their Tasks are ready for review.
       if (getState().auth.currentUser.tasksReadyForReview) {
+        /* Child `tasksReadyForReview` property is true. Periodically
+        get updated User info from the backend. */
         dispatch(refreshCurrentUser());
       }
     }, 5000);
