@@ -115,6 +115,9 @@ export const updateCurrentUser = user => ({
   user
 });
 
+/* Get current user info, get new info periodically from backend.
+E.g. get Child user `tasksReadyForReview` property.
+Dispatch `updateCurrentUser` to update state with current User info. */
 export const refreshCurrentUser = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/users/currentUser`, {
@@ -125,9 +128,10 @@ export const refreshCurrentUser = () => (dispatch, getState) => {
     }
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => res.json())
+  .then(res => res.json()) // Get back User (Child) info
   .then(user => {
-    dispatch(updateCurrentUser(user))
+    // Update state with current User (Child) info
+    dispatch(updateCurrentUser(user));
   })
   .catch(err => {});
 };
