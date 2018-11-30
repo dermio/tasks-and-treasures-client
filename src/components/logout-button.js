@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { clearAuth, updateChildInterval } from "../actions/auth";
+import { stopPollGetChildStatus } from "../actions/tasks";
 
 export class LogoutButton extends React.Component {
   handleLogout(event) {
@@ -16,6 +17,12 @@ export class LogoutButton extends React.Component {
     // Clear the setInterval from `pollForPrizeStatus` once logged out
     window.clearInterval(this.props.childInt);
     this.props.dispatch(updateChildInterval(null));
+
+    // Stop polling for get Child status once logged out
+    this.props.dispatch(stopPollGetChildStatus());
+
+    /* Lines 18-21, later can create thunks to dispatch these actions
+    if desired. */
   }
 
   /* Using type="button" lets you skip the use of event.preventDefault
