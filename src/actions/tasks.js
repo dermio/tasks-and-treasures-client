@@ -235,12 +235,29 @@ export const getChildStatus = () => (dispatch, getState) => {
 };
 
 
+/* Need to stop polling when logging out. This will prevent errors & crashing.
+The thunk is dispatched from the LogoutButton component. */
+export const stopPollGetChildStatus = () => (dispatch, getState) => {
+  // if statement
+  const intervalId = getState().tasks.pollGetChildStatusIntervalId;
+  console.log("[[[ intervalId ]]]", intervalId);
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+}
+
 /* Parent polls Child's state `tasksReadyForReview` in
-`state.tasks.allChildStatus` for each Child user. Part of condition
-to enable approve child tasks button for the Parent. */
+`state.tasks.allChildStatus` for each Child user. It's part of the condition
+to enable the button, to approve child tasks for the Parent. */
 export const pollGetChildStatus = () => (dispatch, getState) => {
   dispatch(getChildStatus());
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     dispatch(getChildStatus());
-  }, 5000)
+  }, 5000);
+
+  // Eventually create action creator for dispatch.
+  dispatch({
+    type: "SET_INTERVAL_ID",
+    intervalId
+  });
 };
