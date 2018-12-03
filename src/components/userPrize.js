@@ -32,7 +32,7 @@ export class UserPrize extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
-            {true &&
+            {this.props.awardedPrize &&
               <button type="button">Get your Prize Kiddo!</button>
             }
           </React.Fragment>
@@ -43,7 +43,9 @@ export class UserPrize extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  userPrize: state.prizes.userPrize
+  userPrize: state.prizes.userPrize,
+  // Fix the awarded prize, it's hard coded to first item in array
+  awardedPrize: state.auth.currentUser.awardedPrizes[0]
 });
 
 export default connect(mapStateToProps)(UserPrize);
