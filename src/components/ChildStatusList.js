@@ -46,7 +46,13 @@ export class ChildStatusList extends React.Component {
               "Approve Tasks and Award Prize"}
           </button>
 
-          <button onClick={() => this.onRejectChildTasks(child)}>
+          <button
+            disabled={
+              !child.tasksReadyForReview ||
+              child.awardedPrizes.includes(this.props.currentPrizeId)
+            }
+            onClick={() => this.onRejectChildTasks(child)}
+          >
             Do Not Approve Child Tasks
           </button>
         </div>
