@@ -65,6 +65,7 @@ export class Dashboard extends React.Component {
               />
             }
             {!this.state.isAddTaskFormVisible &&
+              !this.props.isTasksFinalized &&
               <button onClick={(e) => this.onAddTaskButtonClick(e)}>
                 Create Task
               </button>
@@ -104,7 +105,8 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   isLoggedIn: !!state.auth.currentUser,
   userPrize: state.prizes.userPrize,
-  loggedInUser: state.auth.currentUser ? state.auth.currentUser.username : ""
+  loggedInUser: state.auth.currentUser ? state.auth.currentUser.username : "",
+  isTasksFinalized: state.family.tasksFinalized
 });
 
 export default connect(mapStateToProps)(Dashboard);
