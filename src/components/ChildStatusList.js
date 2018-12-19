@@ -5,6 +5,7 @@ import "./ChildStatusList.css";
 import { pollGetChildStatus } from "../actions/tasks";
 import { awardChildPrize, rejectChildPrize }
   from "../actions/prizes";
+import { getFamily } from "../actions/family";
 
 export class ChildStatusList extends React.Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ export class ChildStatusList extends React.Component {
     /* Child's `tasksReadyForReview` property part of the condition
     to enable approve child tasks button for the Parent. */
     this.props.dispatch(pollGetChildStatus());
+    this.props.dispatch(getFamily()); // Get family data when page loads.
   }
 
   onApproveChildTasks = (child) => {
