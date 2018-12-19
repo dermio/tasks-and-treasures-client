@@ -9,6 +9,7 @@ import authReducer from "./reducers/auth";
 import protectedDataReducer from "./reducers/protected-data";
 import tasksReducer from "./reducers/tasks";
 import prizesReducer from "./reducers/prizes";
+import familyReducer from "./reducers/family";
 
 import { setAuthToken, refreshAuthToken } from "./actions/auth";
 
@@ -20,7 +21,8 @@ const store = createStore(
     auth: authReducer,
     protectedData: protectedDataReducer,
     tasks: tasksReducer,
-    prizes: prizesReducer
+    prizes: prizesReducer,
+    family: familyReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 );
