@@ -61,3 +61,37 @@ export const finalizeTasksList = () => (dispatch, getState) => {
     dispatch(finalizeTasksListError(err));
   });
 };
+
+
+export const RESET_TASKS_LIST_SUCCESS = "RESET_TASKS_LIST_SUCCESS";
+export const resetTasksListSuccess = family => ({
+  type: RESET_TASKS_LIST_SUCCESS
+});
+
+export const RESET_TASKS_LIST_ERROR = "RESET_TASKS_LIST_ERROR";
+export const resetTasksListError = family => ({
+  type: RESET_TASKS_LIST_ERROR
+});
+
+export const resetTasksList = () => (dispatch, getState) => {
+  // INCOMPLETE, resetTasksList needs to DELETE all tasks (and prize)?
+  console.log("[[[ THUNK, PUT, RESET TASKS LIST ]]]");
+
+  const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
+
+  return fetch(`${API_BASE_URL}/family/${familyCode}/reset`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    // dispatch(resetTasksListSuccess()); // optional
+    dispatch(getFamily());
+  })
+  .catch(err => {
+    dispatch(resetTasksListError(err));
+  });
+};
