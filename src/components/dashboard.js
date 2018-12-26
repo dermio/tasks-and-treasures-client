@@ -12,7 +12,7 @@ import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 import ChildStatusList from "./ChildStatusList";
 
-import { finalizeTasksList } from "../actions/family";
+import { finalizeTasksList, resetTasksList } from "../actions/family";
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -40,6 +40,11 @@ export class Dashboard extends React.Component {
   onFinalizeTasksList() {
     console.log("[[[ CLICK FINALIZE TASKS LIST ]]]");
     this.props.dispatch(finalizeTasksList());
+  }
+
+  onResetTasksList() {
+    console.log("[[[ CLICK RESET TASKS LIST ]]]");
+    this.props.dispatch(resetTasksList());
   }
 
   render() {
@@ -81,6 +86,12 @@ export class Dashboard extends React.Component {
               !this.props.isTasksFinalized &&
               <button onClick={e => this.onFinalizeTasksList(e)}>
                 Finalize Tasks List
+              </button>
+            }
+            {!this.state.isAddTaskFormVisible &&
+              this.props.isTasksFinalized &&
+              <button onClick={e => this.onResetTasksList(e)}>
+                Reset Tasks List
               </button>
             }
           </React.Fragment>
