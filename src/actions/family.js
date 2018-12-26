@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
+import { getTasks } from "./tasks";
 // import { refreshCurrentUser } from "./auth"; // might need this thunk later
 
 
@@ -90,6 +91,7 @@ export const resetTasksList = () => (dispatch, getState) => {
   .then(res => {
     // dispatch(resetTasksListSuccess()); // optional
     dispatch(getFamily());
+    dispatch(getTasks());
   })
   .catch(err => {
     dispatch(resetTasksListError(err));
