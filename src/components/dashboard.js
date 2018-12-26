@@ -12,6 +12,8 @@ import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 import ChildStatusList from "./ChildStatusList";
 
+import { finalizeTasksList } from "../actions/family";
+
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +35,11 @@ export class Dashboard extends React.Component {
     this.setState({
       isAddPrizeFormVisible: !this.state.isAddPrizeFormVisible
     });
+  }
+
+  onFinalizeTasksList() {
+    console.log("[[[ CLICK FINALIZE TASKS LIST ]]]");
+    this.props.dispatch(finalizeTasksList());
   }
 
   render() {
@@ -68,6 +75,12 @@ export class Dashboard extends React.Component {
               !this.props.isTasksFinalized &&
               <button onClick={(e) => this.onAddTaskButtonClick(e)}>
                 Create Task
+              </button>
+            }
+            {!this.state.isAddTaskFormVisible &&
+              !this.props.isTasksFinalized &&
+              <button onClick={e => this.onFinalizeTasksList(e)}>
+                Finalize Tasks List
               </button>
             }
           </React.Fragment>
