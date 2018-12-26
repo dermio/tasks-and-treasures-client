@@ -27,3 +27,37 @@ export const getFamily = () => (dispatch, getState) => {
   .then(res => dispatch(getFamilySuccess(res.family))) // res.family is object
   .catch(err => {});
 }
+
+
+export const FINALIZE_TASKS_LIST_SUCCESS = "FINALIZE_TASKS_LIST_SUCCESS";
+export const finalizeTasksListSuccess = family => ({
+  type: FINALIZE_TASKS_LIST_SUCCESS
+});
+
+export const FINALIZE_TASKS_LIST_ERROR = "FINALIZE_TASKS_LIST_ERROR";
+export const finalizeTasksListError = error => ({
+  type: FINALIZE_TASKS_LIST_ERROR,
+  error
+});
+
+export const finalizeTasksList = () => (dispatch, getState) => {
+  console.log("[[[ THUNK, PUT, FINALIZE TASKS LIST ]]]");
+
+  const authToken = getState().auth.authToken;
+  const familyCode = getState().auth.currentUser.familyCode;
+
+  return fetch(`${API_BASE_URL}/family/${familyCode}/finalize`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    // dispatch(finalizeTasksListSuccess(res)); // optional
+    dispatch(getFamily());
+  })
+  .catch(err => {
+    dispatch(finalizeTasksListError(err));
+  });
+};
