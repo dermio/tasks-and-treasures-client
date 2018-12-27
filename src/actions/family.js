@@ -76,7 +76,6 @@ export const resetTasksListError = family => ({
 });
 
 export const resetTasksList = () => (dispatch, getState) => {
-  // INCOMPLETE, resetTasksList needs to DELETE all tasks (and prize)?
   console.log("[[[ THUNK, PUT, RESET TASKS LIST ]]]");
 
   const authToken = getState().auth.authToken;
@@ -88,14 +87,14 @@ export const resetTasksList = () => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-  .then(res => normalizeResponseErrors(res))
-  .then(res => {
-    // dispatch(resetTasksListSuccess()); // optional
-    dispatch(getFamily());
-    dispatch(getTasks());
-    dispatch(getPrize());
-  })
-  .catch(err => {
-    dispatch(resetTasksListError(err));
-  });
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      // dispatch(resetTasksListSuccess()); // optional
+      dispatch(getFamily());
+      dispatch(getTasks());
+      dispatch(getPrize());
+    })
+    .catch(err => {
+      dispatch(resetTasksListError(err));
+    });
 };
