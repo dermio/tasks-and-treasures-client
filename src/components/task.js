@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import UpdateTaskForm from "./update-task-form";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
-export default class Task extends React.Component {
+export class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,11 +18,13 @@ export default class Task extends React.Component {
         {this.state.isEditingTask ? (
           <ConnectedShowIfRoleIs userRole="parent">
             <React.Fragment>
-              <UpdateTaskForm
-                task={this.props.task}
-                onTaskUpdated={() => this.setState({ isEditingTask: false })}
-                form={`updateForm[${this.props.task.id}]`}
-              />
+              {!this.props.isTasksFinalized &&
+                <UpdateTaskForm
+                  task={this.props.task}
+                  onTaskUpdated={() => this.setState({ isEditingTask: false })}
+                  form={`updateForm[${this.props.task.id}]`}
+                />
+              }
             </React.Fragment>
           </ConnectedShowIfRoleIs>
         ) : (
@@ -29,9 +32,11 @@ export default class Task extends React.Component {
             {this.props.task.taskName}
             <ConnectedShowIfRoleIs userRole="parent">
               <React.Fragment>
-                <button onClick={e => this.setState({ isEditingTask: true })}>
-                  Update Task
-                </button>
+                {!this.props.isTasksFinalized &&
+                  <button onClick={e => this.setState({ isEditingTask: true })}>
+                    Update Task
+                  </button>
+                }
               </React.Fragment>
             </ConnectedShowIfRoleIs>
           </span>
@@ -62,3 +67,9 @@ export default class Task extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isTasksFinalized: state.family.tasksFinalized
+});
+
+export default connect(mapStateToProps)(Task);
