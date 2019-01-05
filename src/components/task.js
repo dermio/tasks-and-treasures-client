@@ -43,9 +43,11 @@ export class Task extends React.Component {
         )}
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
-            <button onClick={e => this.props.onDelete(e, this.props.task)}>
-              Delete Task
-            </button>
+            {!this.props.isTasksFinalized &&
+              <button onClick={e => this.props.onDelete(e, this.props.task)}>
+                Delete Task
+              </button>
+            }
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
