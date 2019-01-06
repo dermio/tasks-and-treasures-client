@@ -105,6 +105,7 @@ export class Dashboard extends React.Component {
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             {this.state.isAddPrizeFormVisible &&
+              !this.props.isTasksFinalized &&
               <CreateOrUpdatePrizeForm
                 onPrizeCreated={
                   () => this.setState({
@@ -114,6 +115,7 @@ export class Dashboard extends React.Component {
               />
             }
             {!this.state.isAddPrizeFormVisible &&
+              !this.props.isTasksFinalized &&
               <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
                 {this.props.userPrize ? "Update" : "Create"} Prize
               </button>
