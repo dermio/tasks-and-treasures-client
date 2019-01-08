@@ -23,6 +23,7 @@ export class UserPrize extends React.Component {
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             {this.props.userPrize &&
+              !this.props.isTasksFinalized &&
               <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>
                 Delete Prize
               </button>
@@ -45,7 +46,8 @@ export class UserPrize extends React.Component {
 const mapStateToProps = (state) => ({
   userPrize: state.prizes.userPrize,
   // Fix the awarded prize, it's hard coded to first item in array
-  awardedPrize: state.auth.currentUser.awardedPrizes[0]
+  awardedPrize: state.auth.currentUser.awardedPrizes[0],
+  isTasksFinalized: state.family.tasksFinalized
 });
 
 export default connect(mapStateToProps)(UserPrize);
