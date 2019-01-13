@@ -56,6 +56,8 @@ export class Dashboard extends React.Component {
       <div>
         <p>USER'S DASHBOARD</p>
 
+        <LogoutButton />
+
         <ConnectedShowIfRoleIs userRole="parent">
           <div>
             <h3>This is the Parent {this.props.loggedInUser}</h3>
@@ -98,7 +100,6 @@ export class Dashboard extends React.Component {
         </ConnectedShowIfRoleIs>
 
 
-        <LogoutButton />
         <UserTasksList />
         <UserPrize />
 
