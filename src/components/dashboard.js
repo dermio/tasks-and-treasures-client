@@ -58,13 +58,13 @@ export class Dashboard extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="parent">
           <div>
-            <h1>This is the Parent {this.props.loggedInUser}</h1>
+            <h3>This is the Parent {this.props.loggedInUser}</h3>
             <ChildStatusList />
           </div>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="child">
-          <h1>This is the Child {this.props.loggedInUser}</h1>
+          <h3>This is the Child {this.props.loggedInUser}</h3>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="parent">
