@@ -21,13 +21,13 @@ export class RegistrationForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Registration Form</h2>
+      <div className="registration">
         <form
           onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}
         >
+          <h3>Registration Form</h3>
           <label htmlFor="username">Username</label>
           <Field
             component="input"
