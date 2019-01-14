@@ -14,32 +14,35 @@ export class LoginForm extends React.Component {
 
   render() {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(
-          values => this.onSubmit(values)
-        )}
-      >
-        <label htmlFor="username">Username</label>
-        <Field
-          component="input"
-          type="text"
-          name="username"
-          id="username"
+      <div className="login">
+        <form
+          onSubmit={this.props.handleSubmit(
+            values => this.onSubmit(values)
+          )}
+        >
+          <h3>Login Form</h3>
+          <label htmlFor="username">Username</label>
+          <Field
+            component="input"
+            type="text"
+            name="username"
+            id="username"
 
-        />
-        <label htmlFor="password">Password</label>
-        <Field
-          component="input"
-          type="password"
-          name="password"
-          id="password"
+          />
+          <label htmlFor="password">Password</label>
+          <Field
+            component="input"
+            type="password"
+            name="password"
+            id="password"
 
-        />
-        <button>LOGIN</button>
-        <Link to="/register">
-          <button>Create account</button>
-        </Link>
-      </form>
+          />
+          <button>LOGIN</button>
+          <Link to="/register">
+            <button>Create account</button>
+          </Link>
+        </form>
+      </div>
     );
   }
 }
