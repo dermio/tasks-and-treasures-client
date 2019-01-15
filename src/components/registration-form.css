@@ -1,0 +1,12 @@
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+
+  margin: 0 auto; /* Try to use Flexbox to center */
+}
+
+.registration-form > input {
+  margin-bottom: 10px;
+}
+
