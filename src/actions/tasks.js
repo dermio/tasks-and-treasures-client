@@ -29,6 +29,10 @@ export const setEditingTask = (taskId, isEditing) => ({
   taskId,
   isEditing,
 });
+export const RESET_EDITING_TASKS = 'RESET_EDITING_TASKS';
+export const resetEditingTasks = () => ({
+  type: RESET_EDITING_TASKS
+});
 
 export const getTasks = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;

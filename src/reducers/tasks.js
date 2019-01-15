@@ -13,6 +13,7 @@ import {
   UPDATE_TASK_ERROR,
   SET_EDITING_TASK,
 
+  RESET_EDITING_TASKS,
   GET_CHILD_STATUS_SUCCESS // need GET_CHILD_STATUS Request and Error
 } from "../actions/tasks";
 
@@ -103,14 +104,21 @@ export default function reducer(state = initialState, action) {
     ****************************/
   } else if (action.type === SET_EDITING_TASK) {
     console.log("[[[ SET EDITING TASK ]]]", action.taskId, action.isEditing)
-    return Object.assign({}, state, {
+    return {
+      ...state, // copy everything from old state
       tasksBeingEdited: {
-        [action.taskId]: action.isEditing
+        ...state.tasksBeingEdited, // copy everything from old state's taskBeingEditedKey
+        [action.taskId]: action.isEditing, //add key value pair for id: true/false
       }
-    });
+    }
   }
 
-
+  // Reset editing task
+  else if (action.type === RESET_EDITING_TASKS) {
+    return Object.assign({}, state, {
+      tasksBeingEdited: {} // empty object is false
+    });
+  }
 
   else if (action.type === GET_CHILD_STATUS_SUCCESS) {
     return Object.assign({}, state, {

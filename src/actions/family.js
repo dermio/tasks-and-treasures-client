@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
-import { getTasks } from "./tasks";
+import { getTasks, resetEditingTasks } from "./tasks";
 import { getPrize } from "./prizes";
 // import { refreshCurrentUser } from "./auth"; // might need this thunk later
 
@@ -58,6 +58,7 @@ export const finalizeTasksList = () => (dispatch, getState) => {
   .then(res => {
     // dispatch(finalizeTasksListSuccess(res)); // optional
     dispatch(getFamily());
+    dispatch(resetEditingTasks());
   })
   .catch(err => {
     dispatch(finalizeTasksListError(err));
