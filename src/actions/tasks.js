@@ -19,6 +19,17 @@ export const getTasksError = error => ({
   error
 });
 
+
+/****************************
+ * Justin, isEditing Tasks (and Prizes)
+****************************/
+export const SET_EDITING_TASK = 'SET_EDITING_TASK';
+export const setEditingTask = (taskId, isEditing) => ({
+  type: SET_EDITING_TASK,
+  taskId,
+  isEditing,
+});
+
 export const getTasks = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const familyCode = getState().auth.currentUser.familyCode;

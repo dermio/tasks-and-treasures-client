@@ -11,6 +11,7 @@ import {
   UPDATE_TASK_REQUEST,
   UPDATE_TASK_SUCCESS,
   UPDATE_TASK_ERROR,
+  SET_EDITING_TASK,
 
   GET_CHILD_STATUS_SUCCESS // need GET_CHILD_STATUS Request and Error
 } from "../actions/tasks";
@@ -33,7 +34,8 @@ const initialState = {
   error_UPDATE_task: false,
   allUserTasks: [], // the data, success
 
-  allChildStatus: []
+  allChildStatus: [],
+  tasksBeingEdited: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -93,6 +95,18 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       pending_UPDATE_task: false,
       error_UPDATE_task: action.error
+    });
+
+
+    /****************************
+     * Justin, isEditing Tasks (and Prizes)
+    ****************************/
+  } else if (action.type === SET_EDITING_TASK) {
+    console.log("[[[ SET EDITING TASK ]]]", action.taskId, action.isEditing)
+    return Object.assign({}, state, {
+      tasksBeingEdited: {
+        [action.taskId]: action.isEditing
+      }
     });
   }
 
