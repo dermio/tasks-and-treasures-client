@@ -7,6 +7,8 @@ import { registerUser } from "../actions/users";
 import { login } from "../actions/auth";
 import { required, nonEmpty, isTrimmed, length, matches } from "../validators";
 
+import "./registration-form.css";
+
 const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches("password");
 
@@ -26,6 +28,7 @@ export class RegistrationForm extends React.Component {
           onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}
+          className="registration-form"
         >
           <h3>Registration Form</h3>
           <label htmlFor="username">Username</label>
