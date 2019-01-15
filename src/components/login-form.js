@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { login } from "../actions/auth";
 //import { required, nonEmpty } from "../validators";
 
+import "./login-form.css";
+
 export class LoginForm extends React.Component {
   onSubmit(values) {
     let { username, password } = values;
@@ -19,6 +21,7 @@ export class LoginForm extends React.Component {
           onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}
+          className="login-form"
         >
           <h3>Login Form</h3>
           <label htmlFor="username">Username</label>
