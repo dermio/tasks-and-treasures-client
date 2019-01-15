@@ -1,11 +1,17 @@
+.login {
+  display: flex;
+  justify-content: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 400px;
   background-color: beige;
 
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* Try to use Flexbox to center */
+  justify-content: center;
 }
 
 .login-form > input {
