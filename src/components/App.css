@@ -25,6 +25,10 @@
 * App styling
 ****************************/
 .App {
-  text-align: center;
   border: 2px solid blue;
+}
+
+.app-name {
+	display: flex;
+	justify-content: center;
 }
