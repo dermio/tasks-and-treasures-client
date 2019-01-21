@@ -16,3 +16,11 @@
   margin-bottom: 10px;
 }
 
+.registration-name {
+  display: flex;
+  justify-content: center;
+}
+
+.registration-btn {
+  align-self: flex-start;
+}

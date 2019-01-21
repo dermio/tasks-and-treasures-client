@@ -30,7 +30,7 @@ export class RegistrationForm extends React.Component {
           )}
           className="registration-form"
         >
-          <h3>Registration Form</h3>
+          <h3 className="registration-name">Registration Form</h3>
           <label htmlFor="username">Username</label>
           <Field
             component="input"
@@ -83,7 +83,9 @@ export class RegistrationForm extends React.Component {
             Child
           </label>
 
-          <button type="submit">Create account</button>
+          <button type="submit" className="registration-btn">
+            Create account
+          </button>
           <Link to="/login">
             <button>Login</button>
           </Link>
