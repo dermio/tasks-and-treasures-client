@@ -40,7 +40,7 @@ export class LoginForm extends React.Component {
             id="password"
 
           />
-          <button>LOGIN</button>
+          <button className="login-btn">LOGIN</button>
           <Link to="/register">
             <button>Create account</button>
           </Link>
