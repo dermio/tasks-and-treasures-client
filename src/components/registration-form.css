@@ -1,11 +1,15 @@
+.registration {
+  display: flex;
+  justify-content: center;
+}
+
 .registration-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 400px;
   background-color: beige;
 
-  margin: 0 auto;
-  /* Try to use Flexbox to center */
+  padding: 20px;
 }
 
 .registration-form > input {
