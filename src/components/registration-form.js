@@ -60,7 +60,6 @@ export class RegistrationForm extends React.Component {
             validate={[required, nonEmpty, isTrimmed]}
           />
 
-          <br />
           <label htmlFor="role">Role</label>
           <label>
             <Field
@@ -69,8 +68,8 @@ export class RegistrationForm extends React.Component {
               name="role"
               value="parent"
               validate={[required]}
-            />{"  "}
-            Parent
+            />
+            {" Parent"}
           </label>
           <label>
             <Field
@@ -79,8 +78,8 @@ export class RegistrationForm extends React.Component {
               name="role"
               value="child"
               validate={[required]}
-            />{"  "}
-            Child
+            />
+            {" Child"}
           </label>
 
           <button type="submit" className="registration-btn">
