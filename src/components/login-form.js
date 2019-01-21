@@ -23,7 +23,7 @@ export class LoginForm extends React.Component {
           )}
           className="login-form"
         >
-          <h3>Login Form</h3>
+          <h3 className="login-name">Login Form</h3>
           <label htmlFor="username">Username</label>
           <Field
             component="input"
