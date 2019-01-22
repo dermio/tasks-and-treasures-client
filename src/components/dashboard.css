@@ -1,0 +1,8 @@
+.Dashboard {
+  border: 2px dashed green;
+}
+
+.dashboard-title {
+  display: flex;
+  justify-content: center;
+}
