@@ -6,3 +6,11 @@
   display: flex;
   justify-content: center;
 }
+
+
+/* Temporary, will decide to keep. */
+.Dashboard h3 {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
