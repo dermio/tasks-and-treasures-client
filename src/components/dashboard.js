@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import "./dashboard.css";
-import LogoutButton from "./logout-button";
 import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
 import CreateTaskForm from "./create-task-form";
