@@ -7,12 +7,13 @@ import './App.css';
 import LandingPage from "./landingPage";
 import Dashboard from "./dashboard";
 import CreateTaskForm from "./create-task-form";
+import Header from "./Header";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="app-name">Tasks and Treasures</h1>
+        <Header />
 
         <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route exact path="/login" component={LandingPage} />
