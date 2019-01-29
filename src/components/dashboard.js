@@ -59,33 +59,33 @@ export class Dashboard extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
-
-            {this.state.isAddTaskFormVisible &&
-              <CreateTaskForm
-                onTaskCreated={
-                  () => this.setState({ isAddTaskFormVisible: false })
-                }
-              />
-            }
-            {!this.state.isAddTaskFormVisible &&
-              !this.props.isTasksFinalized &&
-              <button onClick={(e) => this.onAddTaskButtonClick(e)}>
-                Create Task
-              </button>
-            }
-            {!this.state.isAddTaskFormVisible &&
-              !this.props.isTasksFinalized &&
-              <button onClick={e => this.onFinalizeTasksList(e)}>
-                Finalize Tasks List
-              </button>
-            }
-            {!this.state.isAddTaskFormVisible &&
-              this.props.isTasksFinalized &&
-              <button onClick={e => this.onResetTasksList(e)}>
-                Reset Tasks List
-              </button>
-            }
-
+            <article className="temp-task-button-form">
+              {this.state.isAddTaskFormVisible &&
+                <CreateTaskForm
+                  onTaskCreated={
+                    () => this.setState({ isAddTaskFormVisible: false })
+                  }
+                />
+              }
+              {!this.state.isAddTaskFormVisible &&
+                !this.props.isTasksFinalized &&
+                <button onClick={(e) => this.onAddTaskButtonClick(e)}>
+                  Create Task
+                </button>
+              }
+              {!this.state.isAddTaskFormVisible &&
+                !this.props.isTasksFinalized &&
+                <button onClick={e => this.onFinalizeTasksList(e)}>
+                  Finalize Tasks List
+                </button>
+              }
+              {!this.state.isAddTaskFormVisible &&
+                this.props.isTasksFinalized &&
+                <button onClick={e => this.onResetTasksList(e)}>
+                  Reset Tasks List
+                </button>
+              }
+            </article>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
