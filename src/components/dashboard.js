@@ -52,7 +52,7 @@ export class Dashboard extends React.Component {
     }
 
     return (
-      <div className="Dashboard">
+      <main className="Dashboard">
         <ConnectedShowIfRoleIs userRole="parent">
           <div>
             <h3>This is the Parent {this.props.loggedInUser}</h3>
@@ -119,7 +119,7 @@ export class Dashboard extends React.Component {
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
-      </div>
+      </main>
     );
   }
 }
