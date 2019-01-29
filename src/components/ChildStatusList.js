@@ -62,12 +62,12 @@ export class ChildStatusList extends React.Component {
     ));
 
     return (
-      <div className="childStatusList">
+      <section className="childStatusList">
         <h4>The Kiddies</h4>
         <ul className="childStatusList-UL">
           {childStatusList}
         </ul>
-      </div>
+      </section>
     );
   }
 }
