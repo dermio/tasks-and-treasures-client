@@ -57,10 +57,6 @@ export class Dashboard extends React.Component {
           <ChildStatusList />
         </ConnectedShowIfRoleIs>
 
-        <ConnectedShowIfRoleIs userRole="child">
-          <h3>This is the Child {this.props.loggedInUser}</h3>
-        </ConnectedShowIfRoleIs>
-
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             {this.state.isAddTaskFormVisible &&
