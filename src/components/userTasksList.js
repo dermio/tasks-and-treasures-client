@@ -50,6 +50,12 @@ export class UserTasksList extends React.Component {
 
     return (
       <div className="userTasksList">
+        <ConnectedShowIfRoleIs userRole="parent">
+          <React.Fragment>
+            <button>BATMAN JOKER</button>
+          </React.Fragment>
+        </ConnectedShowIfRoleIs>
+
         <ul className="userTasksList-UL">
           {tasks}
         </ul>
