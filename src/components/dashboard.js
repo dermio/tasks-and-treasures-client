@@ -54,8 +54,11 @@ export class Dashboard extends React.Component {
     return (
       <main className="Dashboard">
         <ConnectedShowIfRoleIs userRole="parent">
+          <ChildStatusList />
+        </ConnectedShowIfRoleIs>
+
+        <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
-            <ChildStatusList />
 
             {this.state.isAddTaskFormVisible &&
               <CreateTaskForm
@@ -82,6 +85,7 @@ export class Dashboard extends React.Component {
                 Reset Tasks List
               </button>
             }
+
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
