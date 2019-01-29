@@ -4,7 +4,22 @@ import { connect } from "react-redux";
 import { getPrize, deletePrize } from "../actions/prizes";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
+import CreateOrUpdatePrizeForm from "./create-update-prize-form";
+
 export class UserPrize extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAddPrizeFormVisible: false // default do NOT show create prize form
+    };
+  }
+
+  onAddPrizeButtonClick() { // Click create Prize, show Create Prize Form
+    this.setState({
+      isAddPrizeFormVisible: !this.state.isAddPrizeFormVisible
+    });
+  }
+
   componentDidMount() {
     this.props.dispatch(getPrize());
   }
@@ -22,6 +37,23 @@ export class UserPrize extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
+            {this.state.isAddPrizeFormVisible &&
+              !this.props.isTasksFinalized &&
+              <CreateOrUpdatePrizeForm
+                onPrizeCreated={
+                  () => this.setState({
+                    isAddPrizeFormVisible: false
+                  })
+                }
+              />
+            }
+            {!this.state.isAddPrizeFormVisible &&
+              !this.props.isTasksFinalized &&
+              <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
+                {this.props.userPrize ? "Update" : "Create"} Prize
+              </button>
+            }
+
             {this.props.userPrize &&
               !this.props.isTasksFinalized &&
               <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>

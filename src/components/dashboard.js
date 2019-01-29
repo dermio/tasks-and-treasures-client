@@ -5,8 +5,6 @@ import { Redirect } from "react-router-dom";
 import "./dashboard.css";
 import UserTasksList from "./userTasksList";
 import UserPrize from "./userPrize";
-import CreateTaskForm from "./create-task-form";
-import CreateOrUpdatePrizeForm from "./create-update-prize-form";
 
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 import ChildStatusList from "./ChildStatusList";
@@ -57,63 +55,8 @@ export class Dashboard extends React.Component {
           <ChildStatusList />
         </ConnectedShowIfRoleIs>
 
-        <ConnectedShowIfRoleIs userRole="parent">
-          <React.Fragment>
-            <article className="temp-task-button-form">
-              {this.state.isAddTaskFormVisible &&
-                <CreateTaskForm
-                  onTaskCreated={
-                    () => this.setState({ isAddTaskFormVisible: false })
-                  }
-                />
-              }
-              {!this.state.isAddTaskFormVisible &&
-                !this.props.isTasksFinalized &&
-                <button onClick={(e) => this.onAddTaskButtonClick(e)}>
-                  Create Task
-                </button>
-              }
-              {!this.state.isAddTaskFormVisible &&
-                !this.props.isTasksFinalized &&
-                <button onClick={e => this.onFinalizeTasksList(e)}>
-                  Finalize Tasks List
-                </button>
-              }
-              {!this.state.isAddTaskFormVisible &&
-                this.props.isTasksFinalized &&
-                <button onClick={e => this.onResetTasksList(e)}>
-                  Reset Tasks List
-                </button>
-              }
-            </article>
-          </React.Fragment>
-        </ConnectedShowIfRoleIs>
-
-
         <UserTasksList />
         <UserPrize />
-
-        <ConnectedShowIfRoleIs userRole="parent">
-          <React.Fragment>
-            {this.state.isAddPrizeFormVisible &&
-              !this.props.isTasksFinalized &&
-              <CreateOrUpdatePrizeForm
-                onPrizeCreated={
-                  () => this.setState({
-                    isAddPrizeFormVisible: false
-                  })
-                }
-              />
-            }
-            {!this.state.isAddPrizeFormVisible &&
-              !this.props.isTasksFinalized &&
-              <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
-                {this.props.userPrize ? "Update" : "Create"} Prize
-              </button>
-            }
-          </React.Fragment>
-        </ConnectedShowIfRoleIs>
-
       </main>
     );
   }

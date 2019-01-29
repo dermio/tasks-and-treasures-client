@@ -10,7 +10,38 @@ import {
 } from "../actions/tasks";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
+import { finalizeTasksList, resetTasksList } from "../actions/family";
+import CreateTaskForm from "./create-task-form";
+
 export class UserTasksList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAddTaskFormVisible: false, // default do NOT show create task form
+    };
+  }
+
+  // Task button shown is local to Dashboard component. Dashboard
+  // is responsible for this state. No need to use Redux.
+  onAddTaskButtonClick() { // Click create Task, show Create Task form
+    this.setState({
+      isAddTaskFormVisible: !this.state.isAddTaskFormVisible
+    });
+  }
+
+  onFinalizeTasksList() {
+    console.log("[[[ CLICK FINALIZE TASKS LIST ]]]");
+    this.props.dispatch(finalizeTasksList());
+  }
+
+  onResetTasksList() {
+    console.log("[[[ CLICK RESET TASKS LIST ]]]");
+    this.props.dispatch(resetTasksList());
+  }
+
+  /****************
+   * 
+  ****************/
   componentDidMount() {
     this.props.dispatch(getTasks());
     this.props.dispatch(pollForPrizeStatus());
@@ -53,6 +84,35 @@ export class UserTasksList extends React.Component {
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             <button>BATMAN JOKER</button>
+
+            <article className="temp-task-button-form">
+              {this.state.isAddTaskFormVisible &&
+                <CreateTaskForm
+                  onTaskCreated={
+                    () => this.setState({ isAddTaskFormVisible: false })
+                  }
+                />
+              }
+              {!this.state.isAddTaskFormVisible &&
+                !this.props.isTasksFinalized &&
+                <button onClick={(e) => this.onAddTaskButtonClick(e)}>
+                  Create Task
+                </button>
+              }
+              {!this.state.isAddTaskFormVisible &&
+                !this.props.isTasksFinalized &&
+                <button onClick={e => this.onFinalizeTasksList(e)}>
+                  Finalize Tasks List
+                </button>
+              }
+              {!this.state.isAddTaskFormVisible &&
+                this.props.isTasksFinalized &&
+                <button onClick={e => this.onResetTasksList(e)}>
+                  Reset Tasks List
+                </button>
+              }
+            </article>
+
           </React.Fragment>
         </ConnectedShowIfRoleIs>
 
@@ -99,7 +159,9 @@ const mapStateToProps = state => ({
     state.auth.currentUser &&
     state.auth.currentUser.awardedPrizes)
       ? state.auth.currentUser.awardedPrizes[0]
-      : "" // new
+      : "", // new
+  
+    isTasksFinalized: state.family.tasksFinalized
 });
 
 export default connect(mapStateToProps)(UserTasksList);
