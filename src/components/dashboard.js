@@ -53,8 +53,6 @@ export class Dashboard extends React.Component {
 
     return (
       <div className="Dashboard">
-        <p className="dashboard-title">USER'S DASHBOARD</p>
-
         <ConnectedShowIfRoleIs userRole="parent">
           <div>
             <h3>This is the Parent {this.props.loggedInUser}</h3>
