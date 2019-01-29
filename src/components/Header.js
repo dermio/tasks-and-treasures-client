@@ -13,7 +13,7 @@ export class Header extends React.Component {
         <h1 className="app-title">Tasks and Treasures</h1>
         <div className="user-info">
           {this.props.isLoggedIn && (
-            <span>
+            <span className="logged-in-user">
               {this.props.currentUser.role} : {this.props.loggedInUser}
             </span>
           )}
