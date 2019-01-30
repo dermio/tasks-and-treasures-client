@@ -9,17 +9,7 @@ import UserPrize from "./userPrize";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 import ChildStatusList from "./ChildStatusList";
 
-import { finalizeTasksList, resetTasksList } from "../actions/family";
-
 export class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAddTaskFormVisible: false, // default do NOT show create task form
-      isAddPrizeFormVisible: false // default do NOT show create prize form
-    };
-  }
-
   render() {
     if (!this.props.isLoggedIn) {
       return <Redirect to="/" />
