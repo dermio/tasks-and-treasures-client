@@ -21,8 +21,11 @@ export class UserTasksList extends React.Component {
     };
   }
 
-  // Task button shown is local to Dashboard component. Dashboard
-  // is responsible for this state. No need to use Redux.
+  /******************************
+   * Parent methods from Dashboard
+  ******************************/
+  /* Task button shown is local to UserTasksList component. UserTasksList
+  is responsible for this state. No need to use Redux. */
   onAddTaskButtonClick() { // Click create Task, show Create Task form
     this.setState({
       isAddTaskFormVisible: !this.state.isAddTaskFormVisible
@@ -39,9 +42,9 @@ export class UserTasksList extends React.Component {
     this.props.dispatch(resetTasksList());
   }
 
-  /****************
-   * 
-  ****************/
+  /******************************
+   * Original methods for UserTasksList
+  ******************************/
   componentDidMount() {
     this.props.dispatch(getTasks());
     this.props.dispatch(pollForPrizeStatus());
