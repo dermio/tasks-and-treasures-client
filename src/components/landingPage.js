@@ -17,9 +17,9 @@ export function LandingPage({ isLoggedIn, location }) {
   console.log(location.pathname);
 
   return (
-    <div className="landingPage">
+    <main className="landingPage">
       {(location.pathname === "/login") ? <LoginForm /> : <RegistrationForm />}
-    </div>
+    </main>
   );
 }
 
