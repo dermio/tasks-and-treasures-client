@@ -33,8 +33,6 @@ export class UserPrize extends React.Component {
   render() {
     return (
       <section className="userPrize">
-        {this.props.userPrize && this.props.userPrize.prizeName}
-
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             {this.state.isAddPrizeFormVisible &&
@@ -62,6 +60,13 @@ export class UserPrize extends React.Component {
             }
           </React.Fragment>
         </ConnectedShowIfRoleIs>
+
+        <p className="prize-info">
+          {"Prize: "}
+          <span className="awarded-prize">
+            {this.props.userPrize && this.props.userPrize.prizeName}
+          </span>
+        </p>
 
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
