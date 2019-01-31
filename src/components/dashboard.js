@@ -17,11 +17,13 @@ export class Dashboard extends React.Component {
 
     return (
       <main className="Dashboard">
-        <ConnectedShowIfRoleIs userRole="parent">
-          <ChildStatusList />
-        </ConnectedShowIfRoleIs>
+        <section className="dashboard-container">
+          <ConnectedShowIfRoleIs userRole="parent">
+            <ChildStatusList />
+          </ConnectedShowIfRoleIs>
 
-        <UserTasksList />
+          <UserTasksList />
+        </section>
         <UserPrize />
       </main>
     );
