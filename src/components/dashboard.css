@@ -2,18 +2,12 @@
   border: 2px dashed green;
 }
 
-.dashboard-title {
+.dashboard-container {
   display: flex;
-  justify-content: center;
 }
 
-
-/* Temporary, will decide to keep. */
-.Dashboard h3 {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-
-  margin: 20px 0 0;
-  padding: 20px;
+.dashboard-container > section {
+  /* Need to set a width or flex-basis, or flex-grow grows unevenly! */
+  flex-basis: 50%;
+  flex-grow: 1;
 }
