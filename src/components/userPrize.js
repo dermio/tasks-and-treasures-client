@@ -32,7 +32,7 @@ export class UserPrize extends React.Component {
 
   render() {
     return (
-      <div className="userPrize">
+      <section className="userPrize">
         {this.props.userPrize && this.props.userPrize.prizeName}
 
         <ConnectedShowIfRoleIs userRole="parent">
@@ -70,7 +70,7 @@ export class UserPrize extends React.Component {
             }
           </React.Fragment>
         </ConnectedShowIfRoleIs>
-      </div>
+      </section>
     );
   }
 }
