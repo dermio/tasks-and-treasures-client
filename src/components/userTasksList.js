@@ -83,11 +83,9 @@ export class UserTasksList extends React.Component {
     );
 
     return (
-      <div className="userTasksList">
+      <section className="userTasksList">
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
-            <button>BATMAN JOKER</button>
-
             <article className="temp-task-button-form">
               {this.state.isAddTaskFormVisible &&
                 <CreateTaskForm
@@ -146,7 +144,7 @@ export class UserTasksList extends React.Component {
             </div>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
-      </div>
+      </section>
     );
   }
 }
