@@ -1,6 +1,7 @@
 header {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 /* Use flex: 1 on first, hidden element and last element.

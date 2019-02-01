@@ -1,6 +1,7 @@
 .userTasksList {
   border: 1px solid black;
   background-color: #FFF;
+  padding: 20px;
 }
 
 .userTasksList-UL {
