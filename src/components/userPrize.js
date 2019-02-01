@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getPrize, deletePrize } from "../actions/prizes";
+import "./userPrize.css";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
 import CreateOrUpdatePrizeForm from "./create-update-prize-form";
+
+import { getPrize, deletePrize } from "../actions/prizes";
 
 export class UserPrize extends React.Component {
   constructor(props) {
