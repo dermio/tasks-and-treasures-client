@@ -84,6 +84,8 @@ export class UserTasksList extends React.Component {
 
     return (
       <section className="userTasksList">
+        <h4>Tasks List</h4>
+
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             <article className="temp-task-button-form">
