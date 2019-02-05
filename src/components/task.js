@@ -5,10 +5,12 @@ import UpdateTaskForm from "./update-task-form";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 import { setEditingTask } from '../actions/tasks';
 
+import "./task.css";
+
 export class Task extends React.Component {
   render() {
     return (
-      <li>
+      <li className="task-list">
         {this.props.isEditingTask ? (
           <ConnectedShowIfRoleIs userRole="parent">
             <React.Fragment>
@@ -23,14 +25,18 @@ export class Task extends React.Component {
           </ConnectedShowIfRoleIs>
         ) : (
           <ConnectedShowIfRoleIs userRole="parent">
-            <span>
-              {this.props.task.taskName}
-              {!this.props.isTasksFinalized &&
-                <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
-                  Update Task
-                </button>
-              }
-            </span>
+            <React.Fragment>
+              <span>
+                {this.props.task.taskName}
+              </span>
+              <React.Fragment>
+                {!this.props.isTasksFinalized &&
+                  <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
+                    Update Task
+                  </button>
+                }
+              </React.Fragment>
+            </React.Fragment>
           </ConnectedShowIfRoleIs>
         )}
         <ConnectedShowIfRoleIs userRole="parent">
