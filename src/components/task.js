@@ -57,6 +57,7 @@ export class Task extends React.Component {
               }
               onChange={this.props.onChecked}
             />
+            <span className="childCheckList">{this.props.task.taskName}</span>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </li>
@@ -73,3 +74,18 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(mapStateToProps)(Task);
+
+
+
+{/* <span>
+  {this.props.task.taskName}
+  <ConnectedShowIfRoleIs userRole="parent">
+    <React.Fragment>
+      {!this.props.isTasksFinalized &&
+        <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
+          Update Task
+        </button>
+      }
+    </React.Fragment>
+  </ConnectedShowIfRoleIs>
+</span> */}
