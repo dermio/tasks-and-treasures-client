@@ -4,10 +4,16 @@
 
 .dashboard-container {
   display: flex;
+  flex-direction: column;
 }
 
-.dashboard-container > section {
-  /* Need to set a width or flex-basis, or flex-grow grows unevenly! */
-  flex-basis: 50%;
-  flex-grow: 1;
+@media only screen and (min-width: 750px) {
+  .dashboard-container {
+    flex-direction: row;
+  }
+  .dashboard-container > section {
+    /* Need to set a width or flex-basis, or flex-grow grows unevenly! */
+    flex-basis: 50%;
+    flex-grow: 1;
+  }
 }
