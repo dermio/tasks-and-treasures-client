@@ -140,10 +140,10 @@ export class UserTasksList extends React.Component {
             </button>
 
             {/* Mock UI for Child prize */}
-            <div>
+            {/* <div>
               <h4>Show Child Prize</h4>
               <p>{this.props.prize && this.props.prize.prizeName}</p>
-            </div>
+            </div> */}
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </section>
