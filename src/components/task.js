@@ -22,18 +22,16 @@ export class Task extends React.Component {
             </React.Fragment>
           </ConnectedShowIfRoleIs>
         ) : (
-          <span>
-            {this.props.task.taskName}
-            <ConnectedShowIfRoleIs userRole="parent">
-              <React.Fragment>
-                {!this.props.isTasksFinalized &&
-                  <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
-                    Update Task
-                  </button>
-                }
-              </React.Fragment>
-            </ConnectedShowIfRoleIs>
-          </span>
+          <ConnectedShowIfRoleIs userRole="parent">
+            <span>
+              {this.props.task.taskName}
+              {!this.props.isTasksFinalized &&
+                <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
+                  Update Task
+                </button>
+              }
+            </span>
+          </ConnectedShowIfRoleIs>
         )}
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
@@ -77,7 +75,8 @@ export default connect(mapStateToProps)(Task);
 
 
 
-{/* <span>
+/*
+<span>
   {this.props.task.taskName}
   <ConnectedShowIfRoleIs userRole="parent">
     <React.Fragment>
@@ -88,4 +87,5 @@ export default connect(mapStateToProps)(Task);
       }
     </React.Fragment>
   </ConnectedShowIfRoleIs>
-</span> */}
+</span>
+*/
