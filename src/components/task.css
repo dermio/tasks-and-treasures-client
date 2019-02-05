@@ -1,3 +1,19 @@
 .task-list {
   display: flex;
 }
+
+
+/* The following rulesets are works in progress */
+.task-list > span {
+  flex: 6;
+
+  /* Justin suggestion */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.task-list > div {
+  flex: 1;
+  margin-left: 20px;
+}
