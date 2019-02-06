@@ -32,7 +32,7 @@ export class Task extends React.Component {
               <div className="update-task-btn">
                 {!this.props.isTasksFinalized &&
                   <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
-                    Update Task
+                    Update
                   </button>
                 }
               </div>
@@ -43,7 +43,7 @@ export class Task extends React.Component {
           <div className="delete-task-btn">
             {!this.props.isTasksFinalized &&
               <button onClick={e => this.props.onDelete(e, this.props.task)}>
-                Delete Task
+                Delete
               </button>
             }
           </div>
