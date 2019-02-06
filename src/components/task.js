@@ -29,24 +29,24 @@ export class Task extends React.Component {
               <span>
                 {this.props.task.taskName}
               </span>
-              <React.Fragment>
+              <div className="update-task-btn">
                 {!this.props.isTasksFinalized &&
                   <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
                     Update Task
                   </button>
                 }
-              </React.Fragment>
+              </div>
             </React.Fragment>
           </ConnectedShowIfRoleIs>
         )}
         <ConnectedShowIfRoleIs userRole="parent">
-          <React.Fragment>
+          <div className="delete-task-btn">
             {!this.props.isTasksFinalized &&
               <button onClick={e => this.props.onDelete(e, this.props.task)}>
                 Delete Task
               </button>
             }
-          </React.Fragment>
+          </div>
         </ConnectedShowIfRoleIs>
 
         <ConnectedShowIfRoleIs userRole="child">
