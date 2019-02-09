@@ -13,6 +13,7 @@
   }
   .dashboard-container > section {
     /* Need to set a width or flex-basis, or flex-grow grows unevenly! */
+    /* max-width: 50%; */
     flex-basis: 50%;
     flex-grow: 1;
   }
