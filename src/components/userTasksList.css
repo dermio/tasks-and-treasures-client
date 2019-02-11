@@ -8,3 +8,11 @@
   list-style-type: none;
   padding: 0;
 }
+
+.task-list:nth-child(odd) {
+  background-color: #FFC4CD;
+}
+
+.task-list:nth-child(even) {
+  background-color: #E5B0B8;
+}
