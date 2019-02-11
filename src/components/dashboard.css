@@ -16,5 +16,10 @@
     /* max-width: 50%; */
     flex-basis: 50%;
     flex-grow: 1;
+
+    margin: 10px;
+  }
+  .userPrize {
+    margin: 0 10px 10px;
   }
 }
