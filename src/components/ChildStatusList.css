@@ -1,10 +1,21 @@
 .childStatusList {
   border: 2px solid red;
-  background-color: #FFF;
+  background-color: #F4F7FC;
   padding: 20px;
 }
 
 .childStatusList-UL {
   list-style-type: none;
   padding: 0;
+}
+
+.childStatusList-UL > li {
+  padding: 10px;
+  margin: 10px 0;
+
+  background-color: #E0E8F5;
+}
+
+.childStatusList-UL > li:nth-child(even) {
+  background-color: #E9F1FF;
 }
