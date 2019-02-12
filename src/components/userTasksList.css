@@ -9,7 +9,10 @@
   padding: 0;
 }
 
-.task-list:nth-child(odd) {
+.task-list {
+  padding: 10px;
+  margin: 10px 0;
+
   background-color: #FFC4CD;
 }
 
