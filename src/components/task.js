@@ -29,25 +29,35 @@ export class Task extends React.Component {
               <span>
                 {this.props.task.taskName}
               </span>
-              <div className="update-task-btn">
+
+              <div className="update-delete-buttons">
+              <React.Fragment>
                 {!this.props.isTasksFinalized &&
-                  <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}>
+                  <button onClick={e => this.props.dispatch(setEditingTask(this.props.task.id, true))}
+                  className="update-task-btn"
+                  >
                     Update
                   </button>
                 }
-              </div>
-            </React.Fragment>
-          </ConnectedShowIfRoleIs>
-        )}
-        <ConnectedShowIfRoleIs userRole="parent">
-          <div className="delete-task-btn">
+              </React.Fragment>
+
+              <React.Fragment>
             {!this.props.isTasksFinalized &&
-              <button onClick={e => this.props.onDelete(e, this.props.task)}>
+              <button onClick={e => this.props.onDelete(e, this.props.task)}
+              className="delete-task-btn"
+              >
                 Delete
               </button>
             }
-          </div>
-        </ConnectedShowIfRoleIs>
+          </React.Fragment>
+
+              </div>
+
+
+
+            </React.Fragment>
+          </ConnectedShowIfRoleIs>
+        )}
 
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
