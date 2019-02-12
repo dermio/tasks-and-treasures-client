@@ -30,10 +30,12 @@ export class UpdateTaskForm extends React.Component {
           name="taskname"
           id="taskname"
         />
-        <button type="Submit Task">Submit Task</button>
-        <button type="button" onClick={this.props.onTaskUpdated} >
-          Cancel Update
-        </button>
+        <div className="update-task-form-buttons">
+          <button type="submit">Submit Task</button>
+          <button type="button" onClick={this.props.onTaskUpdated} >
+            Cancel Update
+          </button>
+        </div>
       </form>
     );
   }
