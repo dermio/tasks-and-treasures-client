@@ -11,6 +11,10 @@
   /* white-space: nowrap; */
   text-overflow: ellipsis;
   overflow: hidden;
+
+}
+
+.dashboard-container > section:nth-of-type(2) .task-list > span {
   max-width: 50%;
 }
 
