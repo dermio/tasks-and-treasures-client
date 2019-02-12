@@ -23,6 +23,6 @@
     margin: 0 10px 10px;
   }
   .childStatusList {
-    min-width: 350px;
+    /* min-width: 350px; */
   }
 }

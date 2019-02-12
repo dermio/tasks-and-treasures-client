@@ -8,9 +8,10 @@
   flex: 6;
 
   /* Justin suggestion */
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-overflow: ellipsis;
   overflow: hidden;
+  max-width: 50%;
 }
 
 .task-list > div {
