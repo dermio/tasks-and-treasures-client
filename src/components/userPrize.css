@@ -1,4 +1,6 @@
 .userPrize {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  border-radius: 3px;
   background-color: rgba(156, 39, 176, 0.2);
   padding: 20px;
 }
