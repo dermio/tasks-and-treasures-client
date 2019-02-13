@@ -4,7 +4,7 @@
 
 
 /* The following rulesets are works in progress */
-.task-list > span {
+.task-list > span, .task-list > form {
   flex: 6;
 
   /* Justin suggestion */
@@ -14,11 +14,17 @@
 
 }
 
+.task-list > form > input {
+  width: 50%;
+}
+
 .dashboard-container > section:nth-of-type(2) .task-list > span {
   max-width: 50%;
 }
 
-.task-list > div {
+.task-list > div.update-delete-buttons,
+.task-list > form > div.update-task-form-buttons {
   flex: 1;
   margin-left: 20px;
+  display: inline-block;
 }
