@@ -28,3 +28,21 @@
   margin-left: 20px;
   display: inline-block;
 }
+
+
+/***** Update and Delete buttons *****/
+.update-delete-buttons > button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.update-task-btn {
+  background-color: #B579D2;
+  margin-right: 5px;
+}
+
+.delete-task-btn {
+  background-color: #D9534F;
+}
