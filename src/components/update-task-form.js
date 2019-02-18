@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm /*, focus */} from "redux-form";
 
 import { updateTask } from "../actions/tasks";
-
+import "./update-task-form.css";
 
 export class UpdateTaskForm extends React.Component {
   onSubmit(values) {
