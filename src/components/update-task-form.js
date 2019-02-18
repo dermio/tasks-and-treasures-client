@@ -22,6 +22,7 @@ export class UpdateTaskForm extends React.Component {
         onSubmit={
           this.props.handleSubmit(values => this.onSubmit(values))
         }
+        className="update-task-form"
       >
         {/* <label htmlFor="taskname">Task Name</label> */}
         <Field
