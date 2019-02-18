@@ -9,3 +9,37 @@
   list-style-type: none;
   padding: 0;
 }
+
+
+/***** Create Task, Finalize & Reset tasks list buttons *****/
+.create-finalize-reset-tasks > button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.create-task-btn {
+  background-color: #00C851;
+  margin-right: 5px;
+}
+
+.finalize-tasks-button {
+  background-color: #4285F4;
+}
+
+.reset-tasks-button {
+  background-color: #4285F4;
+}
+
+.create-task-btn:hover {
+  background-color: #00D255;
+}
+
+.finalize-tasks-button:hover {
+  background-color: #5A95F5;
+}
+
+.reset-tasks-button:hover {
+  background-color: #5A95F5;;
+}
