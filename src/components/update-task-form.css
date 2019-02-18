@@ -1,0 +1,23 @@
+.update-task-form-buttons > button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.submit-update-btn {
+  background-color: #AA66CC;
+  margin-right: 5px;
+}
+
+.cancel-update-btn {
+  background-color: #5a6268;
+}
+
+.submit-update-btn:hover {
+  background-color: #B579D2;
+}
+
+.cancel-update-btn:hover {
+  background-color: #6C757D;
+}
