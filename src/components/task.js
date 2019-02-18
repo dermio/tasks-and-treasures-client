@@ -26,7 +26,7 @@ export class Task extends React.Component {
         ) : (
           <ConnectedShowIfRoleIs userRole="parent">
             <React.Fragment>
-              <span>
+              <span className="task-name">
                 {this.props.task.taskName}
               </span>
 

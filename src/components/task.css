@@ -29,6 +29,11 @@
   display: inline-block;
 }
 
+.task-name {
+  display: flex;
+  align-items: center;
+}
+
 
 /***** Update and Delete buttons *****/
 .update-delete-buttons > button {
