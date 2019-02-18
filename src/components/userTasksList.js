@@ -88,7 +88,7 @@ export class UserTasksList extends React.Component {
 
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
-            <article className="temp-task-button-form">
+            <article className="create-finalize-reset-tasks">
               {this.state.isAddTaskFormVisible &&
                 <CreateTaskForm
                   onTaskCreated={
@@ -98,19 +98,28 @@ export class UserTasksList extends React.Component {
               }
               {!this.state.isAddTaskFormVisible &&
                 !this.props.isTasksFinalized &&
-                <button onClick={(e) => this.onAddTaskButtonClick(e)}>
+                <button
+                  onClick={(e) => this.onAddTaskButtonClick(e)}
+                  className="create-task-btn"
+                >
                   Create Task
                 </button>
               }
               {!this.state.isAddTaskFormVisible &&
                 !this.props.isTasksFinalized &&
-                <button onClick={e => this.onFinalizeTasksList(e)}>
+                <button
+                  onClick={e => this.onFinalizeTasksList(e)}
+                  className="finalize-tasks-button"
+                >
                   Finalize Tasks List
                 </button>
               }
               {!this.state.isAddTaskFormVisible &&
                 this.props.isTasksFinalized &&
-                <button onClick={e => this.onResetTasksList(e)}>
+                <button
+                  onClick={e => this.onResetTasksList(e)}
+                  className="reset-tasks-button"
+                >
                   Reset Tasks List
                 </button>
               }
