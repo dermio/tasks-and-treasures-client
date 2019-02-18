@@ -39,10 +39,19 @@
 }
 
 .update-task-btn {
-  background-color: #B579D2;
+  background-color: #AA66CC;
   margin-right: 5px;
 }
 
 .delete-task-btn {
+  background-color: #CC0000;
+}
+
+.update-task-btn:hover {
+  background-color: #B579D2;
+}
+
+.delete-task-btn:hover {
   background-color: #D9534F;
 }
+
