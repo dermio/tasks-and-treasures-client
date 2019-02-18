@@ -9,6 +9,8 @@ import { Redirect } from "react-router-dom";
 inside onSubmit method */
 import { createTask } from "../actions/tasks";
 
+import "./create-task-form.css";
+
 export class CreateTaskForm extends React.Component {
   //Method to handle submitting new Task
   onSubmit(values) {
@@ -24,9 +26,10 @@ export class CreateTaskForm extends React.Component {
     }
 
     return (
-      <form onSubmit={
-        this.props.handleSubmit(values => this.onSubmit(values))
-      }>
+      <form
+        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        className="create-task-form"
+      >
         <label htmlFor="taskname">Task Name</label>
         <Field
           component="input"
@@ -34,9 +37,15 @@ export class CreateTaskForm extends React.Component {
           name="taskname"
           id="taskname"
         />
-        <button type="submit">Submit Task</button>
-        <button type="button" onClick={this.props.onTaskCreated}>
-          Cancel Create
+        <button type="submit" className="create-task-form-submit">
+          Submit Task
+        </button>
+        <button
+          type="button"
+          onClick={this.props.onTaskCreated}
+          className="create-task-form-cancel"
+        >
+          Cancel
         </button>
       </form>
     )
