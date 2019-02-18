@@ -6,7 +6,6 @@ import './App.css';
 
 import LandingPage from "./landingPage";
 import Dashboard from "./dashboard";
-import CreateTaskForm from "./create-task-form";
 import Header from "./Header";
 
 class App extends Component {
@@ -19,7 +18,6 @@ class App extends Component {
         <Route exact path="/login" component={LandingPage} />
         <Route exact path="/register" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/createtask" component={CreateTaskForm} />
       </div>
     );
   }
