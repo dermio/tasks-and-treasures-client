@@ -1,0 +1,38 @@
+.create-task-form {
+  display: flex;
+}
+
+.create-task-form > label {
+  align-self: center;
+}
+
+.create-task-form > input {
+  width: 40%;
+}
+
+
+/*****  Create Task Form buttons *****/
+.create-task-form-buttons > button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.submit-create-btn {
+  background-color: #00C851;
+  margin-right: 5px;
+}
+
+.cancel-create-btn {
+  background-color: #5A6268;
+}
+
+.submit-create-btn:hover {
+  background-color: #00D255;
+}
+
+.cancel-create-btn:hover {
+  background-color: #6C757D;
+}
+
