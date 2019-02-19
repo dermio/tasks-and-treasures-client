@@ -2,6 +2,9 @@ header {
   display: flex;
   justify-content: center;
   padding: 20px;
+
+  background-color: #68BFEB;
+  color: #FFF
 }
 
 /* Use flex: 1 on first, hidden element and last element.
@@ -20,10 +23,7 @@ of adding a hidden element to DOM. It's semantically cleaner. */
 header::before {
   flex: 1;
   content: "";
-
-  /* border: 1px solid red; */
 }
-
 
 .app-title {
   align-self: center;
@@ -34,8 +34,6 @@ header::before {
   justify-content: flex-end;
   align-items: center;
   flex: 1;
-
-  /* border: 1px solid green; */
 }
 
 .logged-in-user {
