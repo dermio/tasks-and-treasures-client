@@ -3,3 +3,29 @@
   background-color: rgba(156, 39, 176, 0.2);
   padding: 20px;
 }
+
+
+/***** Prize buttons *****/
+.userPrize button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.create-update-prize-btn {
+  background-color: #00C851;
+  margin-right: 5px;
+}
+
+.delete-prize-btn {
+  background-color: #CC0000;
+}
+
+.create-update-prize-btn:hover {
+  background-color: #00D255;
+}
+
+.delete-prize-btn:hover {
+  background-color: #D9534F;
+}
