@@ -42,6 +42,7 @@ export class ChildStatusList extends React.Component {
               child.awardedPrizes.includes(this.props.currentPrizeId)
             }
             onClick={() => this.onApproveChildTasks(child)}
+            className="approve-child-tasks-btn"
           >
             {child.awardedPrizes.includes(this.props.currentPrizeId)
               ? "Prize was awarded" : String.fromCharCode(10004)}
@@ -53,6 +54,7 @@ export class ChildStatusList extends React.Component {
               child.awardedPrizes.includes(this.props.currentPrizeId)
             }
             onClick={() => this.onRejectChildTasks(child)}
+            className="reject-child-tasks-btn"
           >
             &#x2718;
           </button>
