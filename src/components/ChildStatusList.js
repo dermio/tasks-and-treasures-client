@@ -64,7 +64,7 @@ export class ChildStatusList extends React.Component {
 
     return (
       <section className="childStatusList">
-        <h4>The Kiddies</h4>
+        <h4>The Kiddies status, grade work</h4>
         <ul className="childStatusList-UL">
           {childStatusList}
         </ul>
