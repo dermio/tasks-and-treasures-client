@@ -23,15 +23,14 @@
 
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
-  .userPrize {
-    margin: 0 10px 10px;
-  }
-  .childStatusList {
-    /* min-width: 350px; */
-  }
 
   .userPrize, header {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin: 10px;
+  }
+  .userPrize {
+    margin: 0 10px 10px;
+  }
+  header {
+    margin: 10px 10px 0;
   }
 }
