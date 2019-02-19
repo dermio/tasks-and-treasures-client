@@ -4,11 +4,24 @@
   border: 2px dotted red;
 }
 
+.create-update-prize-form > label {
+  align-self: center;
+}
 
+.create-update-prize-form > input {
+  max-width: 300px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-left: 10px;
+}
 
 
 
 /*****  Update and Cancel Prize Form buttons *****/
+.create-update-prize-form-buttons {
+  margin-left: 20px;
+}
+
 .submit-update-prize-btn {
   background-color: #AA66CC;
   margin-right: 5px;
