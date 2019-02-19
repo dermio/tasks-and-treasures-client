@@ -35,6 +35,8 @@ export class UserPrize extends React.Component {
   render() {
     return (
       <section className="userPrize">
+        <h4>The Prize Area</h4>
+
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
             {this.state.isAddPrizeFormVisible &&
