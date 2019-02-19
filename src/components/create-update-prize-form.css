@@ -1,4 +1,27 @@
 .create-update-prize-form {
+  display: flex;
+
   border: 2px dotted red;
 }
 
+
+
+
+
+/*****  Update and Cancel Prize Form buttons *****/
+.submit-update-prize-btn {
+  background-color: #AA66CC;
+  margin-right: 5px;
+}
+
+.cancel-update-prize-btn {
+  background-color: #5A6268;
+}
+
+.submit-update-prize-btn:hover {
+  background-color: #B579D2;
+}
+
+.cancel-update-prize-btn:hover {
+  background-color: #6C757D;
+}
