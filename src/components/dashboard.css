@@ -12,17 +12,25 @@
     flex-direction: row;
   }
   .dashboard-container > section {
-    /* Need to set a width or flex-basis, or flex-grow grows unevenly! */
+    /* Need to set a width or flex-basis, or flex-grow grows unevenly!
+    Solved in task.css with .dashboard-container > section:nth-of-type(2) */
+
     /* max-width: 50%; */
     flex-basis: 50%;
     flex-grow: 1;
 
     margin: 10px;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .userPrize {
     margin: 0 10px 10px;
   }
   .childStatusList {
     /* min-width: 350px; */
+  }
+
+  .userPrize {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 }
