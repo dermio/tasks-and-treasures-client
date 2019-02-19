@@ -49,14 +49,20 @@ export class UserPrize extends React.Component {
             }
             {!this.state.isAddPrizeFormVisible &&
               !this.props.isTasksFinalized &&
-              <button onClick={(e) => this.onAddPrizeButtonClick(e)}>
+              <button
+                onClick={(e) => this.onAddPrizeButtonClick(e)}
+                className="create-update-prize-btn"
+              >
                 {this.props.userPrize ? "Update" : "Create"} Prize
               </button>
             }
 
             {this.props.userPrize &&
               !this.props.isTasksFinalized &&
-              <button onClick={(e) => this.onDelete(e, this.props.userPrize)}>
+              <button
+                onClick={(e) => this.onDelete(e, this.props.userPrize)}
+                className="delete-prize-btn"
+              >
                 Delete Prize
               </button>
             }
