@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { createOrUpdatePrize } from "../actions/prizes";
 
+import "./create-update-prize-form.css";
+
 export class CreateOrUpdatePrizeForm extends React.Component {
   onSubmit(values) {
     this.props.dispatch(createOrUpdatePrize({
@@ -14,9 +16,10 @@ export class CreateOrUpdatePrizeForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={
-        this.props.handleSubmit(values => this.onSubmit(values))
-      }>
+      <form
+        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        className="create-update-prize-form"
+      >
         <label htmlFor="prizename">Prize Name</label>
         <Field
           component="input"
