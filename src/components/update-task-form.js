@@ -32,7 +32,7 @@ export class UpdateTaskForm extends React.Component {
           id="taskname"
         />
         <div className="update-task-form-buttons">
-          <button type="submit" className="submit-update-btn">
+          <button type="submit" className="submit-update-task-btn">
             Submit Update
           </button>
           <button type="button" onClick={this.props.onTaskUpdated}

@@ -5,7 +5,7 @@
   padding: 5px 10px;
 }
 
-.submit-update-btn {
+.submit-update-task-btn {
   background-color: #AA66CC;
   margin-right: 5px;
 }
@@ -14,7 +14,7 @@
   background-color: #5A6268;
 }
 
-.submit-update-btn:hover {
+.submit-update-task-btn:hover {
   background-color: #B579D2;
 }
 
