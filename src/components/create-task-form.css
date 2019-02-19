@@ -8,10 +8,15 @@
 
 .create-task-form > input {
   width: 40%;
+  margin-left: 10px;
 }
 
 
 /*****  Create Task Form buttons *****/
+.create-task-form-buttons {
+  margin-left: 20px;
+}
+
 .create-task-form-buttons > button {
   border: none;
   border-radius: 2px;
