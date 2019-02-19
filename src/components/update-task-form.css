@@ -10,7 +10,7 @@
   margin-right: 5px;
 }
 
-.cancel-update-btn {
+.cancel-update-task-btn {
   background-color: #5A6268;
 }
 
@@ -18,6 +18,6 @@
   background-color: #B579D2;
 }
 
-.cancel-update-btn:hover {
+.cancel-update-task-btn:hover {
   background-color: #6C757D;
 }

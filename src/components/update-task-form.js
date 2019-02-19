@@ -36,7 +36,7 @@ export class UpdateTaskForm extends React.Component {
             Submit Update
           </button>
           <button type="button" onClick={this.props.onTaskUpdated}
-            className="cancel-update-btn"
+            className="cancel-update-task-btn"
           >
             Cancel
           </button>
