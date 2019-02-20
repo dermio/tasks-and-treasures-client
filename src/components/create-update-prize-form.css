@@ -22,6 +22,11 @@
   margin-left: 20px;
 }
 
+.submit-create-prize-btn {
+  background-color: #00C851;
+  margin-right: 5px;
+}
+
 .submit-update-prize-btn {
   background-color: #AA66CC;
   margin-right: 5px;
@@ -29,6 +34,10 @@
 
 .cancel-update-prize-btn {
   background-color: #5A6268;
+}
+
+.submit-create-prize-btn:hover {
+  background-color: #00D255;
 }
 
 .submit-update-prize-btn:hover {

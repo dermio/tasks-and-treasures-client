@@ -32,10 +32,10 @@ export class CreateOrUpdatePrizeForm extends React.Component {
             className={
               this.props.userPrize
                 ? "submit-update-prize-btn"
-                : "create-update-prize-btn"
+                : "submit-create-prize-btn"
             }
           >
-            Submit Prize
+            Submit {this.props.userPrize ? "Update" : "Prize"}
           </button>
           <button type="button" onClick={this.props.onPrizeCreated}
             className="cancel-update-prize-btn"
