@@ -1,11 +1,16 @@
-/* .Dashboard {
-
-} */
+/* .Dashboard { } */
 
 .dashboard-container {
   display: flex;
   flex-direction: column;
 }
+
+/* In mobile view, add border top to UserTasksList to separate
+from ChildStatusList */
+.userTasksList {
+  border-top: 1px solid gray;
+}
+
 
 @media only screen and (min-width: 750px) {
   .dashboard-container {
@@ -19,7 +24,7 @@
     flex-basis: 50%;
     flex-grow: 1;
 
-    margin: 10px;
+    margin: 20px;
 
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
@@ -28,9 +33,15 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .userPrize {
-    margin: 0 10px 10px;
+    margin: 0 20px 20px;
   }
   header {
-    margin: 10px 10px 0;
+    margin: 20px 20px 0;
+  }
+
+
+  /* Remove UserTasksList top border when screen is wide */
+  .userTasksList {
+    border-top: none;
   }
 }
