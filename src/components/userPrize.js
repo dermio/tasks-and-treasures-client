@@ -53,7 +53,11 @@ export class UserPrize extends React.Component {
               !this.props.isTasksFinalized &&
               <button
                 onClick={(e) => this.onAddPrizeButtonClick(e)}
-                className="create-update-prize-btn"
+                className={
+                  this.props.userPrize
+                    ? "update-prize-btn"
+                    : "create-prize-btn"
+                }
               >
                 {this.props.userPrize ? "Update" : "Create"} Prize
               </button>
@@ -61,11 +65,12 @@ export class UserPrize extends React.Component {
 
             {this.props.userPrize &&
               !this.props.isTasksFinalized &&
+              !this.state.isAddPrizeFormVisible &&
               <button
                 onClick={(e) => this.onDelete(e, this.props.userPrize)}
                 className="delete-prize-btn"
               >
-                Delete Prize
+                Delete
               </button>
             }
           </React.Fragment>
@@ -81,7 +86,9 @@ export class UserPrize extends React.Component {
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
             {this.props.awardedPrize &&
-              <button type="button">Get your Prize Kiddo!</button>
+              <button type="button" className="child-get-prize-btn">
+                Get your Prize Kiddo!
+              </button>
             }
           </React.Fragment>
         </ConnectedShowIfRoleIs>

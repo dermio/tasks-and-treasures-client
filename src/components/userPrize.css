@@ -1,6 +1,6 @@
 .userPrize {
   border-radius: 5px;
-  background-color: rgba(156, 39, 176, 0.2);
+  background-color: rgb(241, 163, 238);
   padding: 20px;
 }
 
@@ -13,8 +13,13 @@
   padding: 5px 10px;
 }
 
-.create-update-prize-btn {
+.create-prize-btn {
   background-color: #00C851;
+  margin-right: 5px;
+}
+
+.update-prize-btn {
+  background-color: #AA66CC;
   margin-right: 5px;
 }
 
@@ -22,10 +27,21 @@
   background-color: #CC0000;
 }
 
-.create-update-prize-btn:hover {
+.create-prize-btn:hover {
   background-color: #00D255;
+}
+
+.update-prize-btn:hover {
+  background-color: #B579D2;
 }
 
 .delete-prize-btn:hover {
   background-color: #D9534F;
+}
+
+
+/***** Temporary styling for child get Prize button *****/
+.userPrize > .child-get-prize-btn {
+  color: black;
+  padding: 10px;
 }
