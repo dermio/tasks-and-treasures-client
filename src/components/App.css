@@ -1,14 +1,6 @@
-/****************************
-* App styling
-****************************/
-.App {
-	background-color: #F2F2F2;
-}
+/* .App {
 
-.app-name {
-	display: flex;
-	justify-content: center;
-}
+} */
 
 /* Mouse behavior for ALL buttons, */
 button:hover {
