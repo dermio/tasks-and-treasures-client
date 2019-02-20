@@ -38,11 +38,11 @@ export class CreateTaskForm extends React.Component {
           id="taskname"
         />
         <div className="create-task-form-buttons">
-          <button type="submit" className="submit-create-btn">
+          <button type="submit" className="submit-create-task-btn">
             Submit Task
           </button>
           <button type="button" onClick={this.props.onTaskCreated}
-            className="cancel-create-btn"
+            className="cancel-create-task-btn"
           >
             Cancel
           </button>

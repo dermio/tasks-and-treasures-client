@@ -24,20 +24,20 @@
   padding: 5px 10px;
 }
 
-.submit-create-btn {
+.submit-create-task-btn {
   background-color: #00C851;
   margin-right: 5px;
 }
 
-.cancel-create-btn {
+.cancel-create-task-btn {
   background-color: #5A6268;
 }
 
-.submit-create-btn:hover {
+.submit-create-task-btn:hover {
   background-color: #00D255;
 }
 
-.cancel-create-btn:hover {
+.cancel-create-task-btn:hover {
   background-color: #6C757D;
 }
 
