@@ -147,12 +147,6 @@ export class UserTasksList extends React.Component {
             >
               Notify Parent tasks are done
             </button>
-
-            {/* Mock UI for Child prize */}
-            {/* <div>
-              <h4>Show Child Prize</h4>
-              <p>{this.props.prize && this.props.prize.prizeName}</p>
-            </div> */}
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </section>
