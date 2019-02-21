@@ -19,3 +19,36 @@
 .childStatusList-UL > li:nth-child(even) {
   background-color: #E9F1FF;
 }
+
+.single-child-status span {
+  margin-right: 10px;
+}
+
+/***** Approve and Reject buttons  *****/
+.single-child-status button {
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  padding: 5px 10px;
+}
+
+.approve-child-tasks-btn {
+  background-color: #00C851;
+  margin-right: 5px;
+}
+
+.reject-child-tasks-btn {
+  background-color: #CC0000;
+}
+
+
+/* Might not need button hover CSS. Button is usually greyed out
+until parent ready to approve child's task list. */
+.approve-child-tasks-btn:hover {
+  background-color: #00D255;
+}
+
+.reject-child-tasks-btn:hover {
+  background-color: #D9534F;
+}
+

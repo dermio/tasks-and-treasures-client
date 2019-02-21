@@ -33,7 +33,7 @@ export class ChildStatusList extends React.Component {
   i.e. 'approve child tasks' vs 'prize already awarded' */
   render() {
     let childStatusList = this.props.childStatusList.map((child, index) => (
-      <li key={index}>
+      <li key={index} className="single-child-status">
         <div>
           <span>Child User: {child.username}</span>
           <button
