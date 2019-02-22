@@ -66,6 +66,7 @@ export class Task extends React.Component {
                 )
               }
               onChange={this.props.onChecked}
+              className="childCheckBox"
             />
             <span className="childCheckList">{this.props.task.taskName}</span>
           </React.Fragment>
