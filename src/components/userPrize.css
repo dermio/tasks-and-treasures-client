@@ -43,8 +43,8 @@
 /***** Styling for child get Prize button *****/
 .userPrize > .child-get-prize-btn {
   position: relative; /* Position needs to be relative for overlay */
-  padding: 15px 25px;
-  background-image: linear-gradient(#E4CC7F, #D4AF37);
+  padding: 10px 15px;
+  background-image: linear-gradient(#AA8C2C, #887023);
 
   border-radius: 10px;
   /* box-shadow: 0px 1px 4px -2px #333; */
@@ -53,7 +53,7 @@
   /* Text stuff */
   text-decoration: none;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   font-family: sans-serif;
   font-weight: 100;
 }
@@ -72,5 +72,5 @@
 }
 
 .userPrize > .child-get-prize-btn:hover{
-  background: linear-gradient(#E9D699, #D4AF37);
+  background: linear-gradient(#DDBF5F, #D4AF37);
 }
