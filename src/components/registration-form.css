@@ -24,3 +24,15 @@
 .registration-btn {
   align-self: flex-start;
 }
+
+
+/***** New styling using Field component `label` prop *****/
+.registration-form label {
+  display: block;
+}
+
+.registration-form input, .registration-form label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
