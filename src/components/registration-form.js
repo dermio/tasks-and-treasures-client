@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm, /* focus */ } from "redux-form";
 import { Link } from "react-router-dom";
 
-// import Input from "./input";
+import Input from "./Input";
 import { registerUser } from "../actions/users";
 import { login } from "../actions/auth";
 import { required, nonEmpty, isTrimmed, length, matches } from "../validators";
@@ -32,32 +32,32 @@ export class RegistrationForm extends React.Component {
           className="registration-form"
         >
           <h3 className="registration-name">Registration Form</h3>
-          <label htmlFor="username">Username</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="username"
+            label="Username"
             validate={[required, nonEmpty, isTrimmed]}
           />
-          <label htmlFor="password">Password</label>
           <Field
-            component="input"
+            component={Input}
             type="password"
             name="password"
+            label="Password"
             validate={[required, passwordLength, isTrimmed]}
           />
-          <label htmlFor="passwordConfirm">Confirm password</label>
           <Field
-            component="input"
+            component={Input}
             type="password"
             name="passwordConfirm"
+            label="Confirm password"
             validate={[required, nonEmpty, matchesPassword]}
           />
-          <label htmlFor="familyCode">Family code</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="familyCode"
+            label="Family code"
             validate={[required, nonEmpty, isTrimmed]}
           />
 
