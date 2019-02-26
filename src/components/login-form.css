@@ -24,3 +24,15 @@
 .login-btn {
   align-self: flex-start;
 }
+
+
+/***** New styling using Field component `label` prop *****/
+.login-form label {
+  display: block;
+}
+
+.login-form input, .login-form label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
