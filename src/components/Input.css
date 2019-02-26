@@ -1,0 +1,9 @@
+.form-error {
+  margin: 0 6px;
+  padding: 6px;
+  /* display: inline-block; */
+
+
+  background-color: #D9534F;
+  color: #FFF;
+}
