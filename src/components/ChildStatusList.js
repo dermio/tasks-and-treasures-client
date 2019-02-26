@@ -14,7 +14,7 @@ export class ChildStatusList extends React.Component {
     /* Child's `tasksReadyForReview` property part of the condition
     to enable approve child tasks button for the Parent. */
     this.props.dispatch(pollGetChildStatus());
-    this.props.dispatch(getFamily()); // Get family data when page loads.
+     // Get family data when page loads.
   }
 
   onApproveChildTasks = (child) => {

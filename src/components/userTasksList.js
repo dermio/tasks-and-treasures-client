@@ -10,7 +10,7 @@ import {
 } from "../actions/tasks";
 import ConnectedShowIfRoleIs from "./ShowIfRoleIs";
 
-import { finalizeTasksList, resetTasksList } from "../actions/family";
+import { finalizeTasksList, resetTasksList, getFamily } from "../actions/family";
 import CreateTaskForm from "./create-task-form";
 
 export class UserTasksList extends React.Component {
@@ -48,6 +48,8 @@ export class UserTasksList extends React.Component {
   componentDidMount() {
     this.props.dispatch(getTasks());
     this.props.dispatch(pollForPrizeStatus());
+
+    this.props.dispatch(getFamily());
   }
 
   onDelete = (event, task) => {
@@ -141,7 +143,7 @@ export class UserTasksList extends React.Component {
                   return !task.completions.find(user => {
                     return user.completedByUser === this.props.loggedInUser;
                   });
-                }) || this.props.submittedForReview
+                }) || this.props.submittedForReview || !this.props.isTasksFinalized
               }
               onClick={this.onSubmitForApproval}
             >
