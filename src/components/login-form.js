@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, reduxForm /*, focus */} from "redux-form";
+import { Field, reduxForm, focus} from "redux-form";
 import { Link } from "react-router-dom";
 
 import Input from "./Input";
@@ -15,6 +15,15 @@ export class LoginForm extends React.Component {
   }
 
   render() {
+    let error;
+    if (this.props.error) {
+      error = (
+        <div className="form-error" aria-live="polite">
+          {this.props.error}
+        </div>
+      );
+    }
+
     return (
       <div className="login">
         <form
@@ -23,6 +32,7 @@ export class LoginForm extends React.Component {
           )}
           className="login-form"
         >
+          {error}
           <h3 className="login-name">Login Form</h3>
           <Field
             component={Input}
@@ -40,10 +50,16 @@ export class LoginForm extends React.Component {
             label="Password"
             validate={[required, nonEmpty]}
           />
-          <button className="login-btn">LOGIN</button>
-          <Link to="/register">
-            <button>Create account</button>
-          </Link>
+          <div className="form-buttons">
+            <button className="login-btn"
+              disabled={this.props.pristine || this.props.submitting}
+            >
+              LOGIN
+            </button>
+            <Link to="/register">
+              <button>Create account</button>
+            </Link>
+          </div>
         </form>
       </div>
     );
@@ -52,6 +68,6 @@ export class LoginForm extends React.Component {
 
 export default reduxForm({
   form: 'login',
-  //onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(LoginForm);
 
