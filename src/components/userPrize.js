@@ -90,6 +90,12 @@ export class UserPrize extends React.Component {
                 Get your Prize Kiddo!
               </button>
             }
+
+            <ul>
+              {this.props.awardedPrizes.map(prize => (
+                <li key={prize._id}>{prize.prizeName}</li>
+              ))}
+            </ul>
           </React.Fragment>
         </ConnectedShowIfRoleIs>
       </section>
@@ -99,6 +105,8 @@ export class UserPrize extends React.Component {
 
 const mapStateToProps = (state) => ({
   userPrize: state.prizes.userPrize,
+  awardedPrizes: state.auth.currentUser.awardedPrizes, // all Prizes
+
   // Fix the awarded prize, it's hard coded to first item in array
   awardedPrize: state.auth.currentUser.awardedPrizes[0],
   isTasksFinalized: state.family.tasksFinalized
