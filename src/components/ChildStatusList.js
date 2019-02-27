@@ -5,7 +5,7 @@ import "./ChildStatusList.css";
 import { pollGetChildStatus } from "../actions/tasks";
 import { awardChildPrize, rejectChildPrize }
   from "../actions/prizes";
-import { getFamily } from "../actions/family";
+// import { getFamily } from "../actions/family";
 
 export class ChildStatusList extends React.Component {
   componentDidMount() {
