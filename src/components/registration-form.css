@@ -36,3 +36,20 @@
   margin-bottom: 10px;
 }
 
+
+
+
+/***** Temp styling radio buttons *****/
+#register-radio-buttons {
+  border: 2px solid blue;
+}
+
+#register-radio-buttons .parent-field-radio > input,
+#register-radio-buttons .parent-field-radio > label {
+  display: inline;
+}
+
+.parent-field-radio {
+  border: 1px solid red;
+}
+
