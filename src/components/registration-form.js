@@ -1,8 +1,10 @@
 import React from "react";
 import { Field, reduxForm, /* focus */ } from "redux-form";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Input from "./Input";
+import InputRadio from "./InputRadio";
 import { registerUser } from "../actions/users";
 import { login } from "../actions/auth";
 import { required, nonEmpty, isTrimmed, length, matches } from "../validators";
@@ -17,12 +19,21 @@ export class RegistrationForm extends React.Component {
     const { username, password, familyCode, role } = values;
     const user = { username, password, familyCode, role };
 
+    console.log(role);
     /* First Register user, then Login */
     return this.props.dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)));
   }
 
   render() {
+    /* Check if the radio button for role has been selected for
+    creating a new user. */
+    let showRoleError =
+      this.props.registration &&
+      this.props.registration.syncErrors &&
+      !!this.props.registration.syncErrors.role &&
+      this.props.registration.submitFailed;
+
     return (
       <div className="registration">
         <form
@@ -62,9 +73,14 @@ export class RegistrationForm extends React.Component {
           />
 
           <label htmlFor="role">Role</label>
+          {
+            showRoleError ?
+              <div className="form-error">Role is required</div> : ""
+          }
+
           <label>
             <Field
-              component="input"
+              component={InputRadio}
               type="radio"
               name="role"
               value="parent"
@@ -74,7 +90,7 @@ export class RegistrationForm extends React.Component {
           </label>
           <label>
             <Field
-              component="input"
+              component={InputRadio}
               type="radio"
               name="role"
               value="child"
@@ -96,6 +112,20 @@ export class RegistrationForm extends React.Component {
 
 }
 
-export default reduxForm({
+
+const mapStateToProps = state => ({
+  registration: state.form.registration
+});
+
+
+/* The RegistrationForm is passed as a component to `reduxForm` HOC.
+Have not figured how to access `state.form.registration.syncErrors`
+to check the role validation using reduxForm. So pass the
+reduxForm connected RegistrationForm to Redux itself via `connect`
+in order to access syncErrors state. This is a hack.
+There should be a way to use `reduxForm` alone, without
+using `connect`. */
+export default connect(mapStateToProps)(reduxForm({
   form: "registration"
-})(RegistrationForm);
+})(RegistrationForm));
+
