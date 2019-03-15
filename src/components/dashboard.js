@@ -18,10 +18,21 @@ export class Dashboard extends React.Component {
       run: true,
       steps: [
         {
-          content: <h2>Let's begin our journey!</h2>,
-          placement: "center",
-          locale: { skip: <strong aria-label="skip">S-K-I-P</strong> },
-          target: "body",
+          target: ".userTasksList",
+          content: <h3>Quick Tutorial</h3>,
+          placement: "top",
+          locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
+        }
+        ,
+        {
+          target: ".userTasksList",
+          content: <h3>Continue</h3>,
+          locale: { close: <strong>WHY NO WORK?</strong> }
+        }
+        ,
+        {
+          target: ".userTasksList",
+          content: <h3>more...</h3>
         }
       ]
     };
