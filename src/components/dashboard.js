@@ -32,6 +32,21 @@ export class Dashboard extends React.Component {
           target: ".userPrize",
           content: <h3>2. Create a Prize</h3>,
           placement: "top-start"
+        },
+        {
+          target: ".userTasksList",
+          content: <h3>3. Finalize the Tasks list and Prize</h3>,
+          placement: "left-start"
+        },
+        {
+          target: ".childStatusList",
+          content: <h3>4. Approve or reject Child's Tasks</h3>,
+          placement: "top-end"
+        },
+        {
+          target: ".childStatusList",
+          content: <h3>5. Reward the Prize</h3>,
+          placement: "top-end"
         }
       ]
     };
