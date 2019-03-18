@@ -20,19 +20,18 @@ export class Dashboard extends React.Component {
         {
           target: ".userTasksList",
           content: <h3>Quick Tutorial</h3>,
-          placement: "top",
+          placement: "top-start",
           locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
-        }
-        ,
+        },
         {
           target: ".userTasksList",
-          content: <h3>Continue</h3>,
-          locale: { close: <strong>WHY NO WORK?</strong> }
-        }
-        ,
+          content: <h3>1. Create some Tasks</h3>,
+          placement: "left-start"
+        },
         {
-          target: ".userTasksList",
-          content: <h3>more...</h3>
+          target: ".userPrize",
+          content: <h3>2. Create a Prize</h3>,
+          placement: "top-start"
         }
       ]
     };
