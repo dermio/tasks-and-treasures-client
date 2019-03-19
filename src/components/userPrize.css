@@ -5,6 +5,17 @@
 }
 
 
+/***** Prize list *****/
+.prize-history-list {
+  font-family: "Bubblegum Sans", "cursive";
+}
+
+.prize-history-list > li {
+  border: 1px dotted green;
+  padding: 10px;
+}
+
+
 /***** Prize buttons *****/
 .userPrize button {
   border: none;
