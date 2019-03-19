@@ -7,7 +7,10 @@
 
 /***** Prize list *****/
 .prize-history-list {
-  font-family: "Bubblegum Sans", "cursive";
+  font-family: "Gaegu", "cursive";
+  font-size: 25px;
+  padding-left: 0;
+  list-style-type: none;
 }
 
 .prize-history-list > li {
