@@ -42,7 +42,31 @@ export const parentSteps = [
     content: <h3>5. Reward the Prize</h3>,
     placement: "top-end"
   }
-]
+];
+
+export const childSteps = [
+  {
+    target: ".userTasksList",
+    content: <h3>Quick Tutorial for Child User</h3>,
+    placement: "top-start",
+    locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
+  },
+  {
+    target: ".userTasksList",
+    content: <h3>1. Check off completed Tasks</h3>,
+    placement: "top-start"
+  },
+  {
+    target: ".userTasksList",
+    content: <h3>2. Notify Parent Tasks are done</h3>,
+    placement: "left-start"
+  },
+  {
+    target: ".userPrize",
+    content: <h3>3. Get Prize for finishing Tasks</h3>,
+    placement: "left-start"
+  }
+];
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -50,7 +74,7 @@ export class Dashboard extends React.Component {
 
     this.state = {
       run: true,
-      steps: (this.props.loggedInRole === "parent") ? parentSteps : []
+      steps: (this.props.loggedInRole === "parent") ? parentSteps : childSteps
     };
   }
 
