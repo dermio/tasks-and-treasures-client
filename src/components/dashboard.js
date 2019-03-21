@@ -13,7 +13,7 @@ import ChildStatusList from "./ChildStatusList";
 export const parentSteps = [
   {
     target: ".userTasksList",
-    content: <h3>Quick Tutorial</h3>,
+    content: <h3>Quick Tutorial for Parent User</h3>,
     placement: "top-start",
     locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
   },
