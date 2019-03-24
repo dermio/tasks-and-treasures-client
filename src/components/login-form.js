@@ -33,7 +33,7 @@ export class LoginForm extends React.Component {
           className="login-form"
         >
           {error}
-          <h3 className="login-name">Login Form</h3>
+          <h2 className="login-name">Login Form</h2>
           <Field
             component={Input}
             type="text"

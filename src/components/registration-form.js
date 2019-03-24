@@ -42,7 +42,7 @@ export class RegistrationForm extends React.Component {
           )}
           className="registration-form"
         >
-          <h3 className="registration-name">Registration Form</h3>
+          <h2 className="registration-name">Registration Form</h2>
           <Field
             component={Input}
             type="text"
