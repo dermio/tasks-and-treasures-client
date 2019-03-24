@@ -4,6 +4,17 @@
   padding: 20px;
 }
 
+.userPrize h4 {
+  font-family: "Roboto", "sans-serif";
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.prize-info > span {
+  font-family: "Gaegu", "cursive";
+  font-size: 25px;
+}
+
 
 /***** Prize list *****/
 .prize-history-list {
@@ -11,6 +22,10 @@
   font-size: 25px;
   padding-left: 0;
   list-style-type: none;
+}
+
+.prize-history-list-title {
+  font-weight: 700;
 }
 
 .prize-history-list > li {
