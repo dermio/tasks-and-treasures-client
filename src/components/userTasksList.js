@@ -86,7 +86,7 @@ export class UserTasksList extends React.Component {
 
     return (
       <section className="userTasksList">
-        <h4>Tasks List</h4>
+        <h2>Tasks List</h2>
 
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
