@@ -4,6 +4,12 @@
   padding: 20px;
 }
 
+.childStatusList > h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 .childStatusList-UL {
   list-style-type: none;
   padding: 0;
