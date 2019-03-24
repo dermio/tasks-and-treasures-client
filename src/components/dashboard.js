@@ -86,7 +86,7 @@ export class Dashboard extends React.Component {
     let { run, steps } = this.state;
 
     return (
-      <main className="Dashboard">
+      <main className="Dashboard" role="main">
 
         <ReactJoyride
           callback={this.handleJoyrideCallback}

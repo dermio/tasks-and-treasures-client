@@ -8,7 +8,7 @@ import LogoutButton from "./logout-button";
 export class Header extends React.Component {
   render() {
     return (
-      <header>
+      <header role="banner">
         {/* <div className="hidden"></div> */}
         <h1 className="app-title">Tasks and Treasures</h1>
         <div className="user-info">
