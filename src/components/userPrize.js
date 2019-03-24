@@ -77,7 +77,7 @@ export class UserPrize extends React.Component {
         </ConnectedShowIfRoleIs>
 
         <p className="prize-info">
-          {"Current Prize: "}
+          <span className="current-prize">Current Prize: </span>
           <span className="awarded-prize">
             {this.props.userPrize && this.props.userPrize.prizeName}
           </span>
@@ -86,7 +86,9 @@ export class UserPrize extends React.Component {
         <ConnectedShowIfRoleIs userRole="child">
           <React.Fragment>
             <ul className="prize-history-list">
-              <li><strong>Previously awarded Prizes:</strong></li>
+              <li className="prize-history-list-title">
+                Previously awarded Prizes:
+              </li>
               {this.props.awardedPrizes.map(prize => (
                 <li key={prize._id}>{prize.prizeName}</li>
               ))}
