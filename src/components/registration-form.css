@@ -38,6 +38,21 @@
 }
 
 
+/***** Radio fieldset *****/
+.radio-fieldset {
+  /* border: none; */
+  margin-bottom: 10px;
+}
+
+.form-input-radio > label {
+  display: flex;
+  align-items: center;
+}
+
+.radio-fieldset input {
+  width: 20px;
+  margin: 5px;
+}
 
 
 /***** Temp styling radio buttons *****/
