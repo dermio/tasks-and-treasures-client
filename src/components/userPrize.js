@@ -35,7 +35,7 @@ export class UserPrize extends React.Component {
   render() {
     return (
       <section className="userPrize">
-        <h4>The Prize Area</h4>
+        <h2>The Prize Area</h2>
 
         <ConnectedShowIfRoleIs userRole="parent">
           <React.Fragment>
