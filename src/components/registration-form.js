@@ -72,32 +72,31 @@ export class RegistrationForm extends React.Component {
             validate={[required, nonEmpty, isTrimmed]}
           />
 
-          <label htmlFor="role">Role</label>
-          {
-            showRoleError ?
-              <div className="form-error">Role is required</div> : ""
-          }
+          <fieldset className="radio-fieldset">
+            <legend>Role</legend>
+            {
+              showRoleError ?
+                <div className="form-error">Role is required</div> : ""
+            }
 
-          <label>
             <Field
               component={InputRadio}
               type="radio"
               name="role"
+              label="Parent"
               value="parent"
               validate={[required]}
             />
-            {" Parent"}
-          </label>
-          <label>
+
             <Field
               component={InputRadio}
               type="radio"
               name="role"
+              label="Child"
               value="child"
               validate={[required]}
             />
-            {" Child"}
-          </label>
+          </fieldset>
 
           <button type="submit" className="registration-btn">
             Create account
