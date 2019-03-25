@@ -37,6 +37,7 @@
 .form-input > input {
   border: 1px solid #E7E7E7;
   background: #FCFCFC;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   padding: 6px;
 }
