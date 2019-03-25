@@ -10,10 +10,7 @@
   background-color: beige;
 
   padding: 20px;
-}
-
-.registration-form > input {
-  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .registration-name {
@@ -35,6 +32,13 @@
 .form-input > input, .form-input > label {
   width: 100%;
   margin-bottom: 10px;
+}
+
+.form-input > input {
+  border: 1px solid #E7E7E7;
+  background: #FCFCFC;
+  font-size: 16px;
+  padding: 6px;
 }
 
 
