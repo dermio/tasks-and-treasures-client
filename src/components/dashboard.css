@@ -44,6 +44,11 @@ from ChildStatusList */
   .userTasksList {
     border-top: none;
   }
+
+  /* Landing page (includes Register & Login form) add margin for wide screen */
+  .landingPage {
+    margin: 20px 0;
+  }
 }
 
 
