@@ -56,5 +56,10 @@ from ChildStatusList */
   .dashboard-container > section:nth-of-type(2) {
     margin-top: 0;
   }
+
+  /* When display is small, do NOT show user name (only show logout button) */
+  .logged-in-user {
+    display: none;
+  }
 }
 
