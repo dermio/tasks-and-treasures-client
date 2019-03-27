@@ -37,3 +37,32 @@
   font-size: 16px;
   padding: 6px;
 }
+
+
+/***** Style and align the login form buttons *****/
+.login-form-buttons {
+  /* border: 1px dotted red; */
+  margin: 10px 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-buttons > a {
+  /* Display flex to vertically align the button inside the <a> tag with
+  the other button inside the <div> */
+  display: flex;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.login-form-buttons button {
+  border: none;
+  color: #3B3A36;
+  padding: 5px 10px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+  background-color:#FCCDD3;
+}
