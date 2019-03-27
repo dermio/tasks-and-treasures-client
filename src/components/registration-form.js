@@ -98,12 +98,15 @@ export class RegistrationForm extends React.Component {
             />
           </fieldset>
 
-          <button type="submit" className="registration-btn">
-            Create account
-          </button>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+          <div className="registration-form-buttons">
+            <button type="submit" className="registration-btn">
+              Create account
+            </button>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          </div>
+
         </form>
       </div>
     );
