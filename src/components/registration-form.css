@@ -19,10 +19,6 @@
   font-size: 20px;
 }
 
-.registration-btn {
-  align-self: flex-start;
-}
-
 
 /***** New styling using Field component `label` prop *****/
 .registration-form label {
