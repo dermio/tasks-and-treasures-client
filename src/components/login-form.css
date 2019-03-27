@@ -10,10 +10,7 @@
   background-color: beige;
 
   padding: 20px;
-}
-
-.login-form > input {
-  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .login-name {
@@ -32,8 +29,15 @@
   display: block;
 }
 
-.login-form input, .login-form label {
+.form-input > input, .form-input > label {
   width: 100%;
   margin-bottom: 10px;
 }
 
+.form-input > input {
+  border: 1px solid #E7E7E7;
+  background: #FCFCFC;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  padding: 6px;
+}
