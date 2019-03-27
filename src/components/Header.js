@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./Header.css";
+import owly from "../images/owly.png";
 
 import LogoutButton from "./logout-button";
 
@@ -10,7 +11,11 @@ export class Header extends React.Component {
     return (
       <header role="banner">
         {/* <div className="hidden"></div> */}
-        <h1 className="app-title">Tasks and Treasures</h1>
+        <div className="title-owly-badge">
+          <img src={owly} alt="owly" className="owly-img"/>
+          <h1 className="app-title">Tasks and Treasures</h1>
+        </div>
+
         <div className="user-info">
           {this.props.isLoggedIn && (
             <span className="logged-in-user">

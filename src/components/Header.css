@@ -1,7 +1,7 @@
 header {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 30px 20px;
 
   background-color: #68BFEB;
   color: #FFF;
@@ -41,4 +41,23 @@ header::before {
 .logged-in-user {
   font-size: 20px;
   margin-right: 10px;
+}
+
+
+/* owl image */
+.title-owly-badge {
+  height: 50px;
+}
+
+.app-title {
+  display: inline;
+  margin: 0;
+  line-height: 50px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.owly-img {
+  height: 100%;
+  width: auto;
+  vertical-align: middle;
 }
