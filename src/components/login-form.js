@@ -54,10 +54,10 @@ export class LoginForm extends React.Component {
             <button className="login-btn"
               disabled={this.props.pristine || this.props.submitting}
             >
-              LOGIN
+              Login
             </button>
             <Link to="/register">
-              <button>Create account</button>
+              <button className="goto-register-btn">Create account</button>
             </Link>
           </div>
         </form>
