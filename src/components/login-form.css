@@ -58,11 +58,25 @@
 
 .login-form-buttons button {
   border: none;
-  color: #3B3A36;
+  color: #FFF;
   padding: 5px 10px;
-
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   border-radius: 20px;
-  background-color:#FCCDD3;
+}
+
+.login-btn {
+  background-color: #00C851;
+}
+
+.goto-register-btn {
+  background-color: #4285F4;
+}
+
+.login-btn:hover {
+  background-color: #00D255;
+}
+
+.goto-register-btn:hover {
+  background-color: #5A95F5;
 }
