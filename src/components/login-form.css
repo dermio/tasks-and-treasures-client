@@ -65,7 +65,7 @@
   border-radius: 20px;
 }
 
-.login-btn {
+.login-btn-color {
   background-color: #00C851;
 }
 
@@ -73,10 +73,16 @@
   background-color: #4285F4;
 }
 
-.login-btn:hover {
+.login-btn-color:hover {
   background-color: #00D255;
 }
 
 .goto-register-btn:hover {
   background-color: #5A95F5;
+}
+
+/* Use gray color when login button is disabled */
+.login-btn {
+  background-color: #CECECE;
+  color: #E5E5E5;
 }
