@@ -71,3 +71,45 @@
   border: 1px solid red;
 }
 
+
+/***** Style and align the registration form buttons *****/
+.registration-form-buttons {
+  /* border: 1px dotted red; */
+  margin: 10px 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-form-buttons > a {
+  /* Display flex to vertically align the button inside the <a> tag with
+  the other button inside the <div> */
+  display: flex;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.registration-form-buttons button {
+  border: none;
+  color: #FFF;
+  padding: 5px 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.registration-btn {
+  background-color: #00C851;
+}
+
+.goto-login-btn {
+  background-color: #4285F4;
+}
+
+.registration-btn:hover {
+  background-color: #00D255;
+}
+
+.goto-login-btn:hover {
+  background-color: #5A95F5;
+}
