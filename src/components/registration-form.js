@@ -103,7 +103,7 @@ export class RegistrationForm extends React.Component {
               Create account
             </button>
             <Link to="/login">
-              <button>Login</button>
+              <button className="goto-login-btn">Login</button>
             </Link>
           </div>
 
