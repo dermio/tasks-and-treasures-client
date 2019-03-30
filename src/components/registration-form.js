@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, reduxForm, /* focus */ } from "redux-form";
+import { Field, reduxForm, focus } from "redux-form";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -99,7 +99,9 @@ export class RegistrationForm extends React.Component {
           </fieldset>
 
           <div className="registration-form-buttons">
-            <button type="submit" className="registration-btn">
+            <button type="submit" className="registration-btn"
+              disabled={this.props.pristine || this.props.submitting}
+            >
               Create account
             </button>
             <Link to="/login">
@@ -128,6 +130,8 @@ in order to access syncErrors state. This is a hack.
 There should be a way to use `reduxForm` alone, without
 using `connect`. */
 export default connect(mapStateToProps)(reduxForm({
-  form: "registration"
+  form: "registration",
+  onSubmitFail: (errors, dispatch) =>
+    dispatch( focus("registration", Object.keys(errors)[0] ) )
 })(RegistrationForm));
 
