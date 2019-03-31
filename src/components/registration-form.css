@@ -98,7 +98,7 @@
   border-radius: 20px;
 }
 
-.registration-btn {
+.registration-btn-color {
   background-color: #00C851;
 }
 
@@ -106,10 +106,16 @@
   background-color: #4285F4;
 }
 
-.registration-btn:hover {
+.registration-btn-color:hover {
   background-color: #00D255;
 }
 
 .goto-login-btn:hover {
   background-color: #5A95F5;
+}
+
+/* Use gray color when registration button is disabled */
+.registration-btn {
+  background-color: #CECECE;
+  color: #E5E5E5;
 }

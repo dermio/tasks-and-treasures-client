@@ -99,7 +99,11 @@ export class RegistrationForm extends React.Component {
           </fieldset>
 
           <div className="registration-form-buttons">
-            <button type="submit" className="registration-btn"
+            <button
+              className={
+                (this.props.pristine || this.props.submitting)
+                  ? "registration-btn" : "registration-btn-color"
+              }
               disabled={this.props.pristine || this.props.submitting}
             >
               Create account
