@@ -1,0 +1,13 @@
+.logout-btn {
+  border: none;
+  color: #FFF;
+  padding: 5px 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+  background-color: #CC0000;
+}
+
+.logout-btn:hover  {
+  background-color: #D9534F;
+}

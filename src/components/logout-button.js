@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { clearAuth, updateChildInterval } from "../actions/auth";
 import { stopPollGetChildStatus } from "../actions/tasks";
 
+import "./logout-button.css";
+
 export class LogoutButton extends React.Component {
   handleLogout(event) {
     event.preventDefault();
@@ -30,9 +32,10 @@ export class LogoutButton extends React.Component {
 
   render() {
     return (
-      <form>
-        <button type="button" onClick={(e) => {this.handleLogout(e)}}>
-          LOG OUT
+      <form className="logout-form">
+        <button type="button" className="logout-btn"
+          onClick={(e) => {this.handleLogout(e)}}>
+          Logout
         </button>
       </form>
     );
