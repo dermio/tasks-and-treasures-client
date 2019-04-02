@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+/* Remove the yellow or blue input background color in Chrome */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 
 @media only screen and (min-width: 750px) {
   .dashboard-container {
