@@ -8,7 +8,7 @@ import LandingPage from "./landingPage";
 import Dashboard from "./dashboard";
 import Header from "./Header";
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
