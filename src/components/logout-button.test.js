@@ -5,7 +5,7 @@ import { LogoutButton } from "./logout-button";
 
 
 describe("<LogoutButton />", () => {
-  it("Renders without crasing", () => {
+  it("Renders without crashing", () => {
     shallow(<LogoutButton />);
   });
 });
