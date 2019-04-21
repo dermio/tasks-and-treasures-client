@@ -15,7 +15,7 @@ describe("<Input />", () => {
   });
 
 
-  /* Incomplete, want to test for <div> .form-error and .form-warning */
+  /* Test is WRONG!, I want to test for <div> .form-error and .form-warning */
   it("Renders an error within the form",  () => {
     const wrapper = shallow(
       <Input
@@ -29,7 +29,7 @@ describe("<Input />", () => {
 
     expect(
       wrapper.contains(<div className="form-warning"></div>)
-    )
+    );
   });
 });
 
