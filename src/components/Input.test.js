@@ -30,6 +30,11 @@ describe("<Input />", () => {
     expect(
       wrapper.contains(<div className="form-warning"></div>)
     );
+
+    // expect(
+    //   wrapper.contains(<div class="form-error"></div>)
+    // ).toEqual(true);
+
   });
 });
 
