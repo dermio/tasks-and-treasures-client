@@ -5,6 +5,7 @@ cache:
   - node_modules
 env:
 - CI=true
+- REACT_APP_API_BASE_URL=https://tasks-and-treasures-api.herokuapp.com/api
 deploy:
   provider: heroku
   api_key:
