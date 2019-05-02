@@ -68,7 +68,7 @@ export default reduxForm({
 
 
 const mapStateToProps = state => ({
-  userPrize: state.prizes.userPrize
+  userPrize: (state.prizes) ? state.prizes.userPrize : null
 });
 
 const ConnectedCreateOrUpdatePrizeForm =
