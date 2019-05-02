@@ -1,9 +1,10 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 
+import { Provider } from "react-redux";
+
 import { UserTasksList } from "./userTasksList";
 
-import ShowIfRoleIs from "./ShowIfRoleIs";
 
 
 describe("<UserTasksList />", () => {
@@ -17,25 +18,36 @@ describe("<UserTasksList />", () => {
   });
 
 
-  // it("ShowIfRoleIs wrapper", () => {
+  it("When `Create Task` button is clicked, CreateTaskForm is visible", () => {
+    const store = {
+      getState: () => ({
+        auth: {
+          currentUser: {
+            role: "parent"
+          }
+        }
+      }),
+      subscribe: () => {},
+      dispatch: () => {}
+    };
 
-  //   const WrapperShowIfRoleIs = mount(
-  //     <ShowIfRoleIs
-  //       userRole="parent"
-  //     />
-  //   );
+    const wrapper = mount(
+      <Provider store={store}>
+        <UserTasksList
+          userTasks={[]}
+          loggedInUser={"random"}
+          submittedForReview={false}
+          prize={null}
+          dispatch={store.dispatch}
+        />
+      </Provider>
+    );
 
-  //   // wrapper.debug()
-
-  //   const wrapper = shallow(
-  //     <UserTasksList
-  //       userTasks={[]}
-  //       dispatch={() => {}}
-  //     />
-  //   );
-
-  //   console.log("Wrapper.Debug", wrapper.debug())
-  // });
+    // Action click
+    // Look for `form.create-task-form` if renders on button click
+    wrapper.find("button.create-task-btn").simulate("click");
+    expect(wrapper.find("form.create-task-form").length).toEqual(1)
+  });
 });
 
 
