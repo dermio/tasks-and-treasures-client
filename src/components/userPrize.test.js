@@ -2,6 +2,8 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import ShallowRenderer from 'react-test-renderer/shallow';
 
+import { Provider } from "react-redux";
+
 import { UserPrize } from "./userPrize";
 
 
@@ -32,6 +34,40 @@ describe("<UserPrize />", () => {
       wrapper.instance().onAddPrizeButtonClick();
       wrapper.update();
       expect(wrapper.state("isAddPrizeFormVisible")).toEqual(true);
+  });
+
+  it("When `Create Prize` button is clicked, CreateUpdatePrizeForm is visible",
+    () => {
+      const store = {
+        getState: () => ({
+          auth: {
+            currentUser: {
+              role: "parent"
+            }
+          }
+        }),
+        subscribe: () => {},
+        dispatch: () => {}
+      };
+
+      const wrapper = mount(
+        <Provider store={store}>
+          <UserPrize
+            userPrize={null}
+            awardedPrizes={[]}
+            isTasksFinalized={false}
+
+            dispatch={store.dispatch}
+          />
+        </Provider>
+      );
+
+      // Action click
+      // Look for `form.create-update-prize-form` if renders on button click
+
+      console.log(wrapper.debug());
+      wrapper.find("button.create-prize-btn").simulate("click");
+      // expect(wrapper.find("form.create-update-prize-form").length).toEqual(1);
   });
 });
 
