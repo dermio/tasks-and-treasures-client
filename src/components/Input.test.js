@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import Input from "./Input";
+import { wrap } from "module";
 
 
 describe("<Input />", () => {
@@ -27,13 +28,19 @@ describe("<Input />", () => {
       />
     );
 
+    // wrapper.debug()
+
     expect(
       wrapper.contains(<div className="form-warning"></div>)
     );
 
-    // expect(
-    //   wrapper.contains(<div class="form-error"></div>)
-    // ).toEqual(true);
+    expect(
+      wrapper.containsMatchingElement(<div className="form-error">{true}</div>)
+    ).toEqual(true);
+
+    expect(
+      wrapper.find("div.form-error").some(".form-error")
+    ).toEqual(true);
 
   });
 });
