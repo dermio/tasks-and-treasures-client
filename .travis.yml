@@ -7,7 +7,8 @@ env:
 - CI=true
 deploy:
   provider: heroku
-  api_key: 040250af-4181-47e5-807a-6091640b54d8
+  api_key:
+    secure: TiC1upAJ5xEkttwL6e7c278E008OdZt+p2MAsH9vSNRnR2UEPsy350js18i2NBXRcrC1/uFFmqtVGjH0FrU3eAwcYD89XdTWcYh99VUBwRPhC/7GvMlpLIjo+J1p38kwO7xGf7Iq2PnbK/U+9cjH/aoYw8Dul43uxv1OKfeUZTu+BIu65kSYZzmNbGS2A7s93cfBcBqdg4YQvlI4xFyZQCJRZaldqc2LJ6Jv68VA0hrrPnFMbBOgidSlBqSYlzFCEiI9W7nX7qvVlmGQMcNsLeruvi5dEnmW9XxPJnJ/OCYiF4C5uLTfXodzfFcn4J6DU4Vms9Xrhcg3FIKWaOShdzfqEeuPP3WM72rRlsWItboWVPvvQ2UJAbx/LAtaY9FEWLu85mX/dDZaQ+fjNmBb8umdZoAoEmLG2Kinfcw3FZu7X9wb1i4dQJ72ZoHfQdSSiAweWfXFLwx/CkDGiwWsKYaCfQ+4hE1qQBp4b12EQsphKJzKiuxNVu+Eo+lNMkjxCEUtreIoDsP70rMmLaGruZJ2vSsXLK/pt8hunwJVVBdQd/e2sBQ9x3abpVbUlBLV0HBSXnRSFFzzP51gEK1ywtTLng9i8dyT5wr+wfBNqUyvMdTFnGq8jq/E4r6f7rXWdelXxRWWqOjGNXQWdnR96+McIEyrbyLSe3j7WOBDXDA=
   app: tasks-and-treasures-client
   on:
     repo: dermio/tasks-and-treasures-client
