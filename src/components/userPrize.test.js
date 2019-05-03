@@ -64,10 +64,8 @@ describe("<UserPrize />", () => {
 
       // Action click
       // Look for `form.create-update-prize-form` if renders on button click
-
-      console.log(wrapper.debug());
       wrapper.find("button.create-prize-btn").simulate("click");
-      // expect(wrapper.find("form.create-update-prize-form").length).toEqual(1);
+      expect(wrapper.find("form.create-update-prize-form").length).toEqual(1);
   });
 });
 
