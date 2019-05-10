@@ -8,10 +8,17 @@ import "./logout-button.css";
 
 export class LogoutButton extends React.Component {
   handleLogout(event) {
-    event.preventDefault();
+    if (event.preventDefault) { // event doesn't exist in jsdom, check for testing
+      event.preventDefault();
+    }
+
     this.props.dispatch(clearAuth());
     // To logout don't need to talk to server. Just need to clear token.
-    localStorage.removeItem("authToken");
+
+    if (window.localStorage) { // localStorage doesn't exist in jsdom, check for testing
+      localStorage.removeItem("authToken");
+    }
+
     /* Once logged out need to redirect to login page.
     In React Router update a prop in the state and
     use Redirect component from the Router. */
