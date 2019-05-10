@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import { UserTasksList } from "./userTasksList";
 
-
+import { finalizeTasksList } from "../actions/family";
 
 describe("<UserTasksList />", () => {
   it("Renders without crashing", () => {
@@ -28,7 +28,7 @@ describe("<UserTasksList />", () => {
         }
       }),
       subscribe: () => {},
-      dispatch: () => {}
+      dispatch: jest.fn()
     };
 
     const wrapper = mount(
@@ -47,6 +47,38 @@ describe("<UserTasksList />", () => {
     // Look for `form.create-task-form` if renders on button click
     wrapper.find("button.create-task-btn").simulate("click");
     expect(wrapper.find("form.create-task-form").length).toEqual(1)
+  });
+
+  it("Dispatches `finalizeTasksList` from `onFinalizeTasksList`", () => {
+    const store = {
+      getState: () => ({
+        auth: {
+          currentUser: {
+            role: "parent"
+          }
+        }
+      }),
+      subscribe: () => {},
+      dispatch: jest.fn()
+    };
+
+    // Test if correct actions dispatched with Redux, using a spy
+    const finalizeFunctionResult = finalizeTasksList();
+    const finalizeFunction = () => { return finalizeFunctionResult; };
+    const wrapper = shallow(
+      <UserTasksList
+        userTasks={[]}
+        dispatch={store.dispatch}
+        onFinalizeTasksListFunction={finalizeFunction}
+      />
+    );
+    const instance = wrapper.instance();
+    instance.onFinalizeTasksList();
+
+
+    expect(store.dispatch).toHaveBeenCalledWith(finalizeFunctionResult);
+
+    // console.log("[[[ DISPATCH finalizetaskslist ]]]", it);
   });
 });
 
