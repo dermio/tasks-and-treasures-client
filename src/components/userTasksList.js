@@ -21,6 +21,10 @@ export class UserTasksList extends React.Component {
     };
   }
 
+  static defaultProps = {
+    onFinalizeTasksListFunction: finalizeTasksList
+  };
+
   /******************************
    * Parent methods from Dashboard
   ******************************/
@@ -34,7 +38,7 @@ export class UserTasksList extends React.Component {
 
   onFinalizeTasksList() {
     console.log("[[[ CLICK FINALIZE TASKS LIST ]]]");
-    this.props.dispatch(finalizeTasksList());
+    this.props.dispatch(this.props.onFinalizeTasksListFunction());
   }
 
   onResetTasksList() {
