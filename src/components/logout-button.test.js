@@ -3,11 +3,27 @@ import { shallow, mount } from "enzyme";
 
 import { LogoutButton } from "./logout-button";
 
+import { clearAuth } from "../actions/auth";
+
 
 describe("<LogoutButton />", () => {
   it("Renders without crashing", () => {
     shallow(<LogoutButton />);
   });
+
+  it("Dispatches `clearAuth` from `handleLogout`", () => {
+    const dispatch = jest.fn();
+    const wrapper = shallow(
+      <LogoutButton
+        dispatch={dispatch}
+      />
+    );
+    const instance = wrapper.instance();
+    instance.handleLogout({});
+
+    expect(dispatch).toHaveBeenCalledWith(clearAuth());
+  });
+
 });
 
 
