@@ -3,7 +3,9 @@
   color: #FFF;
   padding: 5px 10px;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  /* font-size: 14px; */
+
+  font-size: 11px;
   border-radius: 20px;
   background-color: #CC0000;
 }
