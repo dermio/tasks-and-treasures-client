@@ -66,3 +66,12 @@ input:-webkit-autofill {
   }
 }
 
+
+/* React Joyride styling */
+.RJoy-title-dj {
+  margin-bottom: 0;
+}
+
+.RJoy-content-dj {
+  margin: 0;
+}
