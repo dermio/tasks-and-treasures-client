@@ -80,23 +80,45 @@ export const parentSteps = [
 export const childSteps = [
   {
     target: ".userTasksList",
-    content: <h3>Quick Tutorial for Child User</h3>,
+    title: <p className="RJoy-title-dj">Quick Tutorial for Child User</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        Explanation of how to use the app for the child.
+      </p>
+    ),
     placement: "top-start",
     locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
   },
   {
     target: ".userTasksList",
-    content: <h3>1. Check off completed Tasks</h3>,
+    title: <p className="RJoy-title-dj">1. Check off completed Tasks</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        After completing a task, check the task off on the list.
+      </p>
+    ),
     placement: "top-start"
   },
   {
     target: ".userTasksList",
-    content: <h3>2. Notify Parent Tasks are done</h3>,
+    title: <p className="RJoy-title-dj">2. Notify Parent Tasks are done</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        When all tasks are checked off, notify the parent.
+        If the parent responds the tasks are not done, ask for help to fix
+        the task(s).
+      </p>
+    ),
     placement: "left-start"
   },
   {
     target: ".userPrize",
-    content: <h3>3. Get Prize for finishing Tasks</h3>,
+    title: <p className="RJoy-title-dj">3. Get Prize for finishing Tasks</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        Your prize is listed for completing all tasks.
+      </p>
+    ),
     placement: "left-start"
   }
 ];
