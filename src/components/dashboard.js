@@ -13,33 +13,66 @@ import ChildStatusList from "./ChildStatusList";
 export const parentSteps = [
   {
     target: ".userTasksList",
-    content: <h3>Quick Tutorial for Parent User</h3>,
+    title: <p className="RJoy-title-dj">Quick Tutorial for Parent User</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        Explanation of how to use the app for the parent.
+      </p>
+    ),
     placement: "top-start",
     locale: { skip: <strong aria-label="skip">S-K-I-P</strong> }
   },
   {
     target: ".userTasksList",
-    content: <h3>1. Create some Tasks</h3>,
+    title: <p className="RJoy-title-dj">1. Create some Tasks</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        A task is any work the parent gives the child to complete.
+      </p>
+    ),
     placement: "left-start"
   },
   {
     target: ".userPrize",
-    content: <h3>2. Create a Prize</h3>,
+    title: <p className="RJoy-title-dj">2. Create a Prize</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        The prize is the child's reward for completing all tasks.
+      </p>
+    ),
     placement: "top-start"
   },
   {
     target: ".userTasksList",
-    content: <h3>3. Finalize the Tasks list and Prize</h3>,
+    title: <p className="RJoy-title-dj">3. Finalize the Tasks list and Prize</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        The parent creates a tasks list and prize as a set. Finalize
+        the tasks & prize before giving the list to the child.
+      </p>
+    ),
     placement: "left-start"
   },
   {
     target: ".childStatusList",
-    content: <h3>4. Approve or reject Child's Tasks</h3>,
+    title: <p className="RJoy-title-dj">4. Approve or reject Child's Tasks</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        After checking the child's work, the parent can approve or reject
+        their work.
+      </p>
+    ),
     placement: "top-end"
   },
   {
     target: ".childStatusList",
-    content: <h3>5. Reward the Prize</h3>,
+    title: <p className="RJoy-title-dj">5. Reward the Prize</p>,
+    content: (
+      <p className="RJoy-content-dj">
+        When the parent is satisfied all the tasks are done,
+        reward the prize to the child.
+      </p>
+    ),
     placement: "top-end"
   }
 ];
