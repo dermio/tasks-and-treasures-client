@@ -16,7 +16,8 @@ export const parentSteps = [
     title: <p className="RJoy-title-dj">Quick Tutorial for Parent User</p>,
     content: (
       <p className="RJoy-content-dj">
-        Explanation of how to use the app for the parent.
+        Welcome to Tasks & Treasures. Click next to learn how to use the app
+        as a parent.
       </p>
     ),
     placement: "top-start",
@@ -83,7 +84,8 @@ export const childSteps = [
     title: <p className="RJoy-title-dj">Quick Tutorial for Child User</p>,
     content: (
       <p className="RJoy-content-dj">
-        Explanation of how to use the app for the child.
+        Welcome to Tasks & Treasures. Click next to learn how to use the app
+        as a child.
       </p>
     ),
     placement: "top-start",
@@ -105,8 +107,8 @@ export const childSteps = [
     content: (
       <p className="RJoy-content-dj">
         When all tasks are checked off, notify the parent.
-        If the parent responds the tasks are not done, ask for help to fix
-        the task(s).
+        If the parent rejects the tasks, the parent button notification
+        will become enabled again.
       </p>
     ),
     placement: "left-start"
@@ -116,7 +118,8 @@ export const childSteps = [
     title: <p className="RJoy-title-dj">3. Get Prize for finishing Tasks</p>,
     content: (
       <p className="RJoy-content-dj">
-        Your prize is listed for completing all tasks.
+        Your prize is listed for completing all tasks. The past prizes
+        you've earned are shown.
       </p>
     ),
     placement: "left-start"
