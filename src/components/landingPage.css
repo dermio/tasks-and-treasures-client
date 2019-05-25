@@ -1,0 +1,13 @@
+.welcome-login-signup {
+  border: 2px solid red;
+  /* display: flex; */
+  /* flex-direction: column; */
+  max-width: 600px;
+
+  justify-content: flex-end;
+
+  text-align: center;
+
+  margin: 0 auto;
+}
+
