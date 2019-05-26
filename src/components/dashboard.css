@@ -47,6 +47,11 @@ input:-webkit-autofill {
   .landingPage {
     margin: 20px 0;
   }
+
+  /* Welcome blurb instructions on Register and Login screens, box shadow */
+  .welcome-login-signup {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
 }
 
 
@@ -63,6 +68,11 @@ input:-webkit-autofill {
   /* When display is small, do NOT show user name (only show logout button) */
   .logged-in-user {
     display: none;
+  }
+
+  /* When display is small, remove margin bottom on Welcome blurb instructions */
+  .welcome-login-signup {
+    margin-bottom: 0;
   }
 }
 
