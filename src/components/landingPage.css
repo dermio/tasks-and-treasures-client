@@ -1,13 +1,17 @@
 .welcome-login-signup {
-  border: 2px solid red;
-  /* display: flex; */
-  /* flex-direction: column; */
-  max-width: 600px;
-
-  justify-content: flex-end;
+  max-width: 650px;
 
   text-align: center;
 
-  margin: 0 auto;
+  margin: 0 auto 20px;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+
+  background-color: rgb(243, 116, 87);
+  color: #FFF;
+  line-height: 1.5;
+
+  /* display: none; */
 }
 
