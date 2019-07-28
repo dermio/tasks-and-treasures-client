@@ -1,6 +1,7 @@
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 import { refreshCurrentUser } from "./auth";
+import { getFamily } from "./family";
 
 export const GET_TASKS_REQUEST = "GET_TASKS_REQUEST";
 export const getTasksRequest = () => ({
@@ -89,6 +90,7 @@ export const createTask = ({ taskName, onTaskCreated }) => (dispatch, getState) 
     // Dispatch createTaskSuccess before dispatch getTasks
     dispatch(createTaskSuccess(res));
     dispatch(getTasks());
+    dispatch(getFamily());
     onTaskCreated(); // Hide the create task form after creating task
   })
   .catch(err => {
@@ -127,6 +129,7 @@ export const deleteTask = (id) => (dispatch, getState) => {
   .then(res => {
     dispatch(deleteTaskSuccess(res));
     dispatch(getTasks());
+    dispatch(getFamily());
   })
   .catch(err => {
     dispatch(deleteTaskError(err));

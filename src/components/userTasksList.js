@@ -113,10 +113,17 @@ export class UserTasksList extends React.Component {
               }
               {!this.state.isAddTaskFormVisible &&
                 !this.props.isTasksFinalized &&
+                this.props.currentTasks && // Check if tasks is null
+                this.props.currentTasks.length > 0 &&
                 <button
+                  disabled={!this.props.currentPrize}
                   onClick={e => this.onFinalizeTasksList(e)}
                   className="finalize-tasks-button"
                 >
+                  {
+                    !this.props.currentPrize ?
+                      "PLEASE create a Prize to " : ""
+                  }
                   Finalize Tasks List
                 </button>
               }
@@ -173,7 +180,15 @@ const mapStateToProps = state => ({
       ? state.auth.currentUser.awardedPrizes[0]
       : "", // new
   
-    isTasksFinalized: state.family.tasksFinalized
+    isTasksFinalized: state.family.tasksFinalized,
+
+  currentPrize: 
+    (state &&
+    state.family) ? state.family.currentPrize : null,
+
+  currentTasks:
+      (state &&
+      state.family) ? state.family.currentTasks : [],
 });
 
 export default connect(mapStateToProps)(UserTasksList);

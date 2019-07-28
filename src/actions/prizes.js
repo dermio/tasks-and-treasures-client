@@ -6,6 +6,7 @@ import { refreshCurrentUser } from "./auth";
 
 // Clear interval
 import { updateChildInterval } from "./auth";
+import { getFamily } from "./family";
 
 export const GET_PRIZE_REQUEST = "GET_PRIZE_REQUEST";
 export const getPrizeRequest = () => ({
@@ -81,6 +82,7 @@ export const createOrUpdatePrize = ({ prizeName, onPrizeCreated }) => (dispatch,
     // Dispatch createPrizeSuccess before dispatch getPrize
     dispatch(createPrizeSuccess(res));
     dispatch(getPrize());
+    dispatch(getFamily())
     onPrizeCreated(); // Hide the create prize form after creating prize
   })
   .catch(err => {
@@ -119,6 +121,7 @@ export const deletePrize = id => (dispatch, getState) => {
   .then(res => {
     dispatch(deletePrizeSuccess(res));
     dispatch(getPrize());
+    dispatch(getFamily());
   })
   .catch(err => {
     dispatch(deletePrizeError(err));
